@@ -1,0 +1,1 @@
+json.partial! 'api/nekos/neko', neko: @neko
