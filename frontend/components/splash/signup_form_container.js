@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
 import SessionForm from './session_form';
-import { login } from '../../actions/session_actions'
+import { signup } from '../../actions/session_actions'
 
 const msp = state => ({
     errors: state.errors.session,
-    formType: 'Log In'
+    formType: 'Sign Up'
 });
 
 const mdp = dispatch => ({
-    action: (neko) => dispatch(login(neko))
+    action: (neko) => dispatch(signup(neko))
 });
 
 export default connect(msp, mdp)(SessionForm);

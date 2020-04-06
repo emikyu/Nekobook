@@ -12,3 +12,18 @@ h1, h2, p, strong, em, a {
   background: transparent;
 }
 
+ul, ol {
+  list-style: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+section, div{
+  font-family: sans-serif;
+}
+
+b {
+  font-weight: 600;
+}

@@ -16,23 +16,40 @@ class LoginForm extends React.Component {
     }
 
     handleChange(field) {
-        return e => this.setState({[field]: e.target.value})
+        return e => this.setState({[field]: e.target.value});
     }
 
     render() {
+        const formType = this.props.formType.split(" ").join("").toLowerCase();
         const formInputs = this.props.formType === 'Log In' ? (
             <>
-                <label htmlFor="">Email<br /><input type="email" onChange={this.handleChange("email")} /></label><br />
-                <label htmlFor="">Password<br /><input type="password" onChange={this.handleChange("password")} /></label>
+                <div><label>Email<br /><input type="email" onChange={this.handleChange("email")} /></label></div>
+                <div><label>Password<br /><input type="password" onChange={this.handleChange("password")} /></label></div>
             </>
         ) : (
-            <>
+            <>  
+                <h2>Sign Up</h2>
+                <h4>It's quick and easy, nyaa~</h4>
+                <div><input type="text" onChange={this.handleChange("name")} placeholder="Name" />
+                <input type="text" onChange={this.handleChange("username")} placeholder="Username" /></div>
+                <input type="email" onChange={this.handleChange("email")} placeholder="Email address"/>
+                <input type="password" onChange={this.handleChange("password")} placeholder="New password" />
+                <span className="signup-label">Birthday</span><input type="date" onChange={this.handleChange("birthday")} />
+                <span className="signup-label">Gender</span>
+                <label><input type="radio" name="gender" value="Female" onClick={this.handleChange("gender")} />Female</label>
+                <label><input type="radio" name="gender" value="Male" onClick={this.handleChange("gender")} />Male</label>
+                <label><input type="radio" name="gender" value="Custom" onClick={this.handleChange("gender")} />Custom</label><br/>
+                <p>By clicking Sign Up, you are signing up on the nekobook clone project. Please do not use sensitive information, and enjoy exploring this facebook clone. =^-^=</p>
             </>
         );
 
         return (
-            <form action="" onSubmit={this.handleSubmit}>
-                Nekobook Session Form =^-^=<br/>
+            <form action="" onSubmit={this.handleSubmit} className={`session-form ${formType}`}>
+                <ul>
+                    {
+                        this.props.errors.map((error, idx) => <li key={idx}>{error}</li>)
+                    }
+                </ul>
                 {formInputs}
                 <input type="submit" value={this.props.formType}/>
             </form>
