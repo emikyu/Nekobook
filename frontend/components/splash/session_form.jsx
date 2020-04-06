@@ -7,6 +7,11 @@ class LoginForm extends React.Component {
             email: "",
             password: ""
         };
+        this.birthday = {
+            month: "",
+            day: "",
+            year: ""
+        }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -21,6 +26,9 @@ class LoginForm extends React.Component {
 
     render() {
         const formType = this.props.formType.split(" ").join("").toLowerCase();
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        const days = (new Array(31)).map((ele, idx) => idx);
+        const years = (new Array(105)).map((ele, idx) => 2020 - 104 + idx);
         const formInputs = this.props.formType === 'Log In' ? (
             <>
                 <div><label>Email<br /><input type="email" onChange={this.handleChange("email")} /></label></div>
@@ -34,7 +42,8 @@ class LoginForm extends React.Component {
                 <input type="text" onChange={this.handleChange("username")} placeholder="Username" /></div>
                 <input type="email" onChange={this.handleChange("email")} placeholder="Email address"/>
                 <input type="password" onChange={this.handleChange("password")} placeholder="New password" />
-                <span className="signup-label">Birthday</span><input type="date" onChange={this.handleChange("birthday")} />
+                <span className="signup-label">Birthday</span>
+                    <input type="date" onChange={this.handleChange("birthday")} />
                 <span className="signup-label">Gender</span>
                 <label><input type="radio" name="gender" value="Female" onClick={this.handleChange("gender")} />Female</label>
                 <label><input type="radio" name="gender" value="Male" onClick={this.handleChange("gender")} />Male</label>

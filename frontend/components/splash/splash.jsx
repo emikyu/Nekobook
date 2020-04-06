@@ -19,9 +19,18 @@ const Splash = () => (
                 <section className="splash-body-description">
                     <h2>Connect with neko friends and the world around you on Nekobook.</h2>
                     <ul>
-                        <li><b>See photos and updates</b> from neko friends in News Feed.</li>
-                        <li><b>Share what's new</b> in your neko life on your Timeline.</li>
-                        <li><b>Find more</b> of what you're looking for with Nekobook Search.</li>
+                        <li>
+                            <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                            <p><b>See photos and updates</b> from neko friends in News Feed.</p>
+                        </li>
+                        <li>
+                            <i class="fa fa-share-square-o" aria-hidden="true"></i>
+                            <p><b>Share what's new</b> in your neko life on your Timeline.</p>
+                        </li>
+                        <li>
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                            <p><b>Find more</b> of what you're looking for with Nekobook Search.</p>
+                        </li>
                     </ul>
                 </section>
                 <section className="splash-body-signup-form">

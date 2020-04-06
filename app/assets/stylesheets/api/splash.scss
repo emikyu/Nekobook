@@ -84,11 +84,6 @@
     padding: 42px 0px 24px;
 }
 
-.splash-body-description li {
-    font-size: 16px;
-    margin: 14px 0px 0px;
-    padding: 0px 0px 10px;
-}
 
 .splash-body-signup-form {
     width: 399px;
@@ -177,4 +172,24 @@
 
 .session-form.signup input[type="submit"]:hover {
     background-image: linear-gradient(lightgreen, green 50%);
+}
+
+.splash-body-description li {
+    font-size: 16px;
+    margin: 14px 0px 0px;
+    padding: 0px 0px 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+i.fa {
+    font-size: 56px;
+    color: rgb(177, 139, 177);
+    margin-right: 20px;
+    font-weight: 200px;
+}
+
+i.fa-search {
+    padding-right: 7px;
 }
