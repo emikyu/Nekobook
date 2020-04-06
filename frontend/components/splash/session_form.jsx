@@ -56,7 +56,7 @@ class LoginForm extends React.Component {
             <form action="" onSubmit={this.handleSubmit} className={`session-form ${formType}`}>
                 <ul>
                     {
-                        this.props.errors.map((error, idx) => <li key={idx}>{error}</li>)
+                        this.props.errors.session.map((error, idx) => <li key={idx}>{error}</li>)
                     }
                 </ul>
                 {formInputs}
