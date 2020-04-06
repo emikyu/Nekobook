@@ -37,6 +37,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rails_12factor'
 gem 'jquery-rails'
 gem 'rails-ujs'
+gem 'bcrypt'
+
 
 
 group :development, :test do
@@ -46,7 +48,6 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'annotate'
-  gem 'bcrypt'
 end
 
 group :development do
