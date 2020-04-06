@@ -13,9 +13,11 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  birthday        :date             not null
+#  gender          :string           not null
 #
 class Neko < ApplicationRecord
-    validates :username, :email, :password_digest, :session_token, :name, :birthday, presence: true
+    validates :username, :email, :password_digest, :session_token, :name, :birthday, :gender, presence: true
+    validates :gender, inclusion: { in: ["Male", "Female", "Custom"] }
     validates :username, :email, :session_token, uniqueness: true
     validates :password, length: { minimum: 6 }, allow_nil: true
 

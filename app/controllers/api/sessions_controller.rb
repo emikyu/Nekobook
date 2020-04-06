@@ -1,4 +1,6 @@
 class Api::SessionsController < ApplicationController
+    before_action :ensure_logged_out, only: [:create]
+
     def create
         @neko = Neko.find_by_credentials(params[:neko][:email], params[:neko][:password])
         if @neko
