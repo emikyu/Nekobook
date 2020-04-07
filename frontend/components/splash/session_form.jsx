@@ -37,7 +37,6 @@ class LoginForm extends React.Component {
 
     // handle form submission
     handleSubmit(e) {
-        debugger
         e.preventDefault();
         if (this.props.formType === 'Sign Up') {
             if (this.validateSignupForm(e.currentTarget)){
@@ -69,7 +68,6 @@ class LoginForm extends React.Component {
 
     handleChange(field) {
         return e => {
-            debugger
             validateFormUtils.clearErrors(e.target);
             this.setState({[field]: e.target.value});
             if (field === "gender") this.errors.gender = null;
@@ -195,13 +193,22 @@ class LoginForm extends React.Component {
         return (
             <>
                 <form action="" onSubmit={this.handleSubmit} className={`session-form ${formType}`}>
-                    <ul>
-                        {
-                            this.props.errors.map((error, idx) => <li key={idx}>{error}</li>)
-                        }
-                    </ul>
                     {formInputs}
-                    <input type="submit" value={this.props.formType}/>
+                    <span className="submit-form-container">
+                        <input type="submit" value={this.props.formType} name="submit"/>
+                        {
+                            this.props.errors.length === 0 ? (<></>) : (
+                                <span className="tooltip-container">
+                                    <span className="tooltip"></span>
+                                    <span className="tooltip-message">
+                                        <ul>
+                                            {this.props.errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                                        </ul>
+                                    </span>
+                                </span>
+                            )
+                        }
+                    </span>
                 </form>
                 {demo}
             </>

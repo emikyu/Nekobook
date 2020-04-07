@@ -66,13 +66,14 @@
     color: white;
     background-color: rgb(177, 139, 177);
     padding: auto;
+    margin-left: 13px;
     height: 22px;
-    width: 40px;
-    cursor: pointer;
+    width: 50px;
 }
 
 .session-form.login input[type="submit"]:hover {
     background-color: rgb(145, 114, 145);
+    cursor: pointer;
 }
 
 .splash-body-description {
@@ -360,4 +361,22 @@ i.fa-search {
 
 .birthday-form-container .tooltip-container {
     right: 416px;
+}
+
+.submit-form-container .tooltip {
+    position: absolute;
+    @include tooltip(bottom, 10px, darkred);
+    bottom: 60px;
+    right: 10px;
+}
+
+.submit-form-container .tooltip-container {
+    position: absolute;
+    top: 80px;
+    width: 175px;
+    height: 10px;
+}
+
+.submit-form-container .tooltip-message {
+    padding: 0 13px;
 }
