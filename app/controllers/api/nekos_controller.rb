@@ -17,6 +17,7 @@ class Api::NekosController < ApplicationController
         else
             @neko = Neko.find(params[:id])
         end
+
         render :show
     end
 

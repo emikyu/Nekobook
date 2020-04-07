@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const UserNav = ({currentUser, logout}) => (
     <ul className="user-nav-list">
         <li className="nav-text">
-            <Link to={`/nekos/${currentUser.id}`}>{currentUser.name[0].toUpperCase() + currentUser.name.slice(1).toLowerCase()}</Link>
+            <Link to={`/nekos/${currentUser.username}`}>{currentUser.name[0].toUpperCase() + currentUser.name.slice(1).toLowerCase()}</Link>
         </li>
         <div className="nav-divider"></div>
         <li className="nav-text">

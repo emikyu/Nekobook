@@ -2,7 +2,7 @@ import React from 'react';
 
 class Profile extends React.Component {
     componentDidMount() {
-        this.props.requestNeko(this.props.nekoId);
+        this.props.requestNeko(this.props.username);
     }
     render () {
         if (!this.props.neko) return null;

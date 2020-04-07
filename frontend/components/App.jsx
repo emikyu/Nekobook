@@ -10,7 +10,7 @@ const App = () => (
         <AuthRoute exact path='/' component={Splash} />
         <ProtectedRoute path='/' component={Navbar} />
         <ProtectedRoute exact path='/newsfeed' component={Newsfeed} />
-        <ProtectedRoute path='/nekos/:nekoId' component={ProfileContainer} />
+        <ProtectedRoute path='/nekos/:username' component={ProfileContainer} />
     </div>
 );
 
