@@ -21,8 +21,8 @@ const UserNav = ({currentUser, logout}) => (
                 <li><i className="fas fa-bell"></i></li>
             </ul>
         </li>
+        <div className="nav-divider"></div>
         <li className="admin">
-            <div className="nav-divider"></div>
             <ul className="admin-list">
                 <li><i className="fas fa-question-circle"></i></li>
                 <li>
