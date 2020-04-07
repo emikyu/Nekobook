@@ -12,7 +12,11 @@ class Api::NekosController < ApplicationController
     end
 
     def show
-        @neko = Neko.find(params[:id])
+        if params.has_key?(:username)
+            @neko = Neko.find_by(username: params[:username])
+        else
+            @neko = Neko.find(params[:id])
+        end
         render :show
     end
 

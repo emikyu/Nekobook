@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Neko.destroy_all
+
+demo_socks = Neko.create(name: "Socks", username: "socks_cat", email: "socks@greytabby.com", password: "password", birthday: "2018-03-28", gender: "Female")

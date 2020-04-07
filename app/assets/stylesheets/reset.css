@@ -14,9 +14,10 @@ h1, h2, p, strong, em, a {
 
 ul, ol {
   list-style: none;
+  padding: 0;
 }
 
-input:focus {
+input:focus, button:focus {
   outline: none;
 }
 

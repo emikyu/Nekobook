@@ -1,9 +1,11 @@
 import React from 'react';
 
 const Newsfeed = () => (
-    <div>
-        Nekobook Newsfeed Component Nyon~~
-    </div>
+    <section className="newsfeed">
+        <section className="newsfeed-content">
+            Nekobook Newsfeed Component Nyon~~
+        </section>
+    </section>
 );
 
 export default Newsfeed;
