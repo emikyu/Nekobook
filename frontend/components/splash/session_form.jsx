@@ -8,15 +8,16 @@ const _demoNeko = {
 class LoginForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            email: "",
-            password: ""
-        };
         this.birthday = {
             month: "1",
             day: "1",
             year: "1995"
-        }
+        };
+        this.state = {
+            email: "",
+            password: "",
+            birthday: "1995-01-01"
+        };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
