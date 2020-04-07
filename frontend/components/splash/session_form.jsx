@@ -1,8 +1,18 @@
 import React from 'react';
+import * as validateFormUtils from '../../util/validate_form_util'
 
 const _demoNeko = {
     email: "socks@greytabby.com",
     password: "password"
+};
+
+const _startState = {
+    name: "",
+    username: "",
+    email: "",
+    password: "",
+    birthday: "1995-01-01",
+    gender: ""
 };
 
 class LoginForm extends React.Component {
@@ -13,21 +23,58 @@ class LoginForm extends React.Component {
             day: "1",
             year: "1995"
         };
-        this.state = {
-            email: "",
-            password: "",
-            birthday: "1995-01-01"
-        };
+        this.errors = {};
+        this.state = Object.assign({}, _startState);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleFocus = this.handleFocus.bind(this);
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.action(this.state);
+        if (this.props.formType === 'Sign Up') {
+            if (this.validateSignupForm(e.currentTarget)){
+                this.props.action(this.state);
+            }
+            else {
+                console.log(this.errors);
+                return;
+            }
+        } else {
+            this.props.action(this.state);
+        }
+    }
+
+    validateSignupForm(form) {
+        this.errors = {};
+        for (let field in _startState) {
+            if (field !== "birthday") this.errors[field] = validateFormUtils[field](form[field]);
+            else {
+                console.log(form.month);
+                console.log(form.day);
+                console.log(form.year);
+            }
+        }
+        for (let field in this.errors) {
+            if (this.errors[field]) return false;
+        }
+        return true;
     }
 
     handleChange(field) {
-        return e => this.setState({[field]: e.target.value});
+        return e => {
+            this.setState({[field]: e.target.value});
+        };
+    }
+
+    handleFocus(e) {
+        validateFormUtils.clearErrors(e.target);
+    }
+
+    handleBlur(field) {
+        return e => {
+            this.errors[field] = validateFormUtils[field](e.target);
+            this.setState({ [field]: e.target.value });
+        }
     }
 
     changeBirthday(field) {
@@ -51,32 +98,60 @@ class LoginForm extends React.Component {
             <>  
                 <h2>Sign Up</h2>
                 <h4>It's quick and easy, nyaa~</h4>
-                <div><input type="text" onChange={this.handleChange("name")} placeholder="Name" />
-                <input type="text" onChange={this.handleChange("username")} placeholder="Username" /></div>
-                <input type="email" onChange={this.handleChange("email")} placeholder="Email address"/>
-                <input type="password" onChange={this.handleChange("password")} placeholder="New password" />
+                <div>
+                    <span className="name-form-container">
+                        <input type="text" onFocus={this.handleFocus} onBlur={this.handleBlur("name")} onChange={this.handleChange("name")} placeholder="Name" name="name"/>
+                        <i className="fa fa-exclamation-circle" aria-hidden="true"></i>
+                        <span class="tooltip-container">
+                            {this.errors.name}
+                        </span>
+                    </span>
+                    <span className="username-form-container">
+                        <input type="text" onFocus={this.handleFocus} onBlur={this.handleBlur("username")} onChange={this.handleChange("username")} placeholder="Username" name="username"/>
+                        <i className="fa fa-exclamation-circle" aria-hidden="true"></i>
+                        <span class="tooltip-container">
+                            {this.errors.username}
+                        </span>
+                    </span>
+                </div>
+                <span className="email-form-container">
+                    <input type="email" onFocus={this.handleFocus} onBlur={this.handleBlur("email")} onChange={this.handleChange("email")} placeholder="Email address" name="email"/>
+                    <i className="fa fa-exclamation-circle" aria-hidden="true"></i>
+                    <span class="tooltip-container">
+                        {this.errors.email}
+                    </span>
+                </span>
+                <span className="password-form-container">
+                    <input type="password" onFocus={this.handleFocus} onBlur={this.handleBlur("password")} onChange={this.handleChange("password")} placeholder="New password" name="password"/>
+                    <i className="fa fa-exclamation-circle" aria-hidden="true"></i>
+                    <span class="tooltip-container">
+                        {this.errors.password}
+                    </span>
+                </span>
                 <span className="signup-label">Birthday</span>
                 <div className="birthday">
-                    <select className="signup-month" value={this.birthday.month} onChange={this.changeBirthday("month")}>
+                    <select className="signup-month" value={this.birthday.month} onChange={this.changeBirthday("month")} name="month">
                         {
                             months.map((month, idx) => <option key={month} value={idx}>{month}</option>)
                         }
                     </select>
-                    <select className="signup-day" value={this.birthday.day} onChange={this.changeBirthday("day")}>
+                    <select className="signup-day" value={this.birthday.day} onChange={this.changeBirthday("day")} name="day">
                         {
                             days.map((day, idx) => <option key={day} value={day}>{day}</option>)
                         }
                     </select>
-                    <select className="signup-year" value={this.birthday.year} onChange={this.changeBirthday("year")}>
+                    <select className="signup-year" value={this.birthday.year} onChange={this.changeBirthday("year")} name="year">
                         {
                             years.map((year, idx) => <option key={year} value={year}>{year}</option>)
                         }
                     </select>
                 </div>
-                <span className="signup-label">Gender</span>
-                <label><input type="radio" name="gender" value="Female" onClick={this.handleChange("gender")} />Female</label>
-                <label><input type="radio" name="gender" value="Male" onClick={this.handleChange("gender")} />Male</label>
-                <label><input type="radio" name="gender" value="Custom" onClick={this.handleChange("gender")} />Custom</label><br/>
+                <span className="gender-form-container">
+                    <span className="signup-label">Gender</span>
+                    <label className="signup-radio"><input type="radio" name="gender" value="Female" onClick={this.handleChange("gender")} />Female</label>
+                    <label className="signup-radio"><input type="radio" name="gender" value="Male" onClick={this.handleChange("gender")} />Male</label>
+                    <label className="signup-radio"><input type="radio" name="gender" value="Custom" onClick={this.handleChange("gender")} />Custom</label><br/>
+                </span>
                 <p>By clicking Sign Up, you are signing up on the nekobook clone project. Please do not use sensitive information, and enjoy exploring this facebook clone. =^-^=</p>
             </>
         );

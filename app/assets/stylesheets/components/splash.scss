@@ -236,3 +236,34 @@ i.fa {
 i.fa-search {
     padding-right: 7px;
 }
+
+.session-form.signup .validation-error > input, .signup-radio.validation-error {
+    border: 1px solid red;
+    border-radius: 5px;
+}
+
+*[class *= "-form-container"] {
+    position: relative;
+}
+
+*[class *='-form-container'] i {
+    color: darkred;
+    font-size: 21px;
+    position: absolute;
+    z-index: 1;
+    right: -10px;
+    top: 9px;
+    display: none;
+}
+
+.email-form-container i, .password-form-container i {
+    left:368px;
+}
+
+*[class *= "-form-container"].validation-error i {
+    display: block;
+}
+
+*[class *='-form-container'] .tooltip-container {
+    position: absolute;
+}
