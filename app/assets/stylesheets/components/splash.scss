@@ -136,7 +136,7 @@
 }
 
 
-.session-form.signup > div.birthday {
+.session-form.signup > div.birthday-form-container {
     justify-content: flex-start;
 }
 
@@ -237,8 +237,10 @@ i.fa-search {
     padding-right: 7px;
 }
 
-.session-form.signup .validation-error > input, .signup-radio.validation-error {
-    border: 1px solid red;
+.session-form.signup .validation-error > input, 
+.gender-form-container.validation-error > label,
+.birthday-form-container.validation-error > select {
+    border: 1px solid darkred;
     border-radius: 5px;
 }
 
@@ -256,7 +258,7 @@ i.fa-search {
     display: none;
 }
 
-.email-form-container i, .password-form-container i {
+.email-form-container i, .password-form-container i, .reTypeEmail-form-container i {
     left:368px;
 }
 
@@ -264,6 +266,98 @@ i.fa-search {
     display: block;
 }
 
-*[class *='-form-container'] .tooltip-container {
+@mixin tooltip($dir, $weight, $color) {
+    border: $weight solid transparent;
+    border-#{$dir}: $weight solid $color;
+}
+
+*[class*=form-container] .tooltip {
     position: absolute;
+    @include tooltip(left, 10px, darkred);
+    bottom: 30px;
+}
+
+.tooltip-container {
+    position: absolute;
+    z-index: 2;
+    right: 15px;
+    top: 55px;
+}
+
+*[class *= "-form-container"].validation-error .tooltip-container {
+    display: none;
+}
+
+*[class *='-form-container'] .tooltip-message {
+    position: absolute;
+    display: block;
+    color: white;
+    background-color: darkred;
+    border-radius: 5px;
+    padding: 13px;
+    font-size: 13px;
+    bottom: 5px;
+}
+
+.password-form-container .tooltip-message, 
+.email-form-container .tooltip-message, 
+.reTypeEmail-form-container .tooltip-message,
+.gender-form-container .tooltip-message,
+.birthday-form-container .tooltip-message {
+    width: 326px;
+    right: 0px;
+    bottom: 5px;
+}
+
+.name-form-container .tooltip-container {
+    right: 210px;
+    top: 40px;
+}
+
+.name-form-container .tooltip-message {
+    width: 136px;
+    bottom: 5px;
+    right: 0px;
+}
+
+.name-form-container .tooltip {
+    bottom: 15px;
+}
+
+.username-form-container .tooltip {
+    position: absolute;
+    @include tooltip(bottom, 10px, darkred);
+    bottom: 10px;
+    left: -150px;
+}
+
+
+.username-form-container .tooltip-message {
+    width: 150px;
+    min-height: 13px;
+    top: -10px;
+    right: 0px;
+}
+
+.reTypeEmail-form-container .tooltip-message {
+    width: 250px;
+    bottom: 18px;
+}
+
+.gender-form-container i {
+    position: absolute;
+    right: -125px;
+}
+
+.gender-form-container .tooltip-container {
+    right: 295px;
+    top: 85px;
+}
+
+.birthday-form-container i {
+    top: -25px;
+}
+
+.birthday-form-container .tooltip-container {
+    right: 416px;
 }

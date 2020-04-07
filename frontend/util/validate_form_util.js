@@ -16,7 +16,7 @@ export const name = input => {
 export const username = input => {
     if (!input.value) {
         $(input.closest('span')).addClass("validation-error");
-        return "What username would you like to use?";
+        return "What's your username?";
     }
     return null;
 };
@@ -27,10 +27,21 @@ export const email = input => {
         $(input.closest('span')).addClass("validation-error");
         return "You'll use this when you log in and if you ever need to reset your password.";
     } else if (!input.value.match(emailRegex)) {
-        return "Please enter a valid email address."
+        return "Please enter a valid email address.";
     }
     return null;
 };
+
+export const reTypeEmail = (input, email) => {
+    if (!input.value) {
+        $(input.closest('span')).addClass("validation-error");
+        return "Please re-enter your email address.";
+    } else if (input.value !== email) {
+        $(input.closest('span')).addClass("validation-error");
+        return "Your emails do not match. Please try again";
+    }
+    return null;
+}
 
 export const password = input => {
     if (!input.value || input.value.length < 6) {
@@ -40,13 +51,19 @@ export const password = input => {
     return null;
 };
 
-export const birthday = input => {
+export const birthday = (month, day, year) => {
+    debugger
+    if (month === "Month" || day === "Day" || year === "Year") {
+        debugger
+        $('.birthday-form-container').addClass('validation-error');
+        return "Select your birthday. You can change who can see this later";
+    }
     return null;
 };
 
 export const gender = input => {
     if (!input.value) {
-        $('.signup-radio').addClass("validation-error");
+        $('.gender-form-container').addClass("validation-error");
         return "Please choose a gender. You can change who can see this later.";
     }
     return null;
@@ -54,5 +71,12 @@ export const gender = input => {
 
 export const clearErrors = input => {
     $(input.closest('span')).removeClass("validation-error");
-    
 }
+
+export const clearGender = () => {
+    $('.gender-form-container').removeClass('validation-error');
+};
+
+export const clearBirthday = () => {
+    $('.birthday-form-container').removeClass('validation-error');
+};
