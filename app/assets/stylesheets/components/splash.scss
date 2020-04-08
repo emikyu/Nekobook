@@ -1,12 +1,13 @@
 .splash-header {
     display: flex;
-    // min-width: 980px;
+    min-width: 980px;
     height: 82px;
     background-image: linear-gradient(thistle, rgb(145, 114, 145) 50%);
     color: white;
     box-sizing: border-box;
     border-bottom: 1px solid rgb(128, 100, 128);
 }
+
 
 .splash-header-content {
     display: flex;
@@ -17,26 +18,80 @@
     margin: 0 auto;
 }
 
-.splash-body {
+.splash-body, .splash-footer {
     display: flex;
     box-sizing: border-box;
-    min-height: 640px;
+    min-height: 621px;
     background-color: rgb(253, 242, 253);
+    margin-bottom: 19px;
 
 }
+.splash-footer {
+    background-color: white;
+}
 
-.splash-body-content {
+
+.splash-body-content, .splash-footer-content {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    min-width: 980px;
+    width: 980px;
     padding-top: 20px;
     margin: 0 auto;
 }
 
+.splash-footer-content {
+    display: block;
+}
+
+.splash-footer-content > p {
+    font-size: 11px;
+    color: grey;
+    margin-top: 24px;
+}
+
+
+.footer-link-list {
+    padding: 8px 0 0;
+    font-size: 12px;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    color: rgb(128, 100, 128);
+    width: 100%;
+}
+
+
+.footer-link-list > li {
+    padding: 0 0 0 10px;
+}
+
+.footer-link-list a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.footer-link-list > li:first-child {
+    padding: 0;
+}
+
+div.footer-divider {
+    border-top: 1px solid thistle;
+    margin: 8px 0;
+    width: 980px;
+    display: block;
+    box-sizing: content-box;
+}
+
+
+.splash-footer-content {
+    padding-top: 0px;
+    width: 980px;
+}
+
 .splash-logo {
     font-family: 'Righteous', cursive;
-    font-size: 28px;
+    font-size: 34px;
     font-weight: bold;
 }
 
@@ -87,6 +142,9 @@
     padding: 42px 0px 24px;
 }
 
+.splash-body-hook {
+    width: 456px;
+}
 
 .splash-body-signup-form {
     width: 399px;
@@ -218,9 +276,10 @@ select.signup-month {
 }
 
 .splash-body-description li {
-    font-size: 16px;
+    font-size: 15px;
     margin: 14px 0px 0px 0px;
     padding: 0px 0px 10px 0px;
+    color: #333333;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -228,14 +287,14 @@ select.signup-month {
 }
 
 i.fa {
-    font-size: 56px;
+    font-size: 49.7777778px;
     color: rgb(177, 139, 177);
     margin-right: 20px;
     font-weight: 200px;
 }
 
 i.fa-search {
-    padding-right: 7px;
+    padding-right: 6.2222222px;
 }
 
 .session-form.signup .validation-error > input, 
@@ -311,22 +370,22 @@ i.fa-search {
     min-height: 25px;
 }
 
-.name-form-container .tooltip-container {
+.fname-form-container .tooltip-container {
     right: 210px;
     top: 40px;
 }
 
-.name-form-container .tooltip-message {
+.fname-form-container .tooltip-message {
     width: 136px;
     bottom: 5px;
     right: 0px;
 }
 
-.name-form-container .tooltip {
+.fname-form-container .tooltip {
     bottom: 15px;
 }
 
-.username-form-container .tooltip {
+.lname-form-container .tooltip {
     position: absolute;
     @include tooltip(bottom, 10px, darkred);
     bottom: 10px;
@@ -334,7 +393,7 @@ i.fa-search {
 }
 
 
-.username-form-container .tooltip-message {
+.lname-form-container .tooltip-message {
     width: 150px;
     min-height: 13px;
     top: -10px;

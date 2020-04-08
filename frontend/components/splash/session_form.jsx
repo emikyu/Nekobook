@@ -7,12 +7,14 @@ const _demoNeko = {
     password: "password"
 };
 
+const todayDate = new Date();
+
 const _startState = {
-    name: "",
-    username: "",
+    fname: "",
+    lname: "",
     email: "",
     password: "",
-    birthday: "1995-01-01",
+    birthday: `${todayDate.getFullYear()-25}-${todayDate.getMonth()+1}-${todayDate.getDate()}`,
     gender: ""
 };
 
@@ -20,9 +22,9 @@ class LoginForm extends React.Component {
     constructor(props) {
         super(props);
         this.birthday = {
-            month: "1",
-            day: "1",
-            year: "1995"
+            month: todayDate.getMonth() + 1,
+            day: todayDate.getDate(),
+            year: todayDate.getFullYear() - 25
         };
         this.errors = {};
         this.state = Object.assign({}, _startState);
@@ -40,6 +42,7 @@ class LoginForm extends React.Component {
         e.preventDefault();
         if (this.props.formType === 'Sign Up') {
             if (this.validateSignupForm(e.currentTarget)){
+                console.log(this.state);
                 this.props.action(this.state);
             }
             else {
@@ -131,8 +134,8 @@ class LoginForm extends React.Component {
                 <h2>Sign Up</h2>
                 <h4>It's quick and easy, nyaa~</h4>
                 <div>
-                    <SessionFormInput type="text" field="name" placeholder="Name" errors={this.errors} handleBlur={this.handleBlur} handleFocus={this.handleFocus} handleChange={this.handleChange}/>
-                    <SessionFormInput type="text" field="username" placeholder="Username" errors={this.errors} handleBlur={this.handleBlur} handleFocus={this.handleFocus} handleChange={this.handleChange} />
+                    <SessionFormInput type="text" field="fname" placeholder="First name" errors={this.errors} handleBlur={this.handleBlur} handleFocus={this.handleFocus} handleChange={this.handleChange}/>
+                    <SessionFormInput type="text" field="lname" placeholder="Last name" errors={this.errors} handleBlur={this.handleBlur} handleFocus={this.handleFocus} handleChange={this.handleChange} />
                 </div>
                 <SessionFormInput type="email" field="email" placeholder="Email address" errors={this.errors} handleBlur={this.handleBlur} handleFocus={this.handleFocus} handleChange={this.handleChange} />
                 {reTypeEmail}

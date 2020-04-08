@@ -1,11 +1,4 @@
-// name: "",
-// username: "",
-// email: "",
-// password: "",
-// birthday: "1995-01-01",
-// gender: ""
-
-export const name = input => {
+export const fname = input => {
     if (!input.value) {
         $(input.closest('span')).addClass("validation-error");
         return "What's your name?";
@@ -13,10 +6,10 @@ export const name = input => {
     return null;
 };
 
-export const username = input => {
+export const lname = input => {
     if (!input.value) {
         $(input.closest('span')).addClass("validation-error");
-        return "What's your username?";
+        return "What's your name?";
     }
     return null;
 };
@@ -52,7 +45,7 @@ export const password = input => {
 };
 
 export const birthday = (month, day, year) => {
-    debugger
+    // debugger
     if (month === "Month" || day === "Day" || year === "Year") {
         debugger
         $('.birthday-form-container').addClass('validation-error');

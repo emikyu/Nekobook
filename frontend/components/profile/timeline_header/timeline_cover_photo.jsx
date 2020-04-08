@@ -6,7 +6,7 @@ class TimelineCoverPhoto extends React.Component {
         const { neko } = this.props;
         return (
             <section className="timeline-photos-container">
-                {/* Hello from Timeline Cover Photo ^^ for {neko.name} */}
+                {/* Hello from Timeline Cover Photo ^^ for {neko.fname} */}
                 <div className={`cover-image ${neko.cover_photo ? "has-cover-image" : "no-cover-image"}`}>
                     {<img src={neko.cover_photo} alt="Cover photo" />}
                 </div>

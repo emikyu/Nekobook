@@ -8,4 +8,4 @@
 
 Neko.destroy_all
 
-demo_socks = Neko.create(name: "Socks", username: "socks_cat", email: "socks@greytabby.com", password: "password", birthday: "2018-03-28", gender: "Female")
+demo_socks = Neko.create(fname: "Socks", lname: "Cat", email: "socks@greytabby.com", password: "password", birthday: "2018-03-28", gender: "Female")

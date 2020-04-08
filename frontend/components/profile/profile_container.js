@@ -4,15 +4,14 @@ import Profile from './profile';
 import { requestNeko } from '../../actions/neko_actions'
 
 const msp = (state, ownProps) => {
-    const username = ownProps.match.params.username;
+    const nekoId = ownProps.match.params.nekoId;
     // think about how to make the following more scalable :(
-    const neko = Object.values(state.entities.nekos)
-                    .find(n => n.username === ownProps.match.params.username);
-    return { username, neko };
+    const neko = state.entities.nekos[nekoId];
+    return { nekoId, neko };
 };
 
 const mdp = dispatch => ({
-    requestNeko: username => dispatch(requestNeko(username))
+    requestNeko: userId => dispatch(requestNeko(userId))
 });
 
 export default withRouter(connect(msp, mdp)(Profile));

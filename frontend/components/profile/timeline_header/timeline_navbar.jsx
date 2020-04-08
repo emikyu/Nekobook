@@ -14,17 +14,22 @@ class TimelineNavbar extends React.Component {
                     </div>
                 </div>
                 <div className="profile-name">
-                    {neko.name}
+                    {`${neko.fname} ${neko.lname}`}
                 </div>
                 <div className="timeline-navbar">
                     <ul>
-                        <li>
-                            <Link to={`/nekos/${neko.username}`}>
-                                Timeline
-                                <i className="fas fa-caret-down"></i>
-                            </Link>
-                        </li>
-                        <li>About</li>
+                        <Link to={`/nekos/${neko.id}`}>
+                            <li>
+                                    Timeline
+                                    <i className="fas fa-caret-down"></i>
+                            </li>
+                        </Link>
+
+                        <Link to={`/nekos/${neko.id}/about`}>
+                            <li>
+                                About
+                            </li>
+                        </Link>
                         <li>Friends</li>
                         <li>Photos</li>
                         <li><i className="fas fa-lock"></i>Archive</li>

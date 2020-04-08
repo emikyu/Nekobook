@@ -5,7 +5,8 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 // testing below
-import {signup, login, logout} from './actions/session_actions';
+// import {signup, login, logout} from './actions/session_actions';
+import { updateNeko } from './actions/neko_actions';
 // testing above
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -25,11 +26,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // testing below
-    window.signup = signup;
-    window.login = login;
-    window.logout = logout;
+    // window.signup = signup;
+    // window.login = login;
+    // window.logout = logout;
     window.dispatch = store.dispatch;
     window.getState = store.getState;
+    window.updateNeko = updateNeko;
     // testing above
 
     const root = document.getElementById("root");

@@ -7,7 +7,7 @@ class TimelineContent extends React.Component {
         return (
             <div className="profile-content">
                 <div className="timeline-content">
-                    Nekobook Timeline Content for the great neko currently known as: { this.props.neko.name } !!
+                    Nekobook Timeline Content for the great neko currently known as: { this.props.neko.fname } !!
                     <br />Nyon~~ Stay tuned for POSTs and FRANNNNNNNSSSSS<br />
                 </div>
             </div>

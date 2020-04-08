@@ -7,7 +7,12 @@ const receiveUser = (user) => ({
     user
 });
 
-export const requestNeko = username => dispatch => (
-    NekoAPIUtil.findNeko(username)
+export const requestNeko = nekoId => dispatch => (
+    NekoAPIUtil.findNeko(nekoId)
         .then(user => dispatch(receiveUser(user)))
 );
+
+export const updateNeko = neko => dispatch => (
+    NekoAPIUtil.updateNeko(neko)
+        .then(user => dispatch(receiveUser(user)))
+)

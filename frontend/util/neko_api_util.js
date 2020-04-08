@@ -1,8 +1,15 @@
 // find neko by unique username
-export const findNeko = (username) => (
+export const findNeko = (nekoId) => (
     $.ajax({
         method: 'get',
-        url: '/api/nekos/0',
-        data: { username }
+        url: `/api/nekos/${nekoId}`,
+    })
+);
+
+export const updateNeko = (neko) => (
+    $.ajax({
+        method: 'patch',
+        url: `/api/nekos/${neko.id}`,
+        data: { neko }
     })
 );

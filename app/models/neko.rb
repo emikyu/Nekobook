@@ -3,11 +3,10 @@
 # Table name: nekos
 #
 #  id              :bigint           not null, primary key
-#  username        :string           not null
 #  email           :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
-#  name            :string           not null
+#  fname           :string           not null
 #  profile_picture :string
 #  location_id     :integer
 #  created_at      :datetime         not null
@@ -15,11 +14,14 @@
 #  birthday        :date             not null
 #  gender          :string           not null
 #  cover_photo     :string
+#  username        :string
+#  lname           :string           not null
 #
+
 class Neko < ApplicationRecord
-    validates :username, :email, :password_digest, :session_token, :name, :birthday, :gender, presence: true
+    validates :email, :password_digest, :session_token, :fname, :lname, :birthday, :gender, presence: true
     validates :gender, inclusion: { in: ["Male", "Female", "Custom"] }
-    validates :username, :email, :session_token, uniqueness: true
+    validates :email, :session_token, uniqueness: true
     validates :password, length: { minimum: 6 }, allow_nil: true
 
     after_initialize :ensure_session_token

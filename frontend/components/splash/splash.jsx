@@ -2,6 +2,7 @@ import React from 'react';
 import LoginFormContainer from './login_form_container';
 import SignupFormContainer from './signup_form_container';
 import { Link } from 'react-router-dom';
+import SplashFooter from '../footer/splash_footer'
 
 const Splash = () => (
     <div>
@@ -18,7 +19,9 @@ const Splash = () => (
         <section className="splash-body">
             <section className="splash-body-content">
                 <section className="splash-body-description">
-                    <h2>Connect with neko friends and the world around you on Nekobook.</h2>
+                    <div className="splash-body-hook">
+                        <h2>Connect with friends and the world around you on Nekobook.</h2>
+                    </div>
                     <ul>
                         <li>
                             <i className="fa fa-newspaper-o" aria-hidden="true"></i>
@@ -39,6 +42,7 @@ const Splash = () => (
                 </section>
             </section>
         </section>
+        <SplashFooter />
     </div>
 );
 

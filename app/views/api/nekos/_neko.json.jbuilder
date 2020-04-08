@@ -1,1 +1,1 @@
-json.extract! neko, :id, :username, :name, :profile_picture, :birthday, :location_id, :gender, :cover_photo
+json.extract! neko, :id, :username, :fname, :lname, :profile_picture, :birthday, :location_id, :gender, :cover_photo
