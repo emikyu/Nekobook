@@ -14,6 +14,7 @@
 #  updated_at      :datetime         not null
 #  birthday        :date             not null
 #  gender          :string           not null
+#  cover_photo     :string
 #
 class Neko < ApplicationRecord
     validates :username, :email, :password_digest, :session_token, :name, :birthday, :gender, presence: true

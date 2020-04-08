@@ -23,6 +23,6 @@ class Api::NekosController < ApplicationController
 
     private
     def neko_params
-        params.require(:neko).permit(:username, :email, :password, :name, :profile_picture, :birthday, :location_id, :gender)
+        params.require(:neko).permit(:username, :email, :password, :name, :profile_picture, :birthday, :location_id, :gender, :cover_photo)
     end
 end

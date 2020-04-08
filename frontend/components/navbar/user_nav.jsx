@@ -4,8 +4,13 @@ import { Link } from 'react-router-dom';
 
 const UserNav = ({currentUser, logout}) => (
     <ul className="user-nav-list">
-        <li className="nav-text">
-            <Link to={`/nekos/${currentUser.username}`}>{currentUser.name[0].toUpperCase() + currentUser.name.slice(1).toLowerCase()}</Link>
+        <li className="nav-text-profile">
+            <Link to={`/nekos/${currentUser.username}`}>
+                <div className="user-nav-profile-picture">
+                    {<img src={currentUser.profile_picture ? currentUser.profile_picture : window.nocatpicURL} alt="Profile picture" />}
+                </div>
+                <div>{currentUser.name[0].toUpperCase() + currentUser.name.slice(1).toLowerCase()}</div>
+            </Link>
         </li>
         <div className="nav-divider"></div>
         <li className="nav-text">

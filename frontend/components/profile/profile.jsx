@@ -1,5 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import TimelineHeader from './timeline_header/timeline_header';
+import TimelineContent from './timeline_content/timeline_content'
 
 class Profile extends React.Component {
     componentDidMount() {
@@ -18,10 +20,11 @@ class Profile extends React.Component {
         if (!this.props.neko) return <></>;
         return (
             <section className="profile">
-                <section className="profile-content">
-                    Nekobook Profile for the great neko currently known as: {this.props.neko.name}!!
-                    <br />Nyon~~<br />
-                    <Link to='/nekos/emily_wu'>Emily</Link>!!
+                <section className="profile-container">
+                    <section className="profile-content">
+                        <Route path={`/nekos/${this.props.neko.username}`} render={() => <TimelineHeader neko={this.props.neko}/>}/>
+                        <Route exact path={`/nekos/${this.props.neko.username}`} render={() => <TimelineContent neko={this.props.neko} />} />
+                    </section>
                 </section>
             </section>
         );
