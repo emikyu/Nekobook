@@ -4,7 +4,7 @@ import TimelineCoverPhoto from './timeline_cover_photo';
 
 const TimelineHeader = ({neko}) => (
     <section className="profile-component">
-        Hewooooo from Timeline Header desuuuuu
+        {/* Hewooooo from Timeline Header desuuuuu */}
         <TimelineCoverPhoto neko={neko} />
         <TimelineNavbar neko={neko} />
     </section>
