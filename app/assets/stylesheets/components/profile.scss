@@ -159,9 +159,29 @@
     font-size: 12px;
 }
 
-.timeline-content {
+.timeline-content, .about-content {
     padding: 12px;
     background-color: white;
     border: 0.5px solid thistle;
     border-radius: 3px;
+}
+
+.about-header {
+    border: 5px red solid;
+}
+
+.about-body {
+    border: 5px orange solid;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.about-menu {
+    border: 5px blue solid;
+    width: 247px;
+}
+
+.about-body-content {
+    border: 5px green solid;
+    width: 642px;
 }
