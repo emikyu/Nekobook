@@ -35,6 +35,12 @@ class Api::NekosController < ApplicationController
         @neko = Neko.find(params[:id])
 
         if @neko.update!(neko_params)
+            if params[:neko].has_key?(:location)
+                location = Location.find_by(name: params[:neko][:location]) || 
+                            Location.create(name: params[:neko][:location])
+                @neko.location = location 
+                @neko.save!
+            end
             render :show
         elsif @neko
             render json: @neko.errors.full_messages, status: 422
@@ -45,6 +51,6 @@ class Api::NekosController < ApplicationController
     private
     def neko_params
         params.require(:neko).permit(:username, :email, :password, :fname, :lname, :profile_picture, 
-                                    :birthday, :location_id, :gender, :cover_photo)
+                                    :birthday, :gender, :cover_photo)
     end
 end

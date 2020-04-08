@@ -1,4 +1,5 @@
 import * as SessionAPIUtil from '../util/session_api_util';
+import { requestLocation } from './location_actions';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER'
@@ -21,7 +22,10 @@ const receiveSessionErrors = (errors, errorType) => ({
 
 export const login = user => dispatch => (
     SessionAPIUtil.login(user)
-        .then(user => dispatch(receiveCurrentUser(user)),
+        .then(user => {
+            dispatch(receiveCurrentUser(user));
+            if (user.location_id) dispatch(requestLocation(user.location_id));
+        },
         e => dispatch(receiveSessionErrors(e.responseJSON, 'login')))
 );
 

@@ -1,4 +1,4 @@
-import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
+import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER } from '../actions/session_actions';
 import { RECEIVE_USER } from '../actions/neko_actions';
 
 const nekosReducer = (state = {}, action) => {
@@ -6,6 +6,8 @@ const nekosReducer = (state = {}, action) => {
     switch(action.type) {
         case RECEIVE_CURRENT_USER:
             return Object.assign({}, state, {[action.user.id]: action.user});
+        case LOGOUT_CURRENT_USER:
+            return {};
         case RECEIVE_USER:
             return Object.assign({}, state, {[action.user.id]: action.user});
         default:
