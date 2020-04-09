@@ -33,14 +33,15 @@ class Api::NekosController < ApplicationController
 
     def update
         @neko = Neko.find(params[:id])
-
         if @neko.id == current_user.id && @neko.update!(neko_params)
+            # debugger
             if params[:neko].has_key?(:location)
                 location = Location.find_by(name: params[:neko][:location]) || 
                             Location.create(name: params[:neko][:location])
                 @neko.location = location 
-                @neko.save!
+                # debugger
             end
+            @neko.save!
             render :show
         elsif @neko.id != current_user.id
             render json: ["Silly you. You cannot make changes to another neko's profile!"], status: 404
@@ -52,6 +53,7 @@ class Api::NekosController < ApplicationController
 
     private
     def neko_params
-        params.require(:neko).permit(:username, :email, :password, :fname, :lname, :birthday, :gender)
+        params.require(:neko).permit(:username, :email, :password, :fname, :lname, :birthday, :gender, :cover_photo, :profile_picture)
     end
 end
+

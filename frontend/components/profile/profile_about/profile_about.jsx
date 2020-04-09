@@ -36,7 +36,10 @@ class ProfileAbout extends React.Component {
     handleSubmit(form) {
         return e => {
             e.preventDefault();
-            this.props.updateNeko(this.state);
+            const tempState = Object.assign({}, this.state);
+            delete tempState.cover_photo;
+            delete tempState.profile_picture;
+            this.props.updateNeko(tempState);
         }
     }
 
@@ -44,6 +47,32 @@ class ProfileAbout extends React.Component {
         return e => {
             this.setState({[field]: e.target.value});
         }
+    }
+
+    handleCPChange(e) {
+        console.log(e.target.files);
+        this.setState({selectedCoverPhoto: e.target.files[0]});
+    }
+
+    handleCPSubmit(e) {
+        e.preventDefault();
+        const cpData = new FormData();
+        if (this.state.selectedCoverPhoto) {
+            // debugger
+            cpData.append('neko[cover_photo]', this.state.selectedCoverPhoto, this.state.selectedCoverPhoto.name);
+        }
+        // debugger
+        // $.ajax({
+        //     url: `/api/nekos/${this.props.nekoId}`,
+        //     method: 'patch',
+        //     data: cpData,
+        //     contentType: false,
+        //     processData: false
+        // }).then(neko => {
+        //     console.log(neko);
+        //     // this.setState({cover_photo: neko.cover_photo})
+        // });
+        this.props.updateNekoPhoto(this.props.neko.id, Object.assign(cpData, {fname: this.props.neko.fname}));
     }
 
     render() {
@@ -74,6 +103,19 @@ class ProfileAbout extends React.Component {
                             Hi I'm the content you're meant to show ^^
                             { canEdit? "Testing out an update form:" : ""}
                             <br/><br/>
+                            {
+                                canEdit ? (
+                                    <div className="cover-photo-form-container">
+                                        Use this form to update your cover photo!!! ^^
+                                        <form action="" onSubmit={this.handleCPSubmit.bind(this)}>
+                                            <input type="file" onChange={this.handleCPChange.bind(this)}/>
+                                            <input type="submit" value="Update Cover Photo!"/>
+                                        </form>
+                                    </div>
+                                ) : (<></>)
+                            }
+                                
+
                             <div className="fname-form-container">
                                 Name - Currently @{`${neko.fname} ${neko.lname}`}<br />
                                 { 

@@ -22,4 +22,12 @@ export const updateNeko = neko => dispatch => (
             dispatch(receiveUser(user));
             if (user.location_id) dispatch(requestLocation(user.location_id));
         })
-)
+);
+
+export const updateNekoPhoto = (nekoId, photo) => dispatch => (
+    NekoAPIUtil.updateNekoPhoto(nekoId, photo)
+        .then(user => { 
+            // dispatch(updateNeko(user)); // *** testing something...
+            dispatch(receiveUser(user));
+        })
+);

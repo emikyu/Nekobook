@@ -12,3 +12,13 @@ export const updateNeko = (neko) => (
         data: { neko }
     })
 );
+
+export const updateNekoPhoto = (nekoId, photo) => (
+    $.ajax({
+        url: `/api/nekos/${nekoId}`,
+        method: 'patch',
+        data: photo,
+        contentType: false,
+        processData: false
+    })
+);
