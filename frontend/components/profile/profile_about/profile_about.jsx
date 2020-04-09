@@ -11,13 +11,10 @@ class ProfileAbout extends React.Component {
     }
 
     componentDidMount() {
-        // debugger
         this.props.requestNeko(this.props.nekoId);
         this.setState(this.props.neko);
         this.setState({ location: "" });
-        // debugger
         if (this.props.location) this.setState({location: this.props.location.name});
-        // debugger
     }
 
     componentDidUpdate(prevProps) {
