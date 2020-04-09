@@ -38,6 +38,7 @@ gem 'rails_12factor'
 gem 'jquery-rails'
 gem 'rails-ujs'
 gem 'bcrypt'
+gem 'aws-sdk-s3'
 
 
 

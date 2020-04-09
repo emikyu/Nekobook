@@ -74,8 +74,8 @@
 }
 
 .profile-picture img {
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     display: block;
     position: absolute;
@@ -83,6 +83,7 @@
     margin-top: auto;
     top: 0;
     bottom: 0;
+    border-radius: 50%;
 }
 
 .profile-picture div {
@@ -92,17 +93,38 @@
     margin-top: 80px;
     color: white;
     background-color: black;
-    opacity: 50%;
+    opacity: 0%;
     text-align: center;
-    padding-top: 30px;
-    display: none;
+    // display: none;
     font-size: 13px;
     font-weight: 400;
+    padding-top: 10px;
+    border-bottom-left-radius: 160px;
+    border-bottom-right-radius: 160px;
 }
 
-.profile-picture:hover > div {
-    display: block;
+.profile-picture.no-profile-picture div {
+    opacity: 50%;
+}
+
+.profile-picture .fa-camera {
+    font-size: 21px;
+    transition: all 0.2s ease;
+}
+
+.profile-picture.has-profile-picture:hover .fa-camera {
+    font-size: 17px;
+    top: 27px;
+    left: 30px;
+}
+
+.profile-picture.has-pointer:hover {
     cursor: pointer;
+}
+
+.profile-picture.has-profile-picture:hover > div {
+    opacity: 50%;
+    padding-top: 14px;
 }
 
 .profile-picture:hover > div:hover {
@@ -110,6 +132,23 @@
     background-color: black;
     opacity: 75%;
 }
+
+.profile-picture.no-profile-picture > div:hover .fa-camera {
+    font-size: 17px;
+    top: 27px;
+    left: 30px;
+}
+
+
+.profile-picture > div {
+    transition: all 0.2s ease;
+}
+
+
+.profile-picture input[type="file"] {
+    display: none;
+}
+
 
 .profile-name {
     font-size: 24px;
@@ -159,29 +198,87 @@
     font-size: 12px;
 }
 
-.timeline-content, .about-content {
+.timeline-content {
     padding: 12px;
     background-color: white;
     border: 0.5px solid thistle;
     border-radius: 3px;
 }
 
-.about-header {
-    border: 5px red solid;
+
+
+
+
+.cover-photo-form-container {
+    background-color: transparent;
+    opacity: 90%;
+    width: 50px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+    min-width: 160px;
+    height: 30px;
+    cursor: pointer;
 }
 
-.about-body {
-    border: 5px orange solid;
-    display: flex;
-    justify-content: flex-start;
+.cover-photo-form-container input[type="file"] {
+    display: none;
 }
 
-.about-menu {
-    border: 5px blue solid;
-    width: 247px;
+
+.cover-image.has-pointer:hover {
+    cursor: pointer;
 }
 
-.about-body-content {
-    border: 5px green solid;
-    width: 642px;
+.cover-image button {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-size: 12px;
+    color: white;
+    border: 1px solid white;
+    font-weight: 600;
+    padding-left: 22px;
+    box-shadow: 10px black;
+
+    visibility:hidden;
+    opacity:0;
+    transition:visibility 0.2s linear,opacity 0.2s linear;
 }
+
+.cover-image:hover  button {
+    visibility:visible;
+    opacity:1;
+}
+
+.cover-image {
+    position: relative;
+}
+
+.cover-image .fa-camera {
+    opacity: 90%;
+    top: 25px;
+    left: 27px;
+    z-index: 5;
+    cursor: pointer;
+    position: absolute;
+    color: white;
+    font-size: 21px;
+    z-index: 5;
+    text-shadow: 2px 2px 8px gray;
+    transition: all 0.3s ease;
+}
+
+.cover-image:hover .fa-camera {
+    font-size: 17px;
+    top: 27px;
+    left: 30px;
+}
+
+
+
+
+

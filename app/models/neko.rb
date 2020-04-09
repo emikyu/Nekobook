@@ -19,6 +19,9 @@
 #
 
 class Neko < ApplicationRecord
+    has_one_attached :profile_picture
+    has_one_attached :cover_photo
+
     validates :email, :password_digest, :session_token, :fname, :lname, :birthday, :gender, presence: true
     validates :gender, inclusion: { in: ["Male", "Female", "Custom"] }
     validates :email, :session_token, uniqueness: true

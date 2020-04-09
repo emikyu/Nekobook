@@ -1,0 +1,54 @@
+.about-content {
+    background-color: white;
+    border: 0.5px solid thistle;
+    border-radius: 3px;
+}
+
+.about-header {
+    padding: 16px 0 12px;
+    border-bottom: 0.5px solid thistle;
+    background-color: rgb(250, 243, 250);
+    border-right: 0.5px solid thistle;
+}
+
+.about-logo {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 12px 5px;
+    color: rgb(105, 105, 105);
+}
+
+.about-logo a:hover {
+    text-decoration: underline;
+}
+
+.about-body {
+    margin-top: 0;
+    // border: 5px orange solid;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.about-menu {
+    // border: 5px blue solid;
+    width: 247px;
+    border-right: 0.5px solid thistle;
+    padding: 8px 0;
+}
+
+.about-menu ul {
+    padding: 0;
+    margin: 0;
+}
+
+.about-menu a {
+    padding: 12px 4px 12px 16px;
+    display: block;
+    font-size: 14px;
+    color: rgb(105, 105, 105);
+}
+
+.about-body-content {
+    // border: 5px green solid;
+    width: 642px;
+}

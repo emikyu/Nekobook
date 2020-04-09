@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ProfileAbout from './profile_about';
-import { requestNeko, updateNeko } from '../../../actions/neko_actions';
+import { requestNeko, updateNeko, updateNekoPhoto } from '../../../actions/neko_actions';
 import { withRouter } from 'react-router-dom';
 
 const msp = (state, ownProps) => {
@@ -18,7 +18,8 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => ({
     updateNeko: (neko) => dispatch(updateNeko(neko)),
-    requestNeko: (nekoId) => dispatch(requestNeko(nekoId))
+    requestNeko: (nekoId) => dispatch(requestNeko(nekoId)),
+    updateNekoPhoto: (nekoId, photo) => dispatch(updateNekoPhoto(nekoId, photo))
 });
 
 export default withRouter(connect(msp, mdp)(ProfileAbout));
