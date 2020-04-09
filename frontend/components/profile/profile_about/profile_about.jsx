@@ -94,7 +94,7 @@ class ProfileAbout extends React.Component {
                             Hi I'm the content you're meant to show =^-^=
                             { canEdit? "Testing out an update form:" : ""}
                             <br/><br/>
-                            {/* {
+                            {
                                 canEdit ? (
                                     <div className="cover-photo-form-container">
                                         Use this form to update your cover photo!!! ^^
@@ -104,7 +104,7 @@ class ProfileAbout extends React.Component {
                                         </form>
                                     </div>
                                 ) : (<></>)
-                            } */}
+                            }
                                 
 
                             <div className="fname-form-container">

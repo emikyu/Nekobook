@@ -10,8 +10,8 @@ export const updateNeko = (neko) => (
         method: 'patch',
         url: `/api/nekos/${neko.id}`,
         data: { neko },
-        contentType: false,
-        processData: false
+        // contentType: false,
+        // processData: false
     })
 );
 
