@@ -7,11 +7,16 @@ const msp = (state, ownProps) => {
     const nekoId = ownProps.match.params.nekoId;
     // think about how to make the following more scalable :(
     const neko = state.entities.nekos[nekoId];
-    return { nekoId, neko };
+    return { 
+        nekoId,
+        neko, 
+        canEdit: (parseInt(nekoId) === state.session.currentUserId)
+    };
 };
 
 const mdp = dispatch => ({
-    requestNeko: userId => dispatch(requestNeko(userId))
+    requestNeko: userId => dispatch(requestNeko(userId)),
+    updateNekoPhoto: (nekoId, photo) => dispatch(updateNekoPhoto(nekoId, photo))
 });
 
 export default withRouter(connect(msp, mdp)(Profile));

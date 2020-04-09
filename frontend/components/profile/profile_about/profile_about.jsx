@@ -35,11 +35,14 @@ class ProfileAbout extends React.Component {
 
     handleSubmit(form) {
         return e => {
+            // debugger
             e.preventDefault();
             const tempState = Object.assign({}, this.state);
+            // debugger
             delete tempState.cover_photo;
             delete tempState.profile_picture;
-            // delete tempState.selectedCoverPhoto;
+            delete tempState.selectedCoverPhoto;
+            // debugger
             this.props.updateNeko(tempState);
         }
     }

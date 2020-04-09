@@ -9,9 +9,7 @@ export const updateNeko = (neko) => (
     $.ajax({
         method: 'patch',
         url: `/api/nekos/${neko.id}`,
-        data: { neko },
-        // contentType: false,
-        // processData: false
+        data: { neko }
     })
 );
 
