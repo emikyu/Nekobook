@@ -11,7 +11,7 @@ const msp = (state, ownProps) => {
     return {
         nekoId,
         neko,
-        canEdit: (nekoId === state.session.currentUserId),
+        canEdit: (parseInt(nekoId) === state.session.currentUserId),
         location
     }
 };

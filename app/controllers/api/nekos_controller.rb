@@ -34,7 +34,7 @@ class Api::NekosController < ApplicationController
     def update
         @neko = Neko.find(params[:id])
 
-        if @neko.update!(neko_params)
+        if @neko.id == current_user.id && @neko.update!(neko_params)
             if params[:neko].has_key?(:location)
                 location = Location.find_by(name: params[:neko][:location]) || 
                             Location.create(name: params[:neko][:location])
@@ -42,7 +42,9 @@ class Api::NekosController < ApplicationController
                 @neko.save!
             end
             render :show
-        elsif @neko
+        elsif @neko.id != current_user.id
+            render json: ["Silly you. You cannot make changes to another neko's profile!"], status: 404
+        else
             render json: @neko.errors.full_messages, status: 422
         end
 

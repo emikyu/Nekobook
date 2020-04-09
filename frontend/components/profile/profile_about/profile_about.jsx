@@ -48,7 +48,7 @@ class ProfileAbout extends React.Component {
 
     render() {
         // debugger
-        const { neko, location } = this.props;
+        const { neko, location, canEdit } = this.props;
         if (!neko || (!location && neko.location_id)) return null;
 
         return (
@@ -72,48 +72,65 @@ class ProfileAbout extends React.Component {
                         </nav>
                         <section className="about-body-content">
                             Hi I'm the content you're meant to show ^^
-                            Testing out an update form:
+                            { canEdit? "Testing out an update form:" : ""}
                             <br/><br/>
-                            <form action="" onSubmit={this.handleSubmit("name")}>
-                                <div className="fname-form-container">
-                                    Name - Currently @{`${neko.fname} ${neko.lname}`}<br />
-                                    <input type="text" name="fname" value={this.state.fname} onChange={this.handleChange("fname")} />
-                                    <input type="text" name="lname" value={this.state.lname} onChange={this.handleChange("lname")} />
-                                    <input type="submit" value="Save Changes" />
-                                    <button>Cancel</button>
-                                </div>
-                            </form>
+                            <div className="fname-form-container">
+                                Name - Currently @{`${neko.fname} ${neko.lname}`}<br />
+                                { 
+                                    canEdit ? (
+                                        <form action="" onSubmit={this.handleSubmit("name")}>
+                                            <input type="text" name="fname" value={this.state.fname} onChange={this.handleChange("fname")} />
+                                            <input type="text" name="lname" value={this.state.lname} onChange={this.handleChange("lname")} />
+                                            <input type="submit" value="Save Changes" />
+                                            <button>Cancel</button>
+                                        </form>
+                                    ) : (<></>)
+                                }
+                            </div>
                             <br/><br/>
-                            <form action="" onSubmit={this.handleSubmit("location")}>
-                                <div className="fname-form-container">
-                                    Location - Currently @{`${location ? location.name : "Not Set"}`}<br />
-                                    <input type="text" name="location" value={this.state.location} onChange={this.handleChange("location")} />
-                                    <input type="submit" value="Save Changes" />
-                                    <button>Cancel</button>
-                                </div>
-                            </form>
+                            <div className="fname-form-container">
+                                Location - Currently @{`${location ? location.name : "Not Set"}`}<br />
+                                {
+                                    canEdit ? (
+                                        <form action="" onSubmit={this.handleSubmit("location")}>
+                                            <input type="text" name="location" value={this.state.location} onChange={this.handleChange("location")} />
+                                            <input type="submit" value="Save Changes" />
+                                            <button>Cancel</button>
+                                        </form>
+                                    ) : (<></>)
+                                }
+                            </div>
                             <br /><br />
-                            <form action="" onSubmit={this.handleSubmit("birthday")}>
-                                <div className="birthday-form-container">
-                                    Birthday - Currently @{neko.birthday}<br/>
-                                    <input type="date" name="birthday" value={this.state.birthday} onChange={this.handleChange("birthday")}/>
-                                    <input type="submit" value="Save Changes"/>
-                                    <button>Cancel</button>
-                                </div>
-                            </form>
+                            <div className="birthday-form-container">
+                                Birthday - Currently @{neko.birthday}<br/>
+                                {
+                                    canEdit ? (
+                                        <form action="" onSubmit={this.handleSubmit("birthday")}>
+                                            <input type="date" name="birthday" value={this.state.birthday} onChange={this.handleChange("birthday")}/>
+                                            <input type="submit" value="Save Changes"/>
+                                            <button>Cancel</button>
+                                        </form>
+                                    ) : (<></>)
+                                }
+                            </div>
+                            
                             <br/><br/>
-                            <form action="" onSubmit={this.handleSubmit("gender")}>
-                                <div className="birthday-form-container">
-                                    Gender - Currently @{neko.gender}<br />
-                                    <select name="gender" value={this.state.gender} onChange={this.handleChange("gender")}>
-                                        <option value="Female">Female</option>
-                                        <option value="Male">Male</option>
-                                        <option value="Custom">Custom</option>
-                                    </select>
-                                    <input type="submit" value="Save Changes" />
-                                    <button>Cancel</button>
-                                </div>
-                            </form>
+                            <div className="birthday-form-container">
+                                Gender - Currently @{neko.gender}<br />
+                                {
+                                    canEdit ? (
+                                        <form action="" onSubmit={this.handleSubmit("gender")}>
+                                            <select name="gender" value={this.state.gender} onChange={this.handleChange("gender")}>
+                                                <option value="Female">Female</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Custom">Custom</option>
+                                            </select>
+                                            <input type="submit" value="Save Changes" />
+                                            <button>Cancel</button>
+                                        </form>
+                                    ) : (<></>)
+                                }
+                            </div>
                         </section>
                     </section>
                 </section>
