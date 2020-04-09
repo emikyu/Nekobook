@@ -3,9 +3,34 @@ import React from 'react';
 class ProfileAbout extends React.Component {
     constructor(props) {
         super(props);
-        this.state = Object.assign({}, this.props.neko);
+        // debugger
+        this.state = Object.assign({}, this.props.neko, {location: ""});
+        if (this.props.location) this.state.location = this.props.location.name;
 
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentDidMount() {
+        // debugger
+        this.props.requestNeko(this.props.nekoId);
+        this.setState(this.props.neko);
+        this.setState({ location: "" });
+        // debugger
+        if (this.props.location) this.setState({location: this.props.location.name});
+        // debugger
+    }
+
+    componentDidUpdate(prevProps) {
+        // debugger
+        if (this.props.nekoId !== prevProps.nekoId) {
+            this.props.requestNeko(this.props.nekoId);
+            this.setState(this.props.neko);
+        }
+
+        if (!prevProps.location && this.props.location) {
+            this.setState({location: ""});
+            if (this.props.location) this.setState({ location: this.props.location.name });
+        };
     }
 
     handleSubmit(form) {
@@ -22,7 +47,10 @@ class ProfileAbout extends React.Component {
     }
 
     render() {
-        const { neko } = this.props;
+        // debugger
+        const { neko, location } = this.props;
+        if (!neko || (!location && neko.location_id)) return null;
+
         return (
             <section className="profile-content">
                 <section className="about-content">
@@ -56,6 +84,15 @@ class ProfileAbout extends React.Component {
                                 </div>
                             </form>
                             <br/><br/>
+                            <form action="" onSubmit={this.handleSubmit("location")}>
+                                <div className="fname-form-container">
+                                    Location - Currently @{`${location ? location.name : "Not Set"}`}<br />
+                                    <input type="text" name="location" value={this.state.location} onChange={this.handleChange("location")} />
+                                    <input type="submit" value="Save Changes" />
+                                    <button>Cancel</button>
+                                </div>
+                            </form>
+                            <br /><br />
                             <form action="" onSubmit={this.handleSubmit("birthday")}>
                                 <div className="birthday-form-container">
                                     Birthday - Currently @{neko.birthday}<br/>

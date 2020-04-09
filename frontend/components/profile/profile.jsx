@@ -6,7 +6,6 @@ import ProfileAboutContainer from './profile_about/profile_about_container';
 
 class Profile extends React.Component {
     componentDidMount() {
-        // debugger
         this.props.requestNeko(this.props.nekoId);
     }
 
@@ -23,9 +22,9 @@ class Profile extends React.Component {
             <section className="profile">
                 <section className="profile-container">
                     <section className="profile-content">
-                        <Route path={`/nekos/${this.props.neko.id}`} render={() => <TimelineHeader neko={this.props.neko}/>}/>
-                        <Route exact path={`/nekos/${this.props.neko.id}`} render={() => <TimelineContent neko={this.props.neko} />} />
-                        <Route exact path={`/nekos/${this.props.neko.id}/about`} render={() => <ProfileAboutContainer nekoId={this.props.neko.id} />} />
+                        <Route path={'/nekos/:nekoId'} render={() => <TimelineHeader neko={this.props.neko}/>}/>
+                        <Route exact path={'/nekos/:nekoId'} render={() => <TimelineContent neko={this.props.neko} />} />
+                        <Route exact path={`/nekos/:nekoId/about`} component={ProfileAboutContainer} />
                     </section>
                 </section>
             </section>
