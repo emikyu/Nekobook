@@ -22,7 +22,7 @@ class Profile extends React.Component {
             <section className="profile">
                 <section className="profile-container">
                     <section className="profile-content">
-                        <Route path={'/nekos/:nekoId'} render={() => <TimelineHeader neko={this.props.neko}/>}/>
+                        <Route path={'/nekos/:nekoId'} render={() => <TimelineHeader neko={this.props.neko} updateNekoPhoto={this.props.updateNekoPhoto} canEdit={this.props.canEdit}/>}/>
                         <Route exact path={'/nekos/:nekoId'} render={() => <TimelineContent neko={this.props.neko} />} />
                         <Route exact path={`/nekos/:nekoId/about`} component={ProfileAboutContainer} />
                     </section>

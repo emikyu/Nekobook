@@ -53,21 +53,21 @@ class ProfileAbout extends React.Component {
         }
     }
 
-    handleCPChange(e) {
-        console.log(e.target.files);
-        this.setState({selectedCoverPhoto: e.target.files[0]});
-    }
+    // handleCPChange(e) {
+    //     console.log(e.target.files);
+    //     this.setState({selectedCoverPhoto: e.target.files[0]});
+    // }
 
-    handleCPSubmit(e) {
-        e.preventDefault();
-        const cpData = new FormData();
-        if (this.state.selectedCoverPhoto) {
-            // debugger
-            cpData.append('neko[cover_photo]', this.state.selectedCoverPhoto, this.state.selectedCoverPhoto.name);
-        }
+    // handleCPSubmit(e) {
+    //     e.preventDefault();
+    //     const cpData = new FormData();
+    //     if (this.state.selectedCoverPhoto) {
+    //         // debugger
+    //         cpData.append('neko[cover_photo]', this.state.selectedCoverPhoto, this.state.selectedCoverPhoto.name);
+    //     }
 
-        this.props.updateNekoPhoto(this.props.neko.id, Object.assign(cpData, {fname: this.props.neko.fname}));
-    }
+    //     this.props.updateNekoPhoto(this.props.neko.id, Object.assign(cpData, {fname: this.props.neko.fname}));
+    // }
 
     render() {
         // debugger
@@ -97,7 +97,7 @@ class ProfileAbout extends React.Component {
                             Hi I'm the content you're meant to show =^-^=
                             { canEdit? "Testing out an update form:" : ""}
                             <br/><br/>
-                            {
+                            {/* {
                                 canEdit ? (
                                     <div className="cover-photo-form-container">
                                         Use this form to update your cover photo!!! ^^
@@ -108,7 +108,7 @@ class ProfileAbout extends React.Component {
                                     </div>
                                 ) : (<></>)
                             }
-                                
+                                 */}
 
                             <div className="fname-form-container">
                                 Name - Currently @{`${neko.fname} ${neko.lname}`}<br />
