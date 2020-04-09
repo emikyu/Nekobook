@@ -39,6 +39,7 @@ class ProfileAbout extends React.Component {
             const tempState = Object.assign({}, this.state);
             delete tempState.cover_photo;
             delete tempState.profile_picture;
+            // delete tempState.selectedCoverPhoto;
             this.props.updateNeko(tempState);
         }
     }
@@ -61,17 +62,7 @@ class ProfileAbout extends React.Component {
             // debugger
             cpData.append('neko[cover_photo]', this.state.selectedCoverPhoto, this.state.selectedCoverPhoto.name);
         }
-        // debugger
-        // $.ajax({
-        //     url: `/api/nekos/${this.props.nekoId}`,
-        //     method: 'patch',
-        //     data: cpData,
-        //     contentType: false,
-        //     processData: false
-        // }).then(neko => {
-        //     console.log(neko);
-        //     // this.setState({cover_photo: neko.cover_photo})
-        // });
+
         this.props.updateNekoPhoto(this.props.neko.id, Object.assign(cpData, {fname: this.props.neko.fname}));
     }
 
@@ -100,10 +91,10 @@ class ProfileAbout extends React.Component {
                             </ul>
                         </nav>
                         <section className="about-body-content">
-                            Hi I'm the content you're meant to show ^^
+                            Hi I'm the content you're meant to show =^-^=
                             { canEdit? "Testing out an update form:" : ""}
                             <br/><br/>
-                            {
+                            {/* {
                                 canEdit ? (
                                     <div className="cover-photo-form-container">
                                         Use this form to update your cover photo!!! ^^
@@ -113,7 +104,7 @@ class ProfileAbout extends React.Component {
                                         </form>
                                     </div>
                                 ) : (<></>)
-                            }
+                            } */}
                                 
 
                             <div className="fname-form-container">
