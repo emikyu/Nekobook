@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class ProfileAbout extends React.Component {
     constructor(props) {
@@ -53,22 +54,6 @@ class ProfileAbout extends React.Component {
         }
     }
 
-    // handleCPChange(e) {
-    //     console.log(e.target.files);
-    //     this.setState({selectedCoverPhoto: e.target.files[0]});
-    // }
-
-    // handleCPSubmit(e) {
-    //     e.preventDefault();
-    //     const cpData = new FormData();
-    //     if (this.state.selectedCoverPhoto) {
-    //         // debugger
-    //         cpData.append('neko[cover_photo]', this.state.selectedCoverPhoto, this.state.selectedCoverPhoto.name);
-    //     }
-
-    //     this.props.updateNekoPhoto(this.props.neko.id, Object.assign(cpData, {fname: this.props.neko.fname}));
-    // }
-
     render() {
         // debugger
         const { neko, location, canEdit } = this.props;
@@ -78,37 +63,26 @@ class ProfileAbout extends React.Component {
             <section className="profile-content">
                 <section className="about-content">
                     <header className="about-header">
-                        About {neko.fname} !!
+                        <div className="about-logo">
+                            <Link to={`/nekos/${this.props.neko.id}/about`}>About</Link>
+                        </div>
                     </header>
-                    Hi check out below the body for the stuff about {neko.fname} yay~
                     <section className="about-body">
                         <nav className="about-menu">
                             <ul>
-                                <li>Overview</li>
-                                <li>Work and Education</li>
-                                <li>Places You've Lived</li>
-                                <li>Contact and Basic Info</li>
-                                <li>Family and Relationships</li>
-                                <li>Details About You</li>
-                                <li>Life Events</li>
+                                <li><Link to={`/nekos/${this.props.neko.id}/about`}>Overview</Link></li>
+                                <li><Link to={`/nekos/${this.props.neko.id}/about`}>Work and Education</Link></li>
+                                <li><Link to={`/nekos/${this.props.neko.id}/about`}>Places You've Lived</Link></li>
+                                <li><Link to={`/nekos/${this.props.neko.id}/about`}>Contact and Basic Info</Link></li>
+                                <li><Link to={`/nekos/${this.props.neko.id}/about`}>Family and Relationships</Link></li>
+                                <li><Link to={`/nekos/${this.props.neko.id}/about`}>Details About You</Link></li>
+                                <li><Link to={`/nekos/${this.props.neko.id}/about`}>Life Events</Link></li>
                             </ul>
                         </nav>
                         <section className="about-body-content">
                             Hi I'm the content you're meant to show =^-^=
                             { canEdit? "Testing out an update form:" : ""}
                             <br/><br/>
-                            {/* {
-                                canEdit ? (
-                                    <div className="cover-photo-form-container">
-                                        Use this form to update your cover photo!!! ^^
-                                        <form action="" onSubmit={this.handleCPSubmit.bind(this)}>
-                                            <input type="file" onChange={this.handleCPChange.bind(this)}/>
-                                            <input type="submit" value="Update Cover Photo!"/>
-                                        </form>
-                                    </div>
-                                ) : (<></>)
-                            }
-                                 */}
 
                             <div className="fname-form-container">
                                 Name - Currently @{`${neko.fname} ${neko.lname}`}<br />

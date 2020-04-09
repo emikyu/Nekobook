@@ -74,8 +74,8 @@
 }
 
 .profile-picture img {
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     display: block;
     position: absolute;
@@ -83,6 +83,7 @@
     margin-top: auto;
     top: 0;
     bottom: 0;
+    border-radius: 50%;
 }
 
 .profile-picture div {
@@ -92,17 +93,38 @@
     margin-top: 80px;
     color: white;
     background-color: black;
-    opacity: 50%;
+    opacity: 0%;
     text-align: center;
-    padding-top: 30px;
-    display: none;
+    // display: none;
     font-size: 13px;
     font-weight: 400;
+    padding-top: 10px;
+    border-bottom-left-radius: 160px;
+    border-bottom-right-radius: 160px;
 }
 
-.profile-picture:hover > div {
-    display: block;
+.profile-picture.no-profile-picture div {
+    opacity: 50%;
+}
+
+.profile-picture .fa-camera {
+    font-size: 21px;
+    transition: all 0.2s ease;
+}
+
+.profile-picture.has-profile-picture:hover .fa-camera {
+    font-size: 17px;
+    top: 27px;
+    left: 30px;
+}
+
+.profile-picture.has-pointer:hover {
     cursor: pointer;
+}
+
+.profile-picture.has-profile-picture:hover > div {
+    opacity: 50%;
+    padding-top: 14px;
 }
 
 .profile-picture:hover > div:hover {
@@ -110,6 +132,23 @@
     background-color: black;
     opacity: 75%;
 }
+
+.profile-picture.no-profile-picture > div:hover .fa-camera {
+    font-size: 17px;
+    top: 27px;
+    left: 30px;
+}
+
+
+.profile-picture > div {
+    transition: all 0.2s ease;
+}
+
+
+.profile-picture input[type="file"] {
+    display: none;
+}
+
 
 .profile-name {
     font-size: 24px;
@@ -159,32 +198,16 @@
     font-size: 12px;
 }
 
-.timeline-content, .about-content {
+.timeline-content {
     padding: 12px;
     background-color: white;
     border: 0.5px solid thistle;
     border-radius: 3px;
 }
 
-.about-header {
-    border: 5px red solid;
-}
 
-.about-body {
-    border: 5px orange solid;
-    display: flex;
-    justify-content: flex-start;
-}
 
-.about-menu {
-    border: 5px blue solid;
-    width: 247px;
-}
 
-.about-body-content {
-    border: 5px green solid;
-    width: 642px;
-}
 
 .cover-photo-form-container {
     background-color: transparent;
@@ -254,6 +277,8 @@
     top: 27px;
     left: 30px;
 }
+
+
 
 
 
