@@ -69,6 +69,7 @@ class ProfileAboutLiving extends React.Component {
                                         )
                                     )
                             }
+                            {this.props.canEdit ? (<>
                             <button onClick={() => {this.toggleForm.current.classList.add("show"); this.toggleView.current.classList.add("hide")}}>Show Form</button>
                             <li className="hidden-about-form" ref={this.toggleForm}>
                                 <form action="" onSubmit={this.handleSubmit.bind(this)}>
@@ -76,7 +77,9 @@ class ProfileAboutLiving extends React.Component {
                                     <input type="submit" value="Save Changes" />
                                     <button onClick={e => { e.preventDefault(); this.toggleForm.current.classList.remove("show"); this.setState(this.startingState); this.toggleView.current.classList.remove("hide"); }}>Cancel</button>
                                 </form>
-                            </li>
+                            </li></>
+                            ) : ("")
+                            }
                         </ul>
                     </div>
                 </section>

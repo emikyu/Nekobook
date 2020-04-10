@@ -65,13 +65,7 @@ class ProfileAboutOverview extends React.Component {
                             <li> </li>
                             <li> </li>
                             <li className="about-overview-right-edit">
-                                { this.props.canEdit? (
-                                    <Link to={`/nekos/${this.props.neko.id}/about?section=contact-info`}>
-                                        Edit your contact and basic info
-                                    </Link>
-                                 )
-                                 : (" ")
-                                }
+                                <p>{ this.props.canEdit? ( "Edit your contact and basic info") : (" ")}</p>
                             </li>
                         </ul>
                         </Link>

@@ -167,16 +167,16 @@ li.not-selected-section a:hover {
     background-color: rgb(250, 243, 250);
 }
 
-.about-overview-right-edit a {
+.about-overview-right-edit p {
     display: none;
     color: rgb(105, 105, 105);
 }
 
-.overview-right-list:hover > .about-overview-right-edit a {
+.overview-right-list:hover > .about-overview-right-edit p{
     display: block;
 }
 
-.about-overview-right-edit a:hover {
+.about-overview-right-edit p:hover {
     text-decoration: underline;
 }
 
