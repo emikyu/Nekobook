@@ -89,37 +89,65 @@ class ProfileAboutContact extends React.Component {
                         </ul>
                         <div className="about-profile-label">BASIC INFORMATION</div>
                         <ul className="about-profile-list with-label">
-                            <li ref={this.toggleView.fname}>
+                            <li className="about-list-view" ref={this.toggleView.fname}>
                                 <div className="contact-left">
                                     First Name
                                 </div>
                                 <div className="contact-right">
                                     {neko.fname}
                                 </div>
-                                <button className="" onClick={this.showForm(["fname", "lname"], "fullName")}>Edit</button>                                
+                                {canEdit ? <button onClick={this.showForm(["fname", "lname"], "fullName")}>
+                                        <i className="fa fa-pencil" aria-hidden="true"></i>
+                                        <span>Edit</span>                                        
+                                    </button> : <></>}                                
                             </li>
-                            <li ref={this.toggleView.lname}>
+                            <li className="about-list-view" ref={this.toggleView.lname}>
                                 <div className="contact-left">
                                     Last Name
                                 </div>
                                 <div className="contact-right">
                                     {neko.lname}
                                 </div>
-                                <button onClick={this.showForm(["fname", "lname"], "fullName")}>Edit</button>                                
+                                {canEdit ? <button onClick={this.showForm(["fname", "lname"], "fullName")}>
+                                    <i className="fa fa-pencil" aria-hidden="true"></i>
+                                    <span>Edit</span>
+                                    </button> : <></>}                                
                             </li>
                             {
                                 canEdit ? (
                                     <li className="hidden-about-form" ref={this.toggleForm.fullName}>
                                         <form action="" onSubmit={this.handleSubmit(["fname", "lname"], "fullName")}>
-                                            <div>First Name<input type="text" name="fname" value={this.state.fname} onChange={this.handleChange("fname")} /></div>
-                                            <div>Last Name<input type="text" name="lname" value={this.state.lname} onChange={this.handleChange("lname")} /></div>
-                                            <input type="submit" value="Save Changes" />
-                                            <button onClick={this.hideForm(["fname", "lname"], "fullName")}>Cancel</button>
+                                            <ul className="hidden-form-list">
+                                                <li>
+                                                    <div className="contact-form-left">
+                                                        First Name
+                                                    </div>
+                                                    <div className="contact-form-right">
+                                                        <input type="text" name="fname" value={this.state.fname} onChange={this.handleChange("fname")} />
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div className="contact-form-left">
+                                                        Last Name
+                                                    </div>
+                                                    <div className="contact-form-right">
+                                                        <input type="text" name="lname" value={this.state.lname} onChange={this.handleChange("lname")} />
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div className="contact-form-left">
+                                                    </div>
+                                                    <div className="contact-form-right">
+                                                        <input className="save-changes" type="submit" value="Save Changes" />
+                                                        <button className="cancelled" onClick={this.hideForm(["fname", "lname"], "fullName")}>Cancel</button>
+                                                    </div>
+                                                </li>
+                                            </ul>
                                         </form>
                                     </li>
                                 ) : ("")
                             }
-                            <li ref={this.toggleView.birthday}>
+                            <li className="about-list-view" ref={this.toggleView.birthday}>
                                 <div className="contact-left">
                                     Birth Date
                                 </div>
@@ -127,7 +155,7 @@ class ProfileAboutContact extends React.Component {
                                     {`${months[parseInt(birthday[1]) - 1]} ${parseInt(birthday[2])}`}
                                 </div>
                             </li>
-                            <li ref={this.toggleView.birthday}>
+                            <li className="about-list-view" ref={this.toggleView.birthday}>
                                 <div className="contact-left">
                                     Birth Year
                                 </div>
@@ -135,7 +163,7 @@ class ProfileAboutContact extends React.Component {
                                     {birthday[0]}
                                 </div>
                             </li>
-                            <li ref={this.toggleView.gender}>
+                            <li className="about-list-view" ref={this.toggleView.gender}>
                                 <div className="contact-left">
                                     Gender
                                 </div>

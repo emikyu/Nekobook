@@ -50,25 +50,25 @@ class ProfileAboutLiving extends React.Component {
                                     </li>
                                     ) : (
                                         this.props.location ? (
-                                            <li ref={this.toggleView}>
+                                            <li ref={this.toggleView} className="about-list-view">
                                                 <div className="show-icon">
                                                     <i className="fas fa-home"></i>
                                                 </div>
                                                 <div className="has-information">
                                                     Lives in {this.props.location.name}
                                                 </div>
-                                                <button onClick={() => { this.toggleForm.current.classList.add("show"); this.toggleView.current.classList.add("hide") }}>Show Form</button>
+                                                <button onClick={() => { this.toggleForm.current.classList.add("show"); this.toggleView.current.classList.add("hide") }}>Edit</button>
                                                 <button onClick={() => { this.props.updateNeko({ id: this.props.neko.id, location: "" }); this.setState({ location: "" }) }}>Delete</button> 
                                             </li>
                                         ) : (
-                                            <li ref={this.toggleView}>
+                                                
+                                            <li className="missing-information about-list-view" onClick={() => { this.toggleForm.current.classList.add("show"); this.toggleView.current.classList.add("hide") }} ref={this.toggleView}>
                                                 <div className="hide-icon">
                                                     <i className="fas fa-plus"></i>
                                                 </div>
                                                 <div className="need-information">
                                                     Add your current city
                                                 </div>
-                                                <button onClick={() => { this.toggleForm.current.classList.add("show"); this.toggleView.current.classList.add("hide") }}>Show Form</button>
                                             </li>
                                         )
                                     )

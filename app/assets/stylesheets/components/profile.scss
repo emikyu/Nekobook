@@ -1,6 +1,7 @@
 .profile {
     background-color: rgb(253, 242, 253);
     min-height: 1500px;
+    width: 100%;
 }
 
 .profile-container {
@@ -9,6 +10,7 @@
     margin: 0 auto;
     // background-color: powderblue; // remove later
     min-height: 1500px;
+    
 }
 
 .profile-content {
@@ -52,9 +54,9 @@
     position: relative;
     height: 45px;
     box-sizing: border-box;
-    border-bottom: 0.5px solid thistle;
-    border-left: 0.5px solid thistle;
-    border-right: 0.5px solid thistle;
+    border-bottom: 1px solid thistle;
+    border-left: 1px solid thistle;
+    border-right: 1px solid thistle;
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
     margin-bottom: 12px;
@@ -201,7 +203,7 @@
 .timeline-content {
     padding: 12px;
     background-color: white;
-    border: 0.5px solid thistle;
+    border: 1px solid thistle;
     border-radius: 3px;
 }
 

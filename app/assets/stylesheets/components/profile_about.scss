@@ -1,14 +1,14 @@
 .about-content {
     background-color: white;
-    border: 0.5px solid thistle;
+    border: 1px solid thistle;
     border-radius: 3px;
 }
 
 .about-header {
     padding: 16px 0 12px;
-    border-bottom: 0.5px solid thistle;
+    border-bottom: 1px solid thistle;
     background-color: rgb(250, 243, 250);
-    border-right: 0.5px solid thistle;
+    // border-right: 1px solid thistle;
 }
 
 .about-logo {
@@ -32,7 +32,7 @@
 .about-menu {
     // border: 5px blue solid;
     min-width: 247px;
-    border-right: 0.5px solid thistle;
+    border-right: 1px solid thistle;
     padding: 8px 0;
 }
 
@@ -100,11 +100,15 @@ li.not-selected-section a:hover {
     display: flex;
     justify-content: flex-start;
     font-size: 14px;
-    border-bottom: 0.5px solid rgb(253, 242, 253);
+    border-bottom: 1px solid rgb(253, 242, 253);
     padding: 0 0 20px;
 }
 
-.about-profile-list > li:last-child {
+.about-profile-list li:last-child {
+    border-bottom: none;
+}
+
+.about-profile-list li:nth-last-child(2) {
     border-bottom: none;
 }
 
@@ -210,7 +214,7 @@ li.not-selected-section a:hover {
     padding: 12px 0 17px;
 }
 
-.about-contact li {
+.about-contact .aboutprofile-list li {
     display: flex;
     justify-content: space-between;
 }
@@ -247,9 +251,127 @@ li.not-selected-section a:hover {
 div.contact-left {
     margin: 0 18px 0 0;
     width: 180px;
+    color: rgb(105, 105, 105);
 }
 
 div.contact-right {
     width: 360px;
 }
 
+div.contact-form-left {
+    width: 180px;
+    color: rgb(105, 105, 105);
+    text-align: right;
+}
+
+div.contact-form-right {
+    width: 360px;
+}
+
+li.about-list-view {
+    position: relative;
+}
+
+li.about-list-view > button:nth-last-child(2){
+    position: absolute;
+    right: 50px;
+}
+
+li.about-list-view > button:last-child {
+    position: absolute;
+    right: 0px;
+}
+
+li.about-list-view > button {
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+    display: none;
+    color: rgb(105, 105, 105);
+}
+
+
+
+li.about-list-view:hover > button {
+    display: block;
+}
+
+li.about-list-view i.fa-pencil {
+    font-size: 12px;
+    padding: 0px;
+    margin: 0 4px 0 0;
+    color: rgb(105, 105, 105);
+}
+
+li.about-list-view span:hover {
+    text-decoration: underline;
+}
+
+li.about-list-view:hover > button:hover {
+    display: block;
+}
+
+.about-profile-list > li.missing-information {
+    cursor: pointer;
+}
+
+li.hidden-about-form > form {
+    background-color: rgb(250, 243, 250);
+    padding: 12px 18px 12px 24px;
+    margin: -13px -18px -13px -24px;
+    box-sizing: border-box;
+    border-top: 1px solid rgb(236, 224, 236);
+    border-bottom: 1px solid rgb(236, 224, 236);
+    // border-right: 1px solid thistle;
+}
+
+li.hidden-about-form > form input[type="text"] {
+    font-size: 14px;
+    width: 224px;
+    padding: 5px 7px 6px;
+    border: 1px solid rgb(236, 224, 236);
+}
+
+li.hidden-about-form {
+    border-bottom: none;
+}
+
+.hidden-form-list > li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 5px;
+}
+
+.hidden-form-list > li:nth-last-child(2) {
+    padding: 0 0 10px;
+}
+
+.hidden-form-list > li:last-child {
+    padding-top: 10px;
+    border-top: 1px solid rgb(240, 212, 240);
+}
+
+input.save-changes {
+    font-size: 12px;
+    padding: 5px 10px;
+    box-sizing: content-box;
+    // display: block;
+    font-weight: bold;
+    background-color: rgb(128, 100, 128);
+    border: none;
+    border-radius: 3px;
+    color: white;
+}
+
+button.cancelled {
+    background-color: rgb(250, 243, 250);
+    border: 1px solid thistle;
+    border-radius: 3px;
+    font-size: 12px;
+    margin: 0 0 0 4px;
+    padding: 5px 10px;
+    font-weight: bold;
+    color: rgb(105, 105, 105);
+}

@@ -17,7 +17,9 @@ const UserNav = ({currentUser, logout}) => (
             <Link to='/newsfeed'>Home</Link>
         </li>
         <div className="nav-divider"></div>
-        <li className="nav-text">Create</li>
+        <li className="nav-text">
+            <a href="https://github.com/emikyu">Github</a>
+        </li>
         <div className="nav-divider"></div>
         <li className="notifications">
             <ul className="notifications-list">
