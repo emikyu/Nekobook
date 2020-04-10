@@ -6,11 +6,11 @@ class ProfileAboutLiving extends React.Component {
         super(props);
         this.startingState = {
             id: this.props.neko.id,
-            location: this.props.location.name
+            location: (this.props.location ? this.props.location.name : "")
         };
         this.state = {
             id: this.props.neko.id,
-            location: this.props.location.name
+            location: (this.props.location ? this.props.location.name : "")
         };
         this.toggleForm = React.createRef();
         this.toggleView = React.createRef();
@@ -20,11 +20,12 @@ class ProfileAboutLiving extends React.Component {
         e.preventDefault();
         const tempState = Object.assign({}, this.state);
         this.props.updateNeko(tempState);
+        if (this.toggleForm.classList) this.toggleForm.classList.remove("show");
     }
 
     handleChange(field) {
         return e => {
-            this.setState({ [field]: e.target.value });
+            this.setState({[field]: e.target.value });
         }
     }
 
@@ -56,6 +57,8 @@ class ProfileAboutLiving extends React.Component {
                                                 <div className="has-information">
                                                     Lives in {this.props.location.name}
                                                 </div>
+                                                <button onClick={() => { this.toggleForm.current.classList.add("show"); this.toggleView.current.classList.add("hide") }}>Show Form</button>
+                                                <button onClick={() => { this.props.updateNeko({ id: this.props.neko.id, location: "" }); this.setState({ location: "" }) }}>Delete</button> 
                                             </li>
                                         ) : (
                                             <li ref={this.toggleView}>
@@ -65,17 +68,17 @@ class ProfileAboutLiving extends React.Component {
                                                 <div className="need-information">
                                                     Add your current city
                                                 </div>
+                                                <button onClick={() => { this.toggleForm.current.classList.add("show"); this.toggleView.current.classList.add("hide") }}>Show Form</button>
                                             </li>
                                         )
                                     )
                             }
                             {this.props.canEdit ? (<>
-                            <button onClick={() => {this.toggleForm.current.classList.add("show"); this.toggleView.current.classList.add("hide")}}>Show Form</button>
                             <li className="hidden-about-form" ref={this.toggleForm}>
                                 <form action="" onSubmit={this.handleSubmit.bind(this)}>
                                     <div>Current City <input type="text" name="location" value={this.state.location} onChange={this.handleChange("location").bind(this)}/></div>
                                     <input type="submit" value="Save Changes" />
-                                    <button onClick={e => { e.preventDefault(); this.toggleForm.current.classList.remove("show"); this.setState(this.startingState); this.toggleView.current.classList.remove("hide"); }}>Cancel</button>
+                                    <button onClick={e => { e.preventDefault(); this.toggleForm.current.classList.remove("show"); this.setState({id: this.props.neko.id, location: (this.props.location ? this.props.location.name : "")}); this.toggleView.current.classList.remove("hide"); }}>Cancel</button>
                                 </form>
                             </li></>
                             ) : ("")
