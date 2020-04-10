@@ -31,7 +31,7 @@
 
 .about-menu {
     // border: 5px blue solid;
-    width: 247px;
+    min-width: 247px;
     border-right: 0.5px solid thistle;
     padding: 8px 0;
 }
@@ -102,6 +102,10 @@ li.not-selected-section a:hover {
     font-size: 14px;
     border-bottom: 0.5px solid rgb(253, 242, 253);
     padding: 0 0 20px;
+}
+
+.about-profile-list > li:last-child {
+    border-bottom: none;
 }
 
 .show-icon {
@@ -200,25 +204,52 @@ li.not-selected-section a:hover {
 .about-profile-list.with-label {
     border-top: 1px solid rgb(240, 212, 240);
     margin: 0;
-    padding: 12px 0;
 }
 
-.about-profile-content.about-living {
+.about-profile-list.with-label > li {
+    padding: 12px 0 17px;
+}
+
+.about-contact li {
+    display: flex;
+    justify-content: space-between;
+}
+
+.about-contact .about-profile-list.with-label {
+    padding: 0 0 30px;
+}
+
+.about-profile-content.about-living,
+.about-profile-content.about-contact {
     padding-top: 15px;
+    padding-bottom: 0px;
 }
 
-li.hidden-about-form {
+.about-contact .hidden-about-form,
+.about-living .hidden-about-form {
     display: none;
 }
 
-li.hidden-about-form.show {
+.about-contact .hidden-about-form.show,
+.about-living .hidden-about-form.show {
     display: block;
 }
 
-li.hide {
+.about-contact .hide,
+.about-living .hide {
     display: none;
 }
 
 .about-profile-section {
     font-size: 14px;
 }
+
+div.contact-left {
+    margin: 0 18px 0 0;
+    width: 180px;
+}
+
+div.contact-right {
+    width: 360px;
+}
+

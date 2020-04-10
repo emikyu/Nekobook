@@ -37,23 +37,6 @@ class ProfileAbout extends React.Component {
         };
     }
 
-    // handleSubmit(form) {
-    //     return e => {
-    //         e.preventDefault();
-    //         const tempState = Object.assign({}, this.state);
-    //         delete tempState.cover_photo;
-    //         delete tempState.profile_picture;
-    //         delete tempState.selectedCoverPhoto;
-    //         this.props.updateNeko(tempState);
-    //     }
-    // }
-
-    // handleChange(field) {
-    //     return e => {
-    //         this.setState({[field]: e.target.value});
-    //     }
-    // }
-
     render() {
         // debugger
         const { neko, location, canEdit } = this.props;
@@ -101,7 +84,7 @@ class ProfileAbout extends React.Component {
             default:
                 if (this.props.aboutSection) {
                     console.log(this.props.aboutSection);
-                    debugger
+                    // debugger
                     aboutContent = <ProfileAboutPlaceholder 
                         sectionName={sectionNames[sectionQuery.indexOf(this.props.aboutSection)]} />
                 }
