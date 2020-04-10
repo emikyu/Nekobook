@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Switch, Route } from 'react-router-dom';
+import ProfileAboutOverview from './profile_about_overview';
 
 class ProfileAbout extends React.Component {
     constructor(props) {
@@ -56,6 +57,9 @@ class ProfileAbout extends React.Component {
         const { neko, location, canEdit } = this.props;
         if (!neko || (!location && neko.location_id)) return null;
 
+        const sectionNames = ["Overview", "Work and Education", "Places You've Lived", "Contact and Basic Info", "Family and Relationships", "Details About You", "Life Events"];
+        const sectionQuery = ["overview", "education", "living", "contact-info", "relationship", "bio", "year-overview"]
+
         return (
             <section className="profile-content">
                 <section className="about-content">
@@ -67,21 +71,29 @@ class ProfileAbout extends React.Component {
                     <section className="about-body">
                         <nav className="about-menu">
                             <ul>
-                                <li><Link to={`/nekos/${this.props.neko.id}/about`}>Overview</Link></li>
-                                <li><Link to={`/nekos/${this.props.neko.id}/about`}>Work and Education</Link></li>
-                                <li><Link to={`/nekos/${this.props.neko.id}/about`}>Places You've Lived</Link></li>
-                                <li><Link to={`/nekos/${this.props.neko.id}/about`}>Contact and Basic Info</Link></li>
-                                <li><Link to={`/nekos/${this.props.neko.id}/about`}>Family and Relationships</Link></li>
-                                <li><Link to={`/nekos/${this.props.neko.id}/about`}>Details About You</Link></li>
-                                <li><Link to={`/nekos/${this.props.neko.id}/about`}>Life Events</Link></li>
+                                {
+                                    sectionNames.map((name, idx) => (
+                                        <li key={name} className={this.props.aboutSection === sectionQuery[idx] ? "selected-section" : "not-selected-section"}>
+                                            {
+                                                this.props.aboutSection === sectionQuery[idx] ? (
+                                                    <div className="section-marker"></div>
+                                                ) : ("")
+                                            }
+                                            <div>
+                                                <Link to={`/nekos/${this.props.neko.id}/about?section=${sectionQuery[idx]}`}>
+                                                    {name}
+                                                </Link>
+                                            </div>
+                                        </li>
+                                    ))
+                                }
                             </ul>
                         </nav>
                         <section className="about-body-content">
-                            Hi I'm the content you're meant to show =^-^=
-                            { canEdit? "Testing out an update form:" : ""}
-                            <br/><br/>
-
-                            <div className="fname-form-container">
+                            <Switch>
+                                <Route match='/nekos/:nekoId/about' render={() => <ProfileAboutOverview neko={this.props.neko} location={this.props.location} canEdit={this.props.canEdit}/>}/>
+                            </Switch>
+                            {/* <div className="fname-form-container">
                                 Name - Currently @{`${neko.fname} ${neko.lname}`}<br />
                                 { 
                                     canEdit ? (
@@ -137,7 +149,7 @@ class ProfileAbout extends React.Component {
                                         </form>
                                     ) : (<></>)
                                 }
-                            </div>
+                            </div> */}
                         </section>
                     </section>
                 </section>

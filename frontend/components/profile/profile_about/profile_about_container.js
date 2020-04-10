@@ -2,17 +2,19 @@ import { connect } from 'react-redux';
 import ProfileAbout from './profile_about';
 import { requestNeko, updateNeko, updateNekoPhoto } from '../../../actions/neko_actions';
 import { withRouter } from 'react-router-dom';
+import queryString from 'query-string';
 
 const msp = (state, ownProps) => {
     const nekoId = ownProps.match.params.nekoId;
     const neko = state.entities.nekos[nekoId];
     const location = (neko && neko.location_id) ? state.entities.locations[neko.location_id] : null;
-
+    const aboutSection = queryString.parse(ownProps.location.search).section;
     return {
         nekoId,
         neko,
         canEdit: (parseInt(nekoId) === state.session.currentUserId),
-        location
+        location,
+        aboutSection
     }
 };
 

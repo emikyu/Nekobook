@@ -51,4 +51,129 @@
 .about-body-content {
     // border: 5px green solid;
     width: 642px;
+    padding: 30px 24px 0;
+}
+
+li.selected-section a {
+    font-weight: bold;
+    color: black;
+}
+
+.section-marker {
+    width: 3px;
+    height: 24px;
+    background-color: rgb(105, 105, 105);
+}
+
+li.selected-section {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+li.selected-section a {
+    padding-left: 13px;
+}
+
+li.not-selected-section a:hover {
+    color: black;
+}
+
+// *** Profile About Overview ***
+
+.about-overview-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.about-overview-left {
+    width: 328px;
+}
+
+.about-overview-right {
+    width: 204px;
+}
+
+.overview-list li {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 14px;
+    border-bottom: 0.5px solid rgb(253, 242, 253);
+    padding: 0 0 20px;
+}
+
+.show-icon {
+    min-width: 36px;
+    min-height: 36px;
+    font-size: 24px;
+    text-align: center;
+    border-radius: 50%;
+    color: white;
+    background-color: thistle;
+    margin-right: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hide-icon {
+    min-width: 36px;
+    min-height: 36px;
+    font-size: 12px;
+    text-align: center;
+    color: rgb(105, 105, 105);;
+    margin-right: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px dashed #696969;
+}
+
+.need-information {
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgb(105, 105, 105);;
+}
+
+.about-overview-right {
+    color: rgb(105, 105, 105);
+    font-size: 12px;
+}
+
+.overview-right-list > li {
+    display: flex;
+    justify-content: flex-start;
+    padding: 16px 0 0;
+}
+
+.overview-right-list > li:first-child {
+    padding: 0;
+}
+
+.overview-right-text {
+    padding: 0 0 0 8px;
+}
+
+.overview-right-icon {
+    font-size: 16px;
+    color: thistle;
+}
+
+.overview-right-list:hover {
+    background-color: rgb(250, 243, 250);
+}
+
+.about-overview-right-edit a {
+    display: none;
+    color: rgb(105, 105, 105);
+}
+
+.overview-right-list:hover > .about-overview-right-edit a {
+    display: block;
+}
+
+.about-overview-right-edit a:hover {
+    text-decoration: underline;
 }
