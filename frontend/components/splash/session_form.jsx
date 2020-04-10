@@ -117,7 +117,7 @@ class LoginForm extends React.Component {
         const formType = this.props.formType.split(" ").join("").toLowerCase();
         const months = ["Month", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         const days = (["Day"]).concat([...Array(31).keys()].map((ele, idx) => idx + 1));
-        const years = (["Year"]).concat([...Array(105).keys()].map((ele, idx) => 2020 - 104 + idx));
+        const years = (["Year"]).concat([...Array(105).keys()].map((ele, idx) => todayDate.getFullYear() - 104 + idx));
         
         const reTypeEmail = (this.state.email.length > 0 && !this.errors.email) ? (
             <SessionFormInput type="email" field="reTypeEmail" placeholder="Re-enter email" errors={this.errors} handleBlur={this.handleBlur} handleFocus={this.handleFocus} handleChange={this.handleChange} />

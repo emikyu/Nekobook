@@ -18,9 +18,11 @@ class ProfileAboutLiving extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const tempState = Object.assign({}, this.state);
+        const tempState = { id: this.props.neko.id };
+        Object.assign(tempState, { location: this.state.location });
         this.props.updateNeko(tempState);
-        if (this.toggleForm.classList) this.toggleForm.classList.remove("show");
+        this.toggleForm.current.classList.remove("show");
+        this.toggleView.current.classList.remove("hide");
     }
 
     handleChange(field) {
@@ -55,7 +57,8 @@ class ProfileAboutLiving extends React.Component {
                                                     <i className="fas fa-home"></i>
                                                 </div>
                                                 <div className="has-information">
-                                                    Lives in {this.props.location.name}
+                                                    <div>{this.props.location.name}</div>
+                                                    <div>Current City</div>
                                                 </div>
                                                 <button onClick={() => { this.toggleForm.current.classList.add("show"); this.toggleView.current.classList.add("hide") }}>Edit</button>
                                                 <button onClick={() => { this.props.updateNeko({ id: this.props.neko.id, location: "" }); this.setState({ location: "" }) }}>Delete</button> 

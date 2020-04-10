@@ -101,6 +101,7 @@ li.not-selected-section a:hover {
     justify-content: flex-start;
     font-size: 14px;
     border-bottom: 1px solid rgb(253, 242, 253);
+    // border-bottom: 1px solid rgb(240, 212, 240);
     padding: 0 0 20px;
 }
 
@@ -319,8 +320,8 @@ li.about-list-view:hover > button:hover {
 
 li.hidden-about-form > form {
     background-color: rgb(250, 243, 250);
-    padding: 12px 18px 12px 24px;
-    margin: -13px -18px -13px -24px;
+    padding: 14px 18px 13px 24px;
+    margin: -14px -18px -13px -24px;
     box-sizing: border-box;
     border-top: 1px solid rgb(236, 224, 236);
     border-bottom: 1px solid rgb(236, 224, 236);
@@ -336,6 +337,7 @@ li.hidden-about-form > form input[type="text"] {
 
 li.hidden-about-form {
     border-bottom: none;
+    z-index: 2;
 }
 
 .hidden-form-list > li {
@@ -373,5 +375,22 @@ button.cancelled {
     margin: 0 0 0 4px;
     padding: 5px 10px;
     font-weight: bold;
+    color: rgb(105, 105, 105);
+}
+
+.contact-form-right > select {
+    font-size: 12px;
+    border: 1px solid rgb(236, 224, 236);
+}
+
+.about-living div.has-information {
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(128, 100, 128);
+}
+
+.about-living div.has-information > div:last-child {
+    font-size: 12px;
+    font-weight: 400;
     color: rgb(105, 105, 105);
 }
