@@ -2,6 +2,8 @@ import React from 'react';
 import { Link, Switch, Route } from 'react-router-dom';
 import ProfileAboutOverview from './profile_about_overview';
 import ProfileAboutLiving from './profile_about_living';
+import ProfileAboutContact from './profile_about_contact';
+import ProfileAboutPlaceholder from './profile_about_placeholder';
 
 
 class ProfileAbout extends React.Component {
@@ -90,7 +92,19 @@ class ProfileAbout extends React.Component {
                                 canEdit={this.props.canEdit}
                                 updateNeko={this.props.updateNeko} />;
                 break;
+            case "contact-info":
+                aboutContent = <ProfileAboutContact
+                    neko={this.props.neko}
+                    canEdit={this.props.canEdit}
+                    updateNeko={this.props.updateNeko} />;
+                break;
             default:
+                if (this.props.aboutSection) {
+                    console.log(this.props.aboutSection);
+                    debugger
+                    aboutContent = <ProfileAboutPlaceholder 
+                        sectionName={sectionNames[sectionQuery.indexOf(this.props.aboutSection)]} />
+                }
                 break;
         }
 
