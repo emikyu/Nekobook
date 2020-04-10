@@ -10,7 +10,6 @@ class ProfileAboutOverview extends React.Component {
 
         return (
             <section className="about-overview-section">
-                You are looking at the About Overview section.
                 <section className="about-overview-content">
                     <div className="about-overview-left">
                         <ul className="overview-list">

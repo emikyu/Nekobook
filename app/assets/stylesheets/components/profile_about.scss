@@ -51,7 +51,7 @@
 .about-body-content {
     // border: 5px green solid;
     width: 642px;
-    padding: 30px 24px 0;
+    padding: 15px 24px 0;
 }
 
 li.selected-section a {
@@ -84,6 +84,8 @@ li.not-selected-section a:hover {
 .about-overview-content {
     display: flex;
     justify-content: space-between;
+    padding: 0 0 30px;
+
 }
 
 .about-overview-left {
@@ -176,4 +178,8 @@ li.not-selected-section a:hover {
 
 .about-overview-right-edit a:hover {
     text-decoration: underline;
+}
+
+.about-overview-section {
+    padding: 0;
 }
