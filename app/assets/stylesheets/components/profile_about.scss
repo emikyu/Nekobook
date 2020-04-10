@@ -81,7 +81,7 @@ li.not-selected-section a:hover {
 
 // *** Profile About Overview ***
 
-.about-overview-content {
+.about-profile-content {
     display: flex;
     justify-content: space-between;
     padding: 0 0 30px;
@@ -96,7 +96,7 @@ li.not-selected-section a:hover {
     width: 204px;
 }
 
-.overview-list li {
+.about-profile-list li {
     display: flex;
     justify-content: flex-start;
     font-size: 14px;
@@ -180,6 +180,41 @@ li.not-selected-section a:hover {
     text-decoration: underline;
 }
 
-.about-overview-section {
+.about-profile-section {
     padding: 0;
+}
+
+
+.about-profile-left {
+    width: 100%;
+}
+
+.about-profile-label {
+    font-weight: bold;
+    font-size: 12px;
+    color: rgb(105, 105, 105);
+    margin: 0;
+    padding-bottom: 5px;
+}
+
+.about-profile-list.with-label {
+    border-top: 1px solid rgb(240, 212, 240);
+    margin: 0;
+    padding: 12px 0;
+}
+
+.about-profile-content.about-living {
+    padding-top: 15px;
+}
+
+li.hidden-about-form {
+    display: none;
+}
+
+li.hidden-about-form.show {
+    display: block;
+}
+
+li.hide {
+    display: none;
 }

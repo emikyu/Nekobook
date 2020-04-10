@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, Switch, Route } from 'react-router-dom';
 import ProfileAboutOverview from './profile_about_overview';
+import ProfileAboutLiving from './profile_about_living';
+
 
 class ProfileAbout extends React.Component {
     constructor(props) {
@@ -9,7 +11,8 @@ class ProfileAbout extends React.Component {
         this.state = Object.assign({}, this.props.neko, {location: ""});
         if (this.props.location) this.state.location = this.props.location.name;
 
-        this.handleSubmit = this.handleSubmit.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
+        // this.handleChange = this.handleChange.bind(this);
     }
 
     componentDidMount() {
@@ -32,33 +35,64 @@ class ProfileAbout extends React.Component {
         };
     }
 
-    handleSubmit(form) {
-        return e => {
-            // debugger
-            e.preventDefault();
-            const tempState = Object.assign({}, this.state);
-            // debugger
-            delete tempState.cover_photo;
-            delete tempState.profile_picture;
-            delete tempState.selectedCoverPhoto;
-            // debugger
-            this.props.updateNeko(tempState);
-        }
-    }
+    // handleSubmit(form) {
+    //     return e => {
+    //         e.preventDefault();
+    //         const tempState = Object.assign({}, this.state);
+    //         delete tempState.cover_photo;
+    //         delete tempState.profile_picture;
+    //         delete tempState.selectedCoverPhoto;
+    //         this.props.updateNeko(tempState);
+    //     }
+    // }
 
-    handleChange(field) {
-        return e => {
-            this.setState({[field]: e.target.value});
-        }
-    }
+    // handleChange(field) {
+    //     return e => {
+    //         this.setState({[field]: e.target.value});
+    //     }
+    // }
 
     render() {
         // debugger
         const { neko, location, canEdit } = this.props;
         if (!neko || (!location && neko.location_id)) return null;
 
-        const sectionNames = ["Overview", "Work and Education", "Places You've Lived", "Contact and Basic Info", "Family and Relationships", "Details About You", "Life Events"];
+        let pronouns = ["You", "You", "Your", "Yours", "You've"];
+
+        if (!this.props.canEdit) {
+            switch(this.props.neko.gender) {
+                case "Female":
+                    pronouns = ["She", "Her", "Her", "Hers", "She's"];
+                    break;
+                case "Male":
+                    pronouns = ["He", "Him", "His", "His", "He's"];
+                    break;
+                default:
+                    pronouns = ["They", "Them", "Their", "Theirs", "They've"];
+            }
+        }
+
+        const sectionNames = ["Overview", "Work and Education", `Places ${pronouns[4]} Lived`, "Contact and Basic Info", "Family and Relationships", `Details About ${pronouns[1]}`, "Life Events"];
         const sectionQuery = ["overview", "education", "living", "contact-info", "relationship", "bio", "year-overview"]
+
+        let aboutContent = <ProfileAboutOverview 
+                                neko={this.props.neko}
+                                location={this.props.location}
+                                canEdit={this.props.canEdit} />;
+
+        switch(this.props.aboutSection) {
+            case "overview":
+                break;
+            case "living":
+                aboutContent = <ProfileAboutLiving 
+                                neko={this.props.neko} 
+                                location={this.props.location} 
+                                canEdit={this.props.canEdit}
+                                updateNeko={this.props.updateNeko} />;
+                break;
+            default:
+                break;
+        }
 
         return (
             <section className="profile-content">
@@ -90,9 +124,7 @@ class ProfileAbout extends React.Component {
                             </ul>
                         </nav>
                         <section className="about-body-content">
-                            <Switch>
-                                <Route match='/nekos/:nekoId/about' render={() => <ProfileAboutOverview neko={this.props.neko} location={this.props.location} canEdit={this.props.canEdit}/>}/>
-                            </Switch>
+                            {aboutContent}
                             {/* <div className="fname-form-container">
                                 Name - Currently @{`${neko.fname} ${neko.lname}`}<br />
                                 { 

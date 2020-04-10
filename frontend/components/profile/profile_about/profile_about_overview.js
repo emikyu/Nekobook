@@ -9,10 +9,10 @@ class ProfileAboutOverview extends React.Component {
         const birthday = this.props.neko.birthday.split("-");
 
         return (
-            <section className="about-overview-section">
-                <section className="about-overview-content">
+            <section className="about-profile-section">
+                <section className="about-profile-content">
                     <div className="about-overview-left">
-                        <ul className="overview-list">
+                        <ul className="about-profile-list">
                             {
                                 !this.props.canEdit ? (
                                     <li>
