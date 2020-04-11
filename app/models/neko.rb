@@ -37,11 +37,23 @@ class Neko < ApplicationRecord
     has_many :requesters, through: :incoming_friend_requests, source: :requester
 
     def make_friend_request(other_neko)
-        FriendRequest.create!(requester: self, requestee: other_neko) unless FriendRequest.find_by(requester: self, requestee: other_neko)
+        unless FriendRequest.find_by(requester: self, requestee: other_neko) || FriendRequest.find_by(requestee: self, requester: other_neko)
+            FriendRequest.create!(requester: self, requestee: other_neko)
+        end
     end
 
     def cancel_friend_request(other_neko)
-        friend_request = FriendRequest.find_by(requestor: self, requestee: other_neko)
+        friend_request = FriendRequest.find_by(requester: self, requestee: other_neko)
+        friend_request.destroy! if friend_request
+    end
+
+    def accept_friend_request(other_necko)
+        friend_request = FriendRequest.find_by(requester: other_neko, requestee: self)
+        friend_request.destroy! if friend_request
+    end
+
+    def reject_friend_request(other_neko)
+        friend_request = FriendRequest.find_by(requeser: other_neko, requestee: self)
         friend_request.destroy! if friend_request
     end
 

@@ -66,7 +66,7 @@ class ProfileAboutLiving extends React.Component {
                                                 </button>
                                                 <div className="button-divider"></div>
                                                 <button className="delete-information" onClick={() => { this.props.updateNeko({ id: this.props.neko.id, location: "" }); this.setState({ location: "" }) }}>
-                                                    <i class="fa fa-times" aria-hidden="true"></i>                                                    
+                                                    <i className="fa fa-times" aria-hidden="true"></i>                                                    
                                                 </button> 
                                             </li>
                                         ) : (

@@ -28,7 +28,11 @@ class Api::NekosController < ApplicationController
 
     def show
         @neko = Neko.find(params[:id])
-        render :show
+        if current_user.id != @neko.id
+            render :show
+        else
+            render :show_current
+        end
     end
 
     def update
