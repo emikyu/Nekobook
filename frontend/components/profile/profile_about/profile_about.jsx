@@ -102,6 +102,7 @@ class ProfileAbout extends React.Component {
                 <section className="about-content">
                     <header className="about-header">
                         <div className="about-logo">
+                            <img src={window.shadowcatURL} alt="About logo"/>
                             <Link to={`/nekos/${this.props.neko.id}/about`}>About</Link>
                         </div>
                     </header>

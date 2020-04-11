@@ -5,7 +5,7 @@
 }
 
 .about-header {
-    padding: 16px 0 12px;
+    padding: 11px 0 7px;
     border-bottom: 1px solid thistle;
     background-color: rgb(250, 243, 250);
     // border-right: 1px solid thistle;
@@ -16,6 +16,15 @@
     font-weight: bold;
     margin: 0 12px 5px;
     color: rgb(105, 105, 105);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.about-logo img {
+    width: 36px;
+    height: 36px;
+    margin-right: 3px;
 }
 
 .about-logo a:hover {
