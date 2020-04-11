@@ -87,12 +87,13 @@ class ProfileAbout extends React.Component {
                     updateNeko={this.props.updateNeko} />;
                 break;
             default:
-                if (this.props.aboutSection) {
-                    console.log(this.props.aboutSection);
-                    // debugger
-                    aboutContent = <ProfileAboutPlaceholder 
-                        sectionName={sectionNames[sectionQuery.indexOf(this.props.aboutSection)]} />
-                }
+                // if (this.props.aboutSection) {
+                //     console.log(this.props.aboutSection);
+                //     // debugger
+                //     aboutContent = <ProfileAboutPlaceholder 
+                //         sectionName={sectionNames[sectionQuery.indexOf(this.props.aboutSection)]} />
+                // }
+                // recomment in if want placeholder
                 break;
         }
 
