@@ -257,7 +257,7 @@ class ProfileAboutContact extends React.Component {
                                             <ul className="hidden-form-list">
                                                 <li>
                                                     <div className="contact-form-left">
-                                                        Last Name
+                                                        Gender
                                                     </div>
                                                     <div className="contact-form-right">
                                                         <select name="gender" value={this.state.gender} onChange={this.handleChange("gender")}>
