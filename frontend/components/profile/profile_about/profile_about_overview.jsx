@@ -15,25 +15,30 @@ class ProfileAboutOverview extends React.Component {
                         <ul className="about-profile-list">
                             {
                                 !this.props.canEdit ? (
-                                    <li>
+                                    <Link to={`/nekos/${this.props.neko.id}/about?section=living`}>
+                                        <li className="has-information">
 
-                                        <div className="show-icon">
-                                            <i className="fas fa-home"></i> 
-                                        </div>
-                                        <div className="has-information">
-                                            { this.props.location ? `Lives in ${this.props.location.name}` : "No current city to show" }
-                                        </div>
-                                    </li>
+                                            <div className="show-icon">
+                                                <i className="fas fa-home"></i> 
+                                            </div>
+                                            <div className="has-information">
+                                                { this.props.location ? `Lives in ${this.props.location.name}` : "No current city to show" }
+                                            </div>
+                                        </li>
+                                    </Link>
                                     ) : (
                                         this.props.location ? (
-                                            <li>
-                                                <div className="show-icon">
-                                                    <i className="fas fa-home"></i>
-                                                </div>
-                                                <div className="has-information">
-                                                    Lives in {this.props.location.name}
-                                                </div>
-                                            </li>
+                                            <Link to={`/nekos/${this.props.neko.id}/about?section=living`}>
+                                                <li className="has-information">
+                                                    <div className="show-icon">
+                                                        <i className="fas fa-home"></i>
+                                                    </div>
+                                                        <div className="has-information">
+                                                            <div>Lives in {this.props.location.name}</div>
+                                                            <div><span>Edit the places you've lived</span></div>
+                                                        </div>
+                                                </li>
+                                            </Link>
                                         ) : (
                                                 <Link to={`/nekos/${this.props.neko.id}/about?section=living`}>
                                                     <li>

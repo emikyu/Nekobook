@@ -52,7 +52,7 @@ class ProfileAboutLiving extends React.Component {
                                     </li>
                                     ) : (
                                         this.props.location ? (
-                                            <li ref={this.toggleView} className="about-list-view">
+                                            <li ref={this.toggleView} className="about-list-view last-visible">
                                                 <div className="show-icon">
                                                     <i className="fas fa-home"></i>
                                                 </div>
@@ -60,8 +60,14 @@ class ProfileAboutLiving extends React.Component {
                                                     <div>{this.props.location.name}</div>
                                                     <div>Current City</div>
                                                 </div>
-                                                <button onClick={() => { this.toggleForm.current.classList.add("show"); this.toggleView.current.classList.add("hide") }}>Edit</button>
-                                                <button onClick={() => { this.props.updateNeko({ id: this.props.neko.id, location: "" }); this.setState({ location: "" }) }}>Delete</button> 
+                                                <button onClick={() => { this.toggleForm.current.classList.add("show"); this.toggleView.current.classList.add("hide") }}>
+                                                    <i className="fa fa-pencil" aria-hidden="true"></i>
+                                                    <span>Edit</span>
+                                                </button>
+                                                <div className="button-divider"></div>
+                                                <button className="delete-information" onClick={() => { this.props.updateNeko({ id: this.props.neko.id, location: "" }); this.setState({ location: "" }) }}>
+                                                    <i class="fa fa-times" aria-hidden="true"></i>                                                    
+                                                </button> 
                                             </li>
                                         ) : (
                                                 
@@ -79,9 +85,24 @@ class ProfileAboutLiving extends React.Component {
                             {this.props.canEdit ? (<>
                             <li className="hidden-about-form" ref={this.toggleForm}>
                                 <form action="" onSubmit={this.handleSubmit.bind(this)}>
-                                    <div>Current City <input type="text" name="location" value={this.state.location} onChange={this.handleChange("location").bind(this)}/></div>
-                                    <input type="submit" value="Save Changes" />
-                                    <button onClick={e => { e.preventDefault(); this.toggleForm.current.classList.remove("show"); this.setState({id: this.props.neko.id, location: (this.props.location ? this.props.location.name : "")}); this.toggleView.current.classList.remove("hide"); }}>Cancel</button>
+                                    <ul className="hidden-form-list">
+                                        <li>
+                                            <div className="living-form-left">
+                                                Current City
+                                            </div>
+                                            <div className="living-form-right">
+                                                <input type="text" name="location" value={this.state.location} onChange={this.handleChange("location").bind(this)}/>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div className="living-form-left">
+                                            </div>
+                                            <div className="living-form-right">                                        
+                                                <input className="save-changes" type="submit" value="Save Changes" />
+                                                <button className="cancelled" onClick={e => { e.preventDefault(); this.toggleForm.current.classList.remove("show"); this.setState({id: this.props.neko.id, location: (this.props.location ? this.props.location.name : "")}); this.toggleView.current.classList.remove("hide"); }}>Cancel</button>
+                                            </div>    
+                                        </li>
+                                    </ul>
                                 </form>
                             </li></>
                             ) : ("")

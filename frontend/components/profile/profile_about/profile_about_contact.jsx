@@ -238,7 +238,7 @@ class ProfileAboutContact extends React.Component {
                                     </li>
                                 ) : ("")
                             }
-                            <li className="about-list-view" ref={this.toggleView.gender}>
+                            <li className="about-list-view last-visible" ref={this.toggleView.gender}>
                                 <div className="contact-left">
                                     Gender
                                 </div>

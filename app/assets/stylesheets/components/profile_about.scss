@@ -109,9 +109,14 @@ li.not-selected-section a:hover {
     border-bottom: none;
 }
 
-.about-profile-list li:nth-last-child(2) {
+// .about-profile-list li:nth-last-child(2) {
+//     // border-bottom: none;
+// }
+
+.about-profile-list li.last-visible {
     border-bottom: none;
 }
+
 
 .show-icon {
     min-width: 36px;
@@ -172,9 +177,32 @@ li.not-selected-section a:hover {
     color: thistle;
 }
 
-.overview-right-list:hover {
+.overview-right-list:hover,
+li.has-information:hover {
     background-color: rgb(250, 243, 250);
 }
+
+li.has-information:hover {
+    margin: -5px;
+    padding: 5px;
+}
+
+li.has-information span {
+    display: none;
+    font-size: 12px;
+    font-weight: 400;
+    color: rgb(105, 105, 105);
+}
+
+li.has-information:hover span {
+    display: block;
+}
+
+li.has-information {
+    padding: 0;
+    margin: 0 0 20px;
+}
+
 
 .about-overview-right-edit p {
     display: none;
@@ -250,7 +278,7 @@ li.not-selected-section a:hover {
 }
 
 div.contact-left {
-    margin: 0 18px 0 0;
+    margin: 0 12px 0 0;
     width: 180px;
     color: rgb(105, 105, 105);
 }
@@ -259,13 +287,13 @@ div.contact-right {
     width: 360px;
 }
 
-div.contact-form-left {
+div.contact-form-left, div.living-form-left {
     width: 180px;
     color: rgb(105, 105, 105);
     text-align: right;
 }
 
-div.contact-form-right {
+div.contact-form-right, div.living-form-right {
     width: 360px;
 }
 
@@ -273,9 +301,9 @@ li.about-list-view {
     position: relative;
 }
 
-li.about-list-view > button:nth-last-child(2){
+li.about-list-view > button:nth-last-child(3){
     position: absolute;
-    right: 50px;
+    right: 20px;
 }
 
 li.about-list-view > button:last-child {
@@ -295,15 +323,46 @@ li.about-list-view > button {
 
 
 
-li.about-list-view:hover > button {
+li.about-list-view:hover > button,
+li.about-list-view:hover > .button-divider {
     display: block;
 }
 
-li.about-list-view i.fa-pencil {
+.button-divider {
+    width: 1px;
+    height: 14px;
+    position: absolute;
+    border-right: 1px solid thistle;
+    right: 16px;
+    display: none;
+}
+
+
+li.about-list-view i.fa-pencil,
+li.about-list-view i.fa-times {
     font-size: 12px;
     padding: 0px;
     margin: 0 4px 0 0;
     color: rgb(105, 105, 105);
+}
+
+li.about-list-view i.fa-times {
+    margin: 0px;
+}
+
+button.delete-information {
+    width: 14px;
+    height: 14px;
+}
+
+
+.delete-information:hover {
+    background-color: rgb(105, 105, 105);
+    border-radius: 3px;
+}
+
+.delete-information:hover i.fa-times {
+    color: white;
 }
 
 li.about-list-view span:hover {
@@ -320,13 +379,13 @@ li.about-list-view:hover > button:hover {
 
 li.hidden-about-form > form {
     background-color: rgb(250, 243, 250);
-    padding: 14px 18px 13px 24px;
-    margin: -14px -18px -13px -24px;
+    padding: 14px 24px 13px 24px;
+    margin: -14px -24px -13px -24px;
     box-sizing: border-box;
     border-top: 1px solid rgb(236, 224, 236);
     border-bottom: 1px solid rgb(236, 224, 236);
-    // border-right: 1px solid thistle;
 }
+
 
 li.hidden-about-form > form input[type="text"] {
     font-size: 14px;
