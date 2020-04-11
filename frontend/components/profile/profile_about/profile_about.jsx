@@ -57,8 +57,13 @@ class ProfileAbout extends React.Component {
             }
         }
 
-        const sectionNames = ["Overview", "Work and Education", `Places ${pronouns[4]} Lived`, "Contact and Basic Info", "Family and Relationships", `Details About ${pronouns[1]}`, "Life Events"];
-        const sectionQuery = ["overview", "education", "living", "contact-info", "relationship", "bio", "year-overview"]
+        // const sectionNames = ["Overview", "Work and Education", `Places ${pronouns[4]} Lived`, "Contact and Basic Info", "Family and Relationships", `Details About ${pronouns[1]}`, "Life Events"];
+        // const sectionQuery = ["overview", "education", "living", "contact-info", "relationship", "bio", "year-overview"];
+        // Add more in as you implement more pages
+
+        const sectionNames = ["Overview", `Places ${pronouns[4]} Lived`, "Contact and Basic Info"];
+        const sectionQuery = ["overview", "living", "contact-info"];
+
 
         let aboutContent = <ProfileAboutOverview 
                                 neko={this.props.neko}

@@ -71,7 +71,7 @@ class ProfileAboutLiving extends React.Component {
                                             </li>
                                         ) : (
                                                 
-                                            <li className="missing-information about-list-view" onClick={() => { this.toggleForm.current.classList.add("show"); this.toggleView.current.classList.add("hide") }} ref={this.toggleView}>
+                                            <li className="missing-information about-list-view last-visible" onClick={() => { this.toggleForm.current.classList.add("show"); this.toggleView.current.classList.add("hide") }} ref={this.toggleView}>
                                                 <div className="hide-icon">
                                                     <i className="fas fa-plus"></i>
                                                 </div>
