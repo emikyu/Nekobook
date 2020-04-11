@@ -6,6 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+FriendRequest.destroy_all
 Neko.destroy_all
 
 demo_socks = Neko.create(fname: "Socks", lname: "Cat", email: "socks@greytabby.com", password: "password", birthday: "2018-03-28", gender: "Female")
+lia = Neko.create(fname: "Lia", lname: "Cat", email: "lia@cyprus.com", password: "password", birthday: "2017-06-01", gender: "Female")
+nisse = Neko.create(fname: "Nisse", lname: "Kitty", email: "nisse@nyaa.com", password: "password", birthday: "2005-05-25", gender: "Male")
+emily = Neko.create(fname: "Emily", lname: "Wu", email: "emily@example.com", password: "password", birthday: "2000-11-12", gender: "Custom")
+
+fr1 = FriendRequest.create(requester: demo_socks, requestee: lia)
+fr2 = FriendRequest.create(requester: demo_socks, requestee: emily)
+fr3 = FriendRequest.create(requester: emily, requestee: nisse)
+fr4 = FriendRequest.create(requester: nisse, requestee: demo_socks)
+

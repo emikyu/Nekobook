@@ -7,13 +7,11 @@
 #  password_digest :string           not null
 #  session_token   :string           not null
 #  fname           :string           not null
-#  profile_picture :string
 #  location_id     :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  birthday        :date             not null
 #  gender          :string           not null
-#  cover_photo     :string
 #  username        :string
 #  lname           :string           not null
 #
@@ -31,6 +29,22 @@ class Neko < ApplicationRecord
     attr_reader :password
 
     belongs_to :location, optional: true
+    
+    has_many :outgoing_friend_requests, foreign_key: :requester_id, class_name: :FriendRequest
+    has_many :incoming_friend_requests, foreign_key: :requestee_id, class_name: :FriendRequest
+
+    has_many :requestees, through: :outgoing_friend_requests, source: :requestee
+    has_many :requesters, through: :incoming_friend_requests, source: :requester
+
+    def make_friend_request(other_neko)
+        FriendRequest.create!(requester: self, requestee: other_neko) unless FriendRequest.find_by(requester: self, requestee: other_neko)
+    end
+
+    def cancel_friend_request(other_neko)
+        friend_request = FriendRequest.find_by(requestor: self, requestee: other_neko)
+        friend_request.destroy! if friend_request
+    end
+
 
     def self.generate_session_token
         SecureRandom::urlsafe_base64
