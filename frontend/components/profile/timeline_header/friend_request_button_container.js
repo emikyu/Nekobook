@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
+import {withRouter} from 'react-router-dom';
 import FriendRequestButton from './friend_request_button';
-import { makeFriendRequest, removeFriendRequest, toFriend, toUnfriend } from '../../../actions/neko_actions';
+import { requestNeko, makeFriendRequest, removeFriendRequest, toFriend, toUnfriend } from '../../../actions/neko_actions';
 
 const msp = (state, ownProps) => {
     const showNekoId = ownProps.nekoId;
@@ -23,7 +24,8 @@ const mdp = dispatch => ({
     makeFriendRequest: (requesterId, requesteeId) => dispatch(makeFriendRequest(requesterId, requesteeId)),
     removeFriendRequest: (requesterId, requesteeId) => dispatch(removeFriendRequest(requesterId, requesteeId)),
     toFriend: (friendOneId, friendTwoId) => dispatch(toFriend(friendOneId, friendTwoId)),
-    toUnfriend: (friendOneId, friendTwoId) => dispatch(toUnfriend(friendOneId, friendTwoId))
+    toUnfriend: (friendOneId, friendTwoId) => dispatch(toUnfriend(friendOneId, friendTwoId)),
+    requestNeko: (nekoId) => dispatch(requestNeko(nekoId))
 });
 
-export default connect(msp, mdp)(FriendRequestButton);
+export default withRouter(connect(msp, mdp)(FriendRequestButton));

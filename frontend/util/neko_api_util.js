@@ -22,3 +22,11 @@ export const updateNekoPhoto = (nekoId, photo) => (
         processData: false
     })
 );
+
+export const requestNekos = (nekoId, indexType) => (
+    $.ajax({
+        url: `/api/nekos/${nekoId}/nekos`,
+        method: 'get',
+        data: { index_type: indexType }
+    })
+);

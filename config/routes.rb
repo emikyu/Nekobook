@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   
     resource :session, only: [:create, :destroy]
     
-    resources :nekos, only: [:create, :show, :update, :index]
+    resources :nekos, only: [:create, :show, :update, :index] do
+      resources :nekos, only: [:index]
+    end
 
     resources :locations, only: [:show, :index]
   

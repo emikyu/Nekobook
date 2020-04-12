@@ -20,6 +20,20 @@ class Api::NekosController < ApplicationController
             else
                 render json: ["Neko with username #{params[:username]} does not exist!"], status: 404
             end
+        elsif params.has_key?(:neko_id)
+            @neko = Neko.find(params[:neko_id].to_i)
+            if params[:index_type] == 'friends'
+                @nekos = @neko.friends
+                render :index
+            elsif params[:index_type] == 'requesters'
+                @nekos = @neko.requesters
+                render :index
+            elsif params[:index_type] == 'requestees'
+                @nekos = @neko.requestees
+                render :index
+            else
+                render json: ["Invalid index type!"], status: 404
+            end
         else
             @nekos = Neko.all
             render :index
@@ -46,7 +60,7 @@ class Api::NekosController < ApplicationController
                 # debugger
             end
             @neko.save!
-            render :show
+            render :show_current
         elsif @neko.id != current_user.id
             render json: ["Silly you. You cannot make changes to another neko's profile!"], status: 404
         else

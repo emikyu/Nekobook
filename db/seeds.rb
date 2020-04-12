@@ -9,6 +9,8 @@
 Friendship.destroy_all
 FriendRequest.destroy_all
 Neko.destroy_all
+Location.destroy_all
+
 
 demo_socks = Neko.create(fname: "Socks", lname: "Cat", email: "socks@greytabby.com", password: "password", birthday: "2018-03-28", gender: "Female")
 lia = Neko.create(fname: "Lia", lname: "Cat", email: "lia@cyprus.com", password: "password", birthday: "2017-06-01", gender: "Female")
