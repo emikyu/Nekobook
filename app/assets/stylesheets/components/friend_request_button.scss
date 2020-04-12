@@ -1,0 +1,82 @@
+.friend-request-button-container {
+    display: inline-block;
+    position: absolute;
+    right: 15px;
+    bottom: 60px;
+}
+
+.friend-request-button-container > button {
+    background-color: rgb(250, 243, 250);
+    border-color: thistle;
+    padding: 5px;
+    font-size: 12px;
+    box-shadow: 0 0 3px thistle;
+    font-weight: bold;
+    color: rgb(105, 105, 105);
+    transition: 0.3s ease all;
+}
+
+.friend-request-button-container > button:hover {
+    background-color: rgb(233, 227, 233);
+}
+
+.friend-request-button-container > div {
+    position: absolute;
+    opacity: 0%;
+    display: none;
+    top: 26px;
+    right: 0px;
+    font-size: 12px;
+    transition: 0.3s ease all;
+}
+
+
+.invisible-border > div:first-child {
+    height: 12px;
+    background-color: transparent;
+}
+
+@mixin tooltip($dir, $weight, $color) {
+    border: $weight solid transparent;
+    border-#{$dir}: $weight solid $color;
+}
+
+.friend-request-button-container > .tooltip {
+    position: absolute;
+    @include tooltip(bottom, 8px, white);
+    top: 23px;
+    right: 15px;
+    z-index: 5;
+}
+
+
+.invisible-border > div:last-child {
+    background-color: white;
+    border: 1px solid rgb(105, 105, 105);
+    box-shadow: 0 0 5px rgb(105, 105, 105);
+    transition: 0.3s ease all;
+}
+
+.friend-request-button-container ul {
+    margin: 5px 0;
+    // width: 193px;
+}
+
+.friend-request-button-container li {
+    padding: 2px 15px;
+    color: rgb(105, 105, 105);
+}
+
+.friend-request-button-container li:hover {
+    background-color: rgb(145, 114, 145);
+    color: white;
+}
+
+.friend-request-button-container:hover div {
+    display: block;
+    opacity: 100%;
+}
+
+.friend-request-button-container:hover li {
+    cursor: pointer;
+}

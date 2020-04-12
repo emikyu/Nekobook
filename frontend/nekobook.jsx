@@ -31,8 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // window.logout = logout;
     window.dispatch = store.dispatch;
     window.getState = store.getState;
-    window.makeFriendRequest = makeFriendRequest;
-    window.removeFriendRequest = removeFriendRequest;
+    // window.makeFriendRequest = makeFriendRequest;
+    // window.removeFriendRequest = removeFriendRequest;
     // window.updateNeko = updateNeko;
     // testing above
 

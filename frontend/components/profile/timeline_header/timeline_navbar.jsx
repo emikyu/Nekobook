@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import FriendRequestButtonContainer from './friend_request_button_container';
 
 class TimelineNavbar extends React.Component {
     constructor(props) {
@@ -51,6 +52,7 @@ class TimelineNavbar extends React.Component {
                         ) : ("")
                     }
                 </div>
+                <FriendRequestButtonContainer nekoId={neko.id}/>
                 <div className="profile-name">
                     {`${neko.fname} ${neko.lname}`}
                 </div>

@@ -12,6 +12,10 @@ h1, h2, p, strong, em, a {
   background: transparent;
 }
 
+button {
+  font-family: inherit;
+}
+
 ul, ol {
   list-style: none;
   padding: 0;

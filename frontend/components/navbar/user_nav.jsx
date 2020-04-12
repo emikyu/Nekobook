@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
 import { Link } from 'react-router-dom';
+import FriendRequestsContainer from './friend_requests_container';
 
 const UserNav = ({currentUser, logout}) => (
     <ul className="user-nav-list">
@@ -23,7 +24,9 @@ const UserNav = ({currentUser, logout}) => (
         <div className="nav-divider"></div>
         <li className="notifications">
             <ul className="notifications-list">
-                <li><i className="fas fa-user-friends"></i></li>
+                <li className="friend-requests-icon"><i className="fas fa-user-friends"></i>
+                    <FriendRequestsContainer />
+                </li>
                 <li><i className="fas fa-comment"></i></li>
                 <li><i className="fas fa-bell"></i></li>
             </ul>
