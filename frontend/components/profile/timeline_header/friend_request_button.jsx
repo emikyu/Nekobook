@@ -1,7 +1,8 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-const FriendRequestButton = ( { showNekoId, currentUserId, requesterIds, requesteeIds, makeFriendRequest, removeFriendRequest } ) => {
+const FriendRequestButton = ( { showNekoId, currentUserId, requesterIds, requesteeIds, friendIds, 
+                                makeFriendRequest, removeFriendRequest, toFriend, toUnfriend } ) => {
     const history = useHistory();
     
     let buttonText = (<><i className="fas fa-user-plus"></i> Add Friend</>);
@@ -9,16 +10,28 @@ const FriendRequestButton = ( { showNekoId, currentUserId, requesterIds, request
     let listTexts = [];
     let handleClicks = [];
     
+    // if on own profile - allow edit profile
     if (showNekoId == currentUserId) {
         buttonText = (<><i className="fas fa-pen"></i> Edit Profile</>);
         buttonClick = () => history.push(`/nekos/${currentUserId}/about`);
-    } else if (requesterIds.includes(showNekoId)) {
+    } 
+    // if already friends with shown user - allow unfriending
+    else if (friendIds.includes(showNekoId)) {
+        buttonText = (<><i className="fas fa-star"></i> Friends <i className="fas fa-caret-down"></i></>);
+        buttonClick = null;
+        listTexts = ["Unfriend"];
+        handleClicks = [() => toUnfriend(currentUserId, showNekoId)];
+    } 
+    // if have incoming friend request from user - either confirm (friend) or delete request (reject request)
+    else if (requesterIds.includes(showNekoId)) {
         buttonText = (<><i className="fas fa-user-plus"></i> Respond to Friend Request</>);
         buttonClick = null;
         listTexts = ["Confirm", "Delete Request"];
-        handleClicks = [() => removeFriendRequest(showNekoId, currentUserId),
+        handleClicks = [() => toFriend(currentUserId, showNekoId),
                         () => removeFriendRequest(showNekoId, currentUserId)];
-    } else if (requesteeIds.includes(showNekoId)) {
+    }
+    // if have pending outgoing request to user - can cancel request
+    else if (requesteeIds.includes(showNekoId)) {
         buttonText = (<><i className="fas fa-user-plus"></i> Friend Request Sent</>);
         buttonClick = null;
         listTexts = ["Cancel Request"];

@@ -16,12 +16,12 @@ nisse = Neko.create(fname: "Nisse", lname: "Kitty", email: "nisse@nyaa.com", pas
 emily = Neko.create(fname: "Emily", lname: "Wu", email: "emily@example.com", password: "password", birthday: "2000-11-12", gender: "Custom")
 
 fr1 = FriendRequest.create(requester: demo_socks, requestee: lia)
-fr2 = FriendRequest.create(requester: demo_socks, requestee: emily)
-fr3 = FriendRequest.create(requester: emily, requestee: nisse)
+# fr2 = FriendRequest.create(requester: demo_socks, requestee: emily)
+# fr3 = FriendRequest.create(requester: emily, requestee: nisse)
 fr4 = FriendRequest.create(requester: nisse, requestee: demo_socks)
 
-# f1a = Friendship.create(friend_one: demo_socks, friend_two: emily)
-# f1b = Friendship.create(friend_two: demo_socks, friend_one: emily)
+f1a = Friendship.create(friend_one: demo_socks, friend_two: emily)
+f1b = Friendship.create(friend_two: demo_socks, friend_one: emily)
 # f2a = Friendship.create(friend_one: demo_socks, friend_two: nisse)
 # f2b = Friendship.create(friend_two: demo_socks, friend_one: nisse)
 # f3a = Friendship.create(friend_one: lia, friend_two: emily)
