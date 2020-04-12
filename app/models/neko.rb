@@ -36,6 +36,9 @@ class Neko < ApplicationRecord
     has_many :requestees, through: :outgoing_friend_requests, source: :requestee
     has_many :requesters, through: :incoming_friend_requests, source: :requester
 
+    has_many :friendships, foreign_key: :friend_one, class_name: :Friendship 
+    has_many :friends, through: :friendships, source: :friend_two
+
     def make_friend_request(other_neko)
         unless FriendRequest.find_by(requester: self, requestee: other_neko) || FriendRequest.find_by(requestee: self, requester: other_neko)
             FriendRequest.create!(requester: self, requestee: other_neko)
