@@ -1,6 +1,7 @@
 import * as NekoAPIUtil from '../util/neko_api_util';
 import { requestLocation } from './location_actions';
 import * as FriendRequestAPIUtil from '../util/friend_request_api_util';
+import * as FriendshipAPIUtil from '../util/friendship_api_util';
 
 export const RECEIVE_USER = 'RECEIVE_USER';
 
@@ -46,3 +47,13 @@ export const removeFriendRequest = (requesterId, requesteeId) => dispatch => (
             dispatch(receiveUser(user));
         })
 );
+
+export const toFriend = (friendOneId, friendTwoId) => dispatch => (
+    FriendshipAPIUtil.toFriend(friendOneId, friendTwoId)
+        .then(user => dispatch(receiveUser(user)))
+)
+
+export const toUnfriend = (friendOneId, friendTwoId) => dispatch => (
+    FriendshipAPIUtil.toUnfriend(friendOneId, friendTwoId)
+        .then(user => dispatch(receiveUser(user)))
+)

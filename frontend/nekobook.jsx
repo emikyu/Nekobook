@@ -6,7 +6,7 @@ import Root from './components/root';
 
 // testing below
 // import {signup, login, logout} from './actions/session_actions';
-import { updateNeko, makeFriendRequest, removeFriendRequest } from './actions/neko_actions';
+import { toFriend, toUnfriend, updateNeko, makeFriendRequest, removeFriendRequest } from './actions/neko_actions';
 // testing above
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -31,6 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // window.logout = logout;
     window.dispatch = store.dispatch;
     window.getState = store.getState;
+    window.toFriend = toFriend;
+    window.toUnfriend = toUnfriend;
     // window.makeFriendRequest = makeFriendRequest;
     // window.removeFriendRequest = removeFriendRequest;
     // window.updateNeko = updateNeko;

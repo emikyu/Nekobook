@@ -6,7 +6,7 @@ class Api::FriendshipsController < ApplicationController
         friend_one_id, friend_two_id = params[:friend_one_id].to_i, params[:friend_two_id].to_i
 
         # check to make sure that the friend_request exists
-        friend_request = FriendRequest.find_by(requestee_id: :friend_one_id, requester_id: :friend_two_id)
+        friend_request = FriendRequest.find_by(requestee_id: friend_one_id, requester_id: friend_two_id)
 
         if friend_request && current_user.id == friend_one_id
             # only allow current_user to accept new friends
@@ -15,6 +15,9 @@ class Api::FriendshipsController < ApplicationController
             friendship_two = Friendship.new(friend_one_id: friend_two_id, friend_two_id: friend_one_id)
 
             if friendship_one.save && friendship_two.save
+                # remove the corresponding friend_request from record
+                friend_request.destroy
+
                 @neko = current_user
                 render "api/nekos/show_current"
             else
@@ -31,15 +34,18 @@ class Api::FriendshipsController < ApplicationController
         # without loss of generality, assumer current_user has to be friend_one
         friend_one_id, friend_two_id = params[:friend_one_id].to_i, params[:friend_two_id].to_i
 
-        friendship_one = Friendship.find(friend_one_id: friend_one_id, friend_two_id: friend_two_id)
+        friendship_one = Friendship.find_by(friend_one_id: friend_one_id, friend_two_id: friend_two_id)
 
-        friendship_two = Friendship.find(friend_one_id: friend_two_id, friend_two_id: friend_one_id)
+        friendship_two = Friendship.find_by(friend_one_id: friend_two_id, friend_two_id: friend_one_id)
 
         if current_user.id != friend_one_id
+            # debugger
             render json: ["Only current user can unfriend!"], status: 404
         elsif !(friendship_one && friendship_two)
+            # debugger
             render json: ["No existing friendship to unfriend!"], status: 404
         else
+            # debugger
             friendship_one.destroy
             friendship_two.destroy
             @neko = current_user
