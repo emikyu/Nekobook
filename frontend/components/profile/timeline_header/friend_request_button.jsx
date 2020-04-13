@@ -2,12 +2,23 @@ import React from 'react';
 
 class FriendRequestButton extends React.Component {
     componentDidMount() {
-        this.props.requestNeko(this.props.showNekoId);
-        this.props.requestNeko(this.props.currentUserId);
+        this.props.requestNeko(this.props.showNekoId)
+            .then(() => this.props.requestNeko(this.props.currentUserId));
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.friendIds.length != this.props.friendIds.length) {
+            this.props.requestNeko(this.props.showNekoId)
+                .then(() => this.props.requestNeko(this.props.currentUserId));
+        }
     }
 
     render() {
+        // if (!requesterIds || !requesteeIds || !friendIds) return null;
+        
         const { showNekoId, currentUserId, requesterIds, requesteeIds, friendIds, makeFriendRequest, removeFriendRequest, toFriend, toUnfriend } = this.props;
+
+        if (this.props.renderedAt === "profile-friends" && showNekoId === currentUserId) return null;
         
         let buttonText = (<><i className="fas fa-user-plus"></i> Add Friend</>);
         let buttonClick = () => makeFriendRequest(currentUserId, showNekoId);
@@ -15,13 +26,13 @@ class FriendRequestButton extends React.Component {
         let handleClicks = [];
         
         // if on own profile - allow edit profile
-        if (showNekoId == currentUserId) {
+        if (showNekoId === currentUserId) {
             buttonText = (<><i className="fas fa-pen"></i> Edit Profile</>);
             buttonClick = () => this.props.history.push(`/nekos/${currentUserId}/about`);
         } 
         // if already friends with shown user - allow unfriending
         else if (friendIds.includes(showNekoId)) {
-            buttonText = (<><i className="fas fa-star"></i> Friends <i className="fas fa-caret-down"></i></>);
+            buttonText = (<><i className="fas fa-check"></i> Friends <i className="fas fa-caret-down"></i></>);
             buttonClick = null;
             listTexts = ["Unfriend"];
             handleClicks = [() => toUnfriend(currentUserId, showNekoId)];
@@ -49,6 +60,7 @@ class FriendRequestButton extends React.Component {
                 </button>
                 {listTexts.length > 0 ? (<>
                 <div className="tooltip"></div>
+                <div className="tooltip-border"></div>
                 <div className="invisible-border">
                     <div>
                     </div>

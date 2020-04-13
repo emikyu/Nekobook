@@ -4,11 +4,17 @@ import * as FriendRequestAPIUtil from '../util/friend_request_api_util';
 import * as FriendshipAPIUtil from '../util/friendship_api_util';
 
 export const RECEIVE_USER = 'RECEIVE_USER';
+export const RECEIVE_USERS = 'RECEIVE_USERS';
 
 const receiveUser = (user) => ({
     type: RECEIVE_USER,
     user
 });
+
+const receiveUsers = (users) => ({
+    type: RECEIVE_USERS,
+    users
+})
 
 export const requestNeko = nekoId => dispatch => (
     NekoAPIUtil.findNeko(nekoId)
@@ -17,6 +23,12 @@ export const requestNeko = nekoId => dispatch => (
             if (user.location_id) dispatch(requestLocation(user.location_id));
         })
 );
+
+export const requestNekos = (nekoId, indexType) => dispatch => (
+    NekoAPIUtil.requestNekos(nekoId, indexType)
+        .then(users => dispatch(receiveUsers(users)))
+);
+
 
 export const updateNeko = neko => dispatch => (
     NekoAPIUtil.updateNeko(neko)

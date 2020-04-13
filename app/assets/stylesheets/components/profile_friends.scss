@@ -1,0 +1,127 @@
+.friends-content {
+    background-color: white;
+    border: 1px solid thistle;
+    border-radius: 3px;
+}
+
+.friends-header {
+    padding: 11px 0 7px;
+    border-bottom: 1px solid thistle;
+    background-color: rgb(250, 243, 250);
+    margin: 0 0 15px;
+}
+
+.friends-logo {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 12px 5px;
+    color: rgb(105, 105, 105);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.friends-logo img {
+    width: 36px;
+    height: 36px;
+    margin-right: 3px;
+}
+
+.friends-logo a:hover {
+    text-decoration: underline;
+}
+
+.friends-body {
+    min-height: 250px;
+    padding: 0 14px 0 15px;
+    font-size: 14px;
+}
+
+.friends-list {
+    margin: 0 0 0 -13px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.friends-list > li {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 13px 13px;
+    padding: 0 10px 0 0;
+    border: 1px solid rgb(233, 227, 233);
+    min-width: 390px;
+    min-height: 99px;
+}
+
+.friends-list .friend-info {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.friend-photo {
+    width: 100px;
+    height: 100px;
+    border: none;
+    overflow: hidden;
+    position: relative;
+    background: thistle;
+    margin-right: 10px;
+}
+
+.friend-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    margin-bottom: auto;
+    margin-top: auto;
+    top: 0;
+    bottom: 0;
+    min-width: 91px;
+}
+
+.friend-button {
+    float: right;
+}
+
+.friend-name-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.friend-button > .friend-request-button-container {
+    position: relative;
+    right: 0px;
+    top: 37px;
+}
+
+
+.friend-button > .friend-request-button-container > button {
+    box-shadow: none;
+}
+
+.no-friends {
+    padding: 70px 0;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: thistle;
+}
+
+.friends-list .friend-name a {
+    font-weight: bold;
+    color: #806480;
+    font-size: 14px;
+}
+
+.friend-name-container a:hover {
+    text-decoration: underline;
+}
+
+.friend-count a {
+    color: gray;
+    font-size: 12px;
+}

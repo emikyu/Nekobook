@@ -1,8 +1,10 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import TimelineHeader from './timeline_header/timeline_header';
-import TimelineContent from './timeline_content/timeline_content';
+import TimelineContent from './profile_timeline/timeline_content';
 import ProfileAboutContainer from './profile_about/profile_about_container';
+import ProfileFriendsContainer from './profile_friends/profile_friends_container';
+
 
 class Profile extends React.Component {
     componentDidMount() {
@@ -25,6 +27,7 @@ class Profile extends React.Component {
                         <Route path={'/nekos/:nekoId'} render={() => <TimelineHeader neko={this.props.neko} updateNekoPhoto={this.props.updateNekoPhoto} canEdit={this.props.canEdit}/>}/>
                         <Route exact path={'/nekos/:nekoId'} render={() => <TimelineContent neko={this.props.neko} />} />
                         <Route exact path={`/nekos/:nekoId/about`} component={ProfileAboutContainer} />
+                        <Route exact path={`/nekos/:nekoId/friends`} component={ProfileFriendsContainer} />
                     </section>
                 </section>
             </section>

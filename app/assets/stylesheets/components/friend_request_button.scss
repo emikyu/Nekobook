@@ -44,16 +44,24 @@
 .friend-request-button-container > .tooltip {
     position: absolute;
     @include tooltip(bottom, 8px, white);
-    top: 23px;
+    top: 24px;
     right: 15px;
     z-index: 5;
+}
+
+.friend-request-button-container > .tooltip-border {
+    position: absolute;
+    @include tooltip(bottom, 7px, rgb(105, 105, 105));
+    top: 24px;
+    right: 16px;
+    z-index: 4;
 }
 
 
 .invisible-border > div:last-child {
     background-color: white;
     border: 1px solid rgb(105, 105, 105);
-    box-shadow: 0 0 5px rgb(105, 105, 105);
+    box-shadow: 0 0 4px rgb(105, 105, 105);
     transition: 0.3s ease all;
 }
 

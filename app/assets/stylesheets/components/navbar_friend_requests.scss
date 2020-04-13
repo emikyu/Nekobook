@@ -1,0 +1,177 @@
+// for navbar
+li.friend-requests-icon {
+    position: relative;
+}
+
+div.friend-requests-dropdown {
+    position: absolute;
+    color: black;
+    font-weight: 200px;
+    background-color: white;
+    width: 430px;
+    border: 1px solid rgb(105, 105, 105);
+    box-shadow: 0 0 4px rgb(105, 105, 105);
+    left: -380px;
+    top: 33px;
+    transition: 0.3s ease all;
+    box-sizing: border-box;
+    display: none;
+}
+
+
+div.friend-requests-dropdown,
+div.carat-dropdown {
+    position: absolute;
+    color: black;
+    font-weight: 200px;
+    background-color: white;
+    width: 430px;
+    border: 1px solid rgb(105, 105, 105);
+    box-shadow: 0 0 4px rgb(105, 105, 105);
+    left: -380px;
+    top: 33px;
+    transition: 0.3s ease all;
+    box-sizing: border-box;
+    display: none;
+}
+
+li.carat-icon {
+    position: relative;
+}
+
+div.carat-dropdown {
+    // display: block;
+    left: -75px;
+    width: 100px;;
+    font-weight: 400;
+    padding: 6px 0;
+}
+
+.carat-dropdown li {
+    padding: 2px 12px;
+}
+
+
+div.triggered-content.show-dropdown {display:block;}
+
+.requester-list > li:hover {
+    cursor: default;
+}
+
+.requester-list .requester-info {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.requester-list > li {
+    padding: 6px 12px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #e9e3e9;
+    border-bottom: 1px solid #e9e3e9;
+}
+
+.requester-photo {
+    width: 48px;
+    height: 48px;
+    border: none;
+    overflow: hidden;
+    position: relative;
+    background: thistle;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.requester-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    margin-bottom: auto;
+    margin-top: auto;
+    top: 0;
+    bottom: 0;
+}
+
+
+.requester-name-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.requester-list .requester-name a {
+    font-weight: bold;
+    color: #806480;
+    font-size: 12px;
+}
+
+.requester-list > li {
+    font-weight: 400;
+    font-size: 12px;
+    color: #696969;
+}
+
+.requester-name-container a:hover {
+    text-decoration: underline;
+}
+
+.requester-button {
+    line-height: 48px;
+}
+
+
+.requester-button .confirm-button {
+    font-size: 12px;
+    padding: 5px 10px;
+    box-sizing: content-box;
+    // display: block;
+    font-weight: bold;
+    background-color: rgb(128, 100, 128);
+    border: none;
+    border-radius: 2px;
+    color: white;
+}
+
+
+.requester-button .delete-button {
+    background-color: rgb(250, 243, 250);
+    border: 1px solid thistle;
+    border-radius: 2px;
+    font-size: 12px;
+    margin: 0 0 0 4px;
+    padding: 5px 10px;
+    font-weight: bold;
+    color: rgb(105, 105, 105);
+}
+
+.requests-header {
+    padding: 8px 12px 6px;
+    box-sizing: border-box;
+    font-size: 12px;
+    color: rgb(105, 105, 105);
+}
+
+@mixin tooltip($dir, $weight, $color) {
+    border: $weight solid transparent;
+    border-#{$dir}: $weight solid $color;
+}
+
+.friend-requests-dropdown > .tooltip {
+    position: absolute;
+    @include tooltip(bottom, 8px, white);
+    top: -15px;
+    right: 25px;
+    z-index: 5;
+}
+
+.friend-requests-dropdown > .tooltip-border {
+    position: absolute;
+    @include tooltip(bottom, 7px, rgb(105, 105, 105));
+    top: -15px;
+    right: 26px;
+    z-index: 4;
+}
+

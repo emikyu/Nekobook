@@ -15,7 +15,8 @@ const msp = (state, ownProps) => {
         currentUserId: state.session.currentUserId,
         requesterIds,
         requesteeIds,
-        friendIds
+        friendIds,
+        renderedAt: ownProps.renderedAt
     }
 
 };

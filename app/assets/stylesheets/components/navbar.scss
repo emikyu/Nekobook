@@ -112,6 +112,10 @@ li.notifications {
     color: rgb(87, 69, 87);
 }
 
+.user-nav-list i:focus {
+    color: white;
+}
+
 li.admin {
     padding: 0 6px 0 4px;
     border-right: none;
@@ -165,7 +169,7 @@ li.nav-text-profile:hover {
     box-sizing: content-box;
 }
 
-.dropdown-custom-theme li:hover {
+.carat-dropdown li:hover {
     background-color:  rgb(128, 100, 128);
     color: white;
 }
@@ -198,4 +202,50 @@ li.nav-text-profile:hover {
     margin-top: auto;
     top: 0;
     bottom: 0;
+}
+
+.notifications-list > li.notif-icon > i{
+    color: white;
+    position: relative;
+}
+
+div.notif-count {
+    position: absolute;
+    top: -3px;
+    right: -5px;
+    min-width: 14px;
+    min-height: 14px;
+    font-size: 11px;
+    font-weight: bold;
+    background-color: thistle;
+    color: white;
+    line-height: 14px;
+    background-color: #241d24;
+    text-align: center;
+    border-radius: 50%;
+}
+
+@mixin tooltip($dir, $weight, $color) {
+    border: $weight solid transparent;
+    border-#{$dir}: $weight solid $color;
+}
+
+.carat-dropdown > .tooltip {
+    position: absolute;
+    @include tooltip(bottom, 8px, white);
+    top: -15px;
+    right: 8px;
+    z-index: 5;
+}
+
+.carat-dropdown > .tooltip-border {
+    position: absolute;
+    @include tooltip(bottom, 7px, rgb(105, 105, 105));
+    top: -15px;
+    right: 9px;
+    z-index: 4;
+}
+
+i.trigger.selected {
+    color: white;
 }

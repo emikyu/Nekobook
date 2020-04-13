@@ -47,7 +47,11 @@ class ProfileAboutLiving extends React.Component {
                                             <i className="fas fa-home"></i> 
                                         </div>
                                         <div className="has-information">
-                                            { this.props.location ? `Lives in ${this.props.location.name}` : "No current city to show" }
+                                                {this.props.location ? (
+                                                <>
+                                                    <div>{this.props.location.name}</div>
+                                                    <div>Current City</div>
+                                                </>): ("No current city to show") }
                                         </div>
                                     </li>
                                     ) : (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import FriendRequestButtonContainer from './friend_request_button_container';
 
 class TimelineNavbar extends React.Component {
@@ -52,25 +52,30 @@ class TimelineNavbar extends React.Component {
                         ) : ("")
                     }
                 </div>
-                <FriendRequestButtonContainer nekoId={neko.id}/>
+                <FriendRequestButtonContainer nekoId={neko.id} renderedAt="timeline-navbar"/>
                 <div className="profile-name">
                     {`${neko.fname} ${neko.lname}`}
                 </div>
                 <div className="timeline-navbar">
                     <ul>
-                        <Link to={`/nekos/${neko.id}`}>
+                        <NavLink to={`/nekos/${neko.id}`}>
                             <li>
                                     Timeline
                                     <i className="fas fa-caret-down"></i>
                             </li>
-                        </Link>
+                        </NavLink>
 
-                        <Link to={`/nekos/${neko.id}/about`}>
+                        <NavLink to={`/nekos/${neko.id}/about`}>
                             <li>
                                 About
                             </li>
-                        </Link>
-                        <li>Friends</li>
+                        </NavLink>
+
+                        <NavLink to={`/nekos/${neko.id}/friends`}>
+                            <li>
+                                Friends
+                            </li>
+                        </NavLink>
                         <li>Photos</li>
                         <li><i className="fas fa-lock"></i>Archive</li>
                         <li>More<i className="fas fa-caret-down"></i></li>

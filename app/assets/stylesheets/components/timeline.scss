@@ -1,0 +1,106 @@
+.timeline-right > div, .timeline-left > div {
+    padding: 12px;
+    background-color: white;
+    border: 1px solid thistle;
+    border-radius: 3px;
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.timeline-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.timeline-left {
+    width: 323px;
+}
+
+.timeline-right {
+    width: 515px;
+}
+
+.timeline-left > div.timeline-friends-content {
+    padding: 0 5px 4px;
+    margin: 0;
+}
+
+.timeline-friends-list {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+.timeline-friends-list > li {
+    padding: 0 2px 2px 2px;
+    margin-bottom: 10px;
+    width: 100px;
+}
+
+.timeline-friends-list > li:nth-child(3n) {
+    padding: 0 0px 2px 2px;
+    width: 100px;
+}
+
+
+.timeline-friends-list .friends-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.timeline-friends-list .friend-name a {
+    color: #806480;
+    font-size: 12px;
+}
+
+.friend-name a:hover {
+    text-decoration: underline;
+}
+
+.timeline-friends-list .friend-name {
+    margin-top: 5px;
+}
+
+.timeline-header {
+    margin: 0 12px;
+    padding: 12px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.timeline-header-icon {
+    font-size: 12px;
+    text-align: center;
+    line-height: 24px;
+    height: 24px;
+    width: 24px;
+    color: white;
+    background: rgb(255, 130, 151);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.timeline-header-text {
+    font-size: 16px;
+    margin-right: 1px;
+}
+
+.timeline-header span > a:hover {
+    text-decoration: underline;
+}
+
+span.dot {
+    color: gray;
+    margin-right: 4px;
+    font-size: 8px;
+}
+
+.timeline-header-subtext {
+    color: gray;
+    font-size: 14px;
+}
