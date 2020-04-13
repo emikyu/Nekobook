@@ -8,6 +8,7 @@ class FriendRequests extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
+        // debugger
         if (this.props.currentUser.requester_ids.length !== prevProps.currentUser.requester_ids.length) {
             this.props.requestNekos(this.props.currentUser.id, 'requesters')
                 .then(() => this.props.requestNeko(this.props.currentUser.id))
