@@ -70,7 +70,7 @@ class TimelineFriends extends React.Component {
                                         </li>
                                     ))
                                 }
-                    </>) : (<li></li>)
+                    </>) : ("")
                 }
                 </ul>
             </div>
