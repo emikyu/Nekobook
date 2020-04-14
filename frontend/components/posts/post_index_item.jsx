@@ -150,7 +150,7 @@ class PostIndexItem extends React.Component {
                                                     </Link>
                                                 </div>
                                                 <div>
-                                                        <textarea onChange={this.handleChange("body")} ref={this.editText} defaultValue={this.state.body} onFocus={e => e.target.value = this.state.body}></textarea>
+                                                        <textarea className={`${this.state.body.length > 85 ? "small-post" : ""}`} onChange={this.handleChange("body")} ref={this.editText} defaultValue={this.state.body} onFocus={e => e.target.value = this.state.body}></textarea>
                                                 </div>
                                             </div>
                                             <div className="edit-post-save">

@@ -13,8 +13,10 @@ class PostForm extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
 
-        this.model = React.createRef();
+        this.modal = React.createRef();
+        this.createPost = React.createRef();
         this.editText = React.createRef();
+        this.modalContent = React.createRef();
     }
 
     componentDidUpdate(prevProps) {
@@ -47,9 +49,19 @@ class PostForm extends React.Component {
     //     this.closeModal();
     // }
 
+    showModal() {
+        this.modal.current.classList.add("show-modal");
+        this.createPost.current.classList.add("show-modal");
+        this.modalContent.current.classList.add("show-modal");
+        // this.editText.current.focus();
+        // document.body.classList.add("modal-open");
+    }
+
     closeModal() {
         this.modal.current.classList.remove("show-modal");
-        document.body.classList.remove("modal-open");
+        this.createPost.current.classList.remove("show-modal");
+        this.modalContent.current.classList.remove("show-modal");
+        // document.body.classList.remove("modal-open");
     }
 
     render() {
@@ -57,8 +69,8 @@ class PostForm extends React.Component {
         const {showNeko, currentUser} = this.props;
         return (
 
-            <div ref={this.modal} className="create-form">
-                <div className="modal-content">
+            <div className="create-form">
+                <div ref={this.modalContent} className="modal-content">
                     <div className="edit-post-header">
                         <div>Create Post</div>
                         <div onClick={this.closeModal.bind(this)} className="close-button">&times;</div>
@@ -70,13 +82,14 @@ class PostForm extends React.Component {
                             </Link>
                         </div>
                         <div>
-                            <textarea onChange={this.handleChange("body")} ref={this.editText} value={this.state.body} onFocus={e => e.target.value = this.state.body}>{this.state.body}</textarea>
+                            <textarea className={`${this.state.body.length > 85 ? "small-post" : ""}`} onChange={this.handleChange("body")} ref={this.editText} onClick={this.showModal.bind(this)} placeholder={showNeko.id !== currentUser.id ? `Nyon, write something to ${showNeko.fname}...` : "What's on your mind, nyon?"} value={this.state.body} onFocus={e => e.target.value = this.state.body}></textarea>
                         </div>
                     </div>
-                    <div className="create-post-save">
-                        <button className="create-post-save" onClick={this.handleSubmit.bind(this)}>Post</button>
+                    <div ref={this.createPost} className="create-post-save">
+                        <button className="create-post-save" onClick={this.handleSubmit.bind(this)} disabled={this.state.body.length === 0}>Post</button>
                     </div>
                 </div>
+                <div ref={this.modal} className="modal"></div>
             </div>
 
             // <div ref={this.modal} className="modal modal-trigger">

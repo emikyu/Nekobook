@@ -62,9 +62,20 @@ div.post-index div.post-index-item {
     margin: 6px 0 0;
     color: rgb(37, 37, 37);
     font-weight: 200;
+    overflow-wrap: break-word;
 }
 
-.post-item-body.small-post {
+.small-post {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.edit-post-input textarea.small-post{
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.modal-content.show-modal .edit-post-input textarea.small-post {
     font-size: 14px;
     font-weight: 400;
 }
@@ -164,6 +175,10 @@ div.poster-actions.selected > i {
   z-index: 10;
 }
 
+// .create-form .modal {
+//     display: block;
+// }
+
 .modal-content {
   position: relative; 
   background-color: white;
@@ -176,14 +191,14 @@ div.poster-actions.selected > i {
 }
 
 
+
 .create-form > .modal-content {
-  position: relative; 
-  background-color: white;
-  padding: 0px; 
-  margin: auto; 
   width: 100%;
-  border: 1px solid thistle;
-  border-radius: 3px;
+  box-shadow: none;
+}
+
+.create-form > .modal-content.show-modal {
+  z-index: 11;
   box-shadow: 0 0 10px gray;
 }
 
@@ -200,16 +215,16 @@ div.poster-actions.selected > i {
 }
 
 
-.close-btn {
-  float: right; 
-  color: lightgray; 
-  font-size: 24px;  
-  font-weight: bold;
-}
-.close-btn:hover {
-  color: darkgray;
-  cursor: pointer;
-}
+// .close-btn {
+//   float: right; 
+//   color: lightgray; 
+//   font-size: 24px;  
+//   font-weight: bold;
+// }
+// .close-btn:hover {
+//   color: darkgray;
+//   cursor: pointer;
+// }
 
 
 
@@ -236,6 +251,8 @@ body.modal-open {
 
 .create-form .modal-content > .edit-post-header {
     padding: 6px 8px;
+    height: 34px;
+    box-sizing: border-box;
 }
 
 
@@ -250,6 +267,7 @@ body.modal-open {
     font-size: 18px;
 }
 
+
 .edit-post-header > div:last-child:hover {
     cursor: pointer;
 }
@@ -261,11 +279,26 @@ body.modal-open {
 
 .edit-post-input textarea {
     font-size: 24px;
-    width: 420px;
-    height: 100px;
+    width: 390px;
+    padding-right: 10px;
+    min-height: 100px;
     resize: none;
     border: none;
     font-weight: 300;
+}
+
+.create-form .edit-post-input textarea {
+    width: 429px;
+    padding-right: 10px;
+    font-size: 14px;
+    min-height: 50px;
+    max-height: 100px;
+}
+
+.create-form .show-modal .edit-post-input textarea {
+    // width: 429px;
+    font-size: 24px;
+    // height: 50px;
 }
 
 .edit-post-input textarea:focus {
@@ -283,9 +316,23 @@ body.modal-open {
     border-top: 1px solid thistle;
 }
 
+.modal-content > div.create-post-save,
+.modal-content div.close-button {
+    display: none;
+}
+
+.modal-content.show-modal > div.create-post-save,
+.modal-content.show-modal div.close-button {
+    display: block;
+    position: relative;
+    z-index: 11;
+}
+
+
 .edit-post-save button {
     float: right;
 }
+
 
 button.edit-post-save,
 button.create-post-save {
@@ -304,6 +351,11 @@ button.create-post-save {
 
 button.create-post-save {
     width: 100%;
+    font-size: 12px;
+}
+
+button.create-post-save[disabled] {
+    background-color: rgb(211, 202, 211);
 }
 
 .timeline-right > div.create-form {

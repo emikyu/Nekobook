@@ -50,6 +50,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 const openModal = modals[i];
                 if (openModal.classList.contains('show-modal')) openModal.classList.remove('show-modal');
             }
+
+            const showModals = document.getElementsByClassName('show-modal');
+            for (let i = 0; i < showModals.length; i++) {
+                const openModal = showModals[i];
+                openModal.classList.remove('show-modal');
+            }            
             document.body.classList.remove("modal-open");
 
         }
