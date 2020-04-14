@@ -49,8 +49,8 @@
     margin: 0 0 13px 13px;
     padding: 0 10px 0 0;
     border: 1px solid rgb(233, 227, 233);
-    min-width: 390px;
-    min-height: 99px;
+    width: 390px;
+    height: 99px;
 }
 
 .friends-list .friend-info {
@@ -66,6 +66,7 @@
     position: relative;
     background: thistle;
     margin-right: 10px;
+    flex-shrink: 0;
 }
 
 .friend-photo img {
@@ -83,12 +84,14 @@
 
 .friend-button {
     float: right;
+    flex-shrink: 0;
 }
 
 .friend-name-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    word-break: break-all;
 }
 
 .friend-button > .friend-request-button-container {
