@@ -12,6 +12,8 @@
     color: rgb(105, 105, 105);
 }
 
+
+
 div.post-index div.post-index-item {
     padding: 12px;
     background-color: white;
@@ -38,6 +40,8 @@ div.post-index div.post-index-item {
     background: thistle;
     margin-right: 10px;
     border-radius: 50%;
+    flex-shrink: 0;
+
 }
 
 .poster-profile-picture img,
@@ -159,6 +163,7 @@ div.poster-actions.selected > i {
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 10;
 }
+
 .modal-content {
   position: relative; 
   background-color: white;
@@ -170,6 +175,19 @@ div.poster-actions.selected > i {
   box-shadow: 0 0 10px gray;
 }
 
+
+.create-form > .modal-content {
+  position: relative; 
+  background-color: white;
+  padding: 0px; 
+  margin: auto; 
+  width: 100%;
+  border: 1px solid thistle;
+  border-radius: 3px;
+  box-shadow: 0 0 10px gray;
+}
+
+
 .modal-content > div {
     padding: 10px 12px;
     width: 100%;
@@ -180,6 +198,7 @@ div.poster-actions.selected > i {
     display: flex;
     justify-content: space-between;
 }
+
 
 .close-btn {
   float: right; 
@@ -215,6 +234,18 @@ body.modal-open {
     color: #808080;
 }
 
+.create-form .modal-content > .edit-post-header {
+    padding: 6px 8px;
+}
+
+
+.create-form .edit-post-header > div:first-child {
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+    line-height: 18px;
+}
+
 .edit-post-header > div:last-child {
     font-size: 18px;
 }
@@ -246,7 +277,7 @@ body.modal-open {
     box-sizing: border-box;
 }
 
-.edit-post-save {
+.create-post-save, .edit-post-save {
     background-color: rgb(250, 243, 250);
     height: 40px;
     border-top: 1px solid thistle;
@@ -254,10 +285,10 @@ body.modal-open {
 
 .edit-post-save button {
     float: right;
-
 }
 
-button.edit-post-save {
+button.edit-post-save,
+button.create-post-save {
     font-size: 12px;
     padding: 0 10px 0 10px;
     margin-top: -5px;
@@ -269,4 +300,13 @@ button.edit-post-save {
     border-radius: 3px;
     color: white;
     box-sizing: border-box;
+}
+
+button.create-post-save {
+    width: 100%;
+}
+
+.timeline-right > div.create-form {
+    padding: 0;
+    border: none;
 }
