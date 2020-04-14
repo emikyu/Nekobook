@@ -27,26 +27,26 @@ class UserNav extends React.Component {
             };
         }
 
-        window.onclick = (event) => {
-            if (!event.target.matches('.trigger')) {
-                // window.alert('hello!')
-                const dropdowns = document.getElementsByClassName("triggered-content");
-                for (let i = 0; i < dropdowns.length; i++) {
-                    const openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show-dropdown')) {
-                        openDropdown.classList.remove('show-dropdown');
-                    }
-                }
-                const selected = document.getElementsByClassName("trigger-icon");
-                for (let i = 0; i < selected.length; i++) {
-                    const icon = selected[i];
-                    if (icon.classList.contains('selected')) {
-                        icon.classList.remove('selected');
-                    }
-                }
+        // window.onclick = (event) => {
+        //     if (!event.target.matches('.trigger')) {
+        //         // window.alert('hello!')
+        //         const dropdowns = document.getElementsByClassName("triggered-content");
+        //         for (let i = 0; i < dropdowns.length; i++) {
+        //             const openDropdown = dropdowns[i];
+        //             if (openDropdown.classList.contains('show-dropdown')) {
+        //                 openDropdown.classList.remove('show-dropdown');
+        //             }
+        //         }
+        //         const selected = document.getElementsByClassName("trigger-icon");
+        //         for (let i = 0; i < selected.length; i++) {
+        //             const icon = selected[i];
+        //             if (icon.classList.contains('selected')) {
+        //                 icon.classList.remove('selected');
+        //             }
+        //         }
 
-            }
-        }
+        //     }
+        // }
 
         return (
             <ul className="user-nav-list">

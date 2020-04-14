@@ -1,0 +1,272 @@
+.timeline-right > div.post-index {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+}
+
+.post-index-header {
+    font-size: 14px;
+    margin: 12px 0 0px;
+    font-weight: bold;
+    color: rgb(105, 105, 105);
+}
+
+div.post-index div.post-index-item {
+    padding: 12px;
+    background-color: white;
+    border: 1px solid thistle;
+    border-radius: 3px;
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.post-item-header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.poster-profile-picture,
+.edit-post-profile-picture {
+    width: 40px;
+    height: 40px;
+    border: none;
+    overflow: hidden;
+    position: relative;
+    background: thistle;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.poster-profile-picture img,
+.edit-post-profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    margin-bottom: auto;
+    margin-top: auto;
+    top: 0;
+    bottom: 0;
+}
+
+.post-item-body {
+    font-size: 24px;
+    margin: 6px 0 0;
+    color: rgb(37, 37, 37);
+    font-weight: 200;
+}
+
+.post-item-body.small-post {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.poster-name a {
+    font-size: 14px;
+    font-weight: bold;
+    color: #806480;
+}
+
+.poster-name a:hover {
+    text-decoration: underline;
+}
+
+.post-item-timestamp {
+    font-size: 12px;
+    color: gray;
+}
+
+.poster-actions > i {
+    color: #808080;
+    font-size: 16px;
+}
+
+.poster-actions > i:hover {
+    cursor: pointer;
+}
+
+.poster-name > i {
+    color: #806480;
+    font-size: 14px;
+    padding: 0 3px 0 4px;
+}
+
+.poster-info {
+    display: flex;
+    justify-content: space-between;
+    width: 439px;
+}
+
+
+
+
+// for ellipse dropdown
+div.poster-actions.trigger {
+    position: relative;
+}
+
+ul.ellipse-dropdown {
+    position: absolute;
+    color: black;
+    font-weight: 200px;
+    background-color: white;
+    width: 100px;
+    border: 1px solid rgb(105, 105, 105);
+    box-shadow: 0 0 4px rgb(105, 105, 105);
+    right: 0px;
+    top: 20px;
+    transition: 0.3s ease all;
+    box-sizing: border-box;
+    display: none;
+    padding: 5px 0;
+}
+
+.ellipse-dropdown li {
+    padding: 2px 12px;
+    color: gray;
+    font-size: 12px;
+}
+
+.ellipse-dropdown li:hover {
+    background-color:  rgb(128, 100, 128);
+    color: white;
+    cursor: pointer;
+}
+
+ul.triggered-content.show-dropdown {display:block;}
+
+div.poster-actions.selected > i {
+    color: black;
+}
+
+
+
+// for edit form modal
+
+.modal {
+  display: none;
+  position: fixed; 
+  padding-top: 200px;
+  left: 0; 
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+.modal-content {
+  position: relative; 
+  background-color: white;
+  padding: 0px; 
+  margin: auto; 
+  width: 500px;
+  border: 1px solid thistle;
+  border-radius: 3px;
+  box-shadow: 0 0 10px gray;
+}
+
+.modal-content > div {
+    padding: 10px 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.edit-post-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.close-btn {
+  float: right; 
+  color: lightgray; 
+  font-size: 24px;  
+  font-weight: bold;
+}
+.close-btn:hover {
+  color: darkgray;
+  cursor: pointer;
+}
+
+
+
+.modal.show-modal {
+    display: block;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+.edit-post-header {
+    background-color: rgb(250, 243, 250);
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid thistle;
+}
+
+.edit-post-header > div {
+    font-size: 14px;
+    font-weight: bold;
+    color: #808080;
+}
+
+.edit-post-header > div:last-child {
+    font-size: 18px;
+}
+
+.edit-post-header > div:last-child:hover {
+    cursor: pointer;
+}
+
+.edit-post-input {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-post-input textarea {
+    font-size: 24px;
+    width: 420px;
+    height: 100px;
+    resize: none;
+    border: none;
+    font-weight: 300;
+}
+
+.edit-post-input textarea:focus {
+    outline: none;
+}
+
+.edit-post-input > div:last-child {
+    padding: 13px 0 0;
+    box-sizing: border-box;
+}
+
+.edit-post-save {
+    background-color: rgb(250, 243, 250);
+    height: 40px;
+    border-top: 1px solid thistle;
+}
+
+.edit-post-save button {
+    float: right;
+
+}
+
+button.edit-post-save {
+    font-size: 12px;
+    padding: 0 10px 0 10px;
+    margin-top: -5px;
+    height: 30px;
+    // display: block;
+    font-weight: bold;
+    background-color: rgb(128, 100, 128);
+    border: none;
+    border-radius: 3px;
+    color: white;
+    box-sizing: border-box;
+}

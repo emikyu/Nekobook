@@ -2,8 +2,8 @@ import React from 'react';
 import TimelineIntro from './timeline_intro';
 import TimelinePhotos from './timeline_photos';
 import TimelineFriendsContainer from './timeline_friends_container';
-import PostForm from '../../posts/post_form';
-import PostIndex from '../../posts/post_index';
+import WallPostFormContainer from '../../posts/wall_post_form_container';
+import WallPostIndexContainer from '../../posts/wall_post_index_container';
 
 class TimelineContent extends React.Component {
 
@@ -17,8 +17,8 @@ class TimelineContent extends React.Component {
                     <TimelineFriendsContainer />
                 </div>
                 <div className="timeline-right">
-                    <PostForm showNeko={neko} />
-                    <PostIndex showNeko={neko} />
+                    <WallPostFormContainer />
+                    <WallPostIndexContainer />
                 </div>
             </div>
         )

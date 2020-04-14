@@ -39,6 +39,13 @@ class Neko < ApplicationRecord
     has_many :friendships, foreign_key: :friend_one, class_name: :Friendship 
     has_many :friends, through: :friendships, source: :friend_two
 
+    # look at this in case users disappear when you delete posts lol - double check
+    has_many :authored_posts, foreign_key: :author_id, class_name: :Post, dependent: :destroy
+    has_many :wall_posts, foreign_key: :wall_id, class_name: :Post, dependent: :destroy
+    
+    # nekos who have posted on this neko's wall
+    has_many :wall_posters, through: :wall_posts, source: :author
+
     def make_friend_request(other_neko)
         unless FriendRequest.find_by(requester: self, requestee: other_neko) || FriendRequest.find_by(requestee: self, requester: other_neko)
             FriendRequest.create!(requester: self, requestee: other_neko)

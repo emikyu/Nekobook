@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Post.destroy_all
 Friendship.destroy_all
 FriendRequest.destroy_all
 Neko.destroy_all
@@ -19,15 +20,20 @@ emily = Neko.create(fname: "Emily", lname: "Wu", email: "emily@example.com", pas
 
 fr1 = FriendRequest.create(requester: demo_socks, requestee: lia)
 # fr2 = FriendRequest.create(requester: demo_socks, requestee: emily)
-# fr3 = FriendRequest.create(requester: emily, requestee: nisse)
-fr4 = FriendRequest.create(requester: nisse, requestee: demo_socks)
+fr3 = FriendRequest.create(requester: emily, requestee: nisse)
+# fr4 = FriendRequest.create(requester: nisse, requestee: demo_socks)
 
 f1a = Friendship.create(friend_one: demo_socks, friend_two: emily)
 f1b = Friendship.create(friend_two: demo_socks, friend_one: emily)
-# f2a = Friendship.create(friend_one: demo_socks, friend_two: nisse)
-# f2b = Friendship.create(friend_two: demo_socks, friend_one: nisse)
-# f3a = Friendship.create(friend_one: lia, friend_two: emily)
-# f3b = Friendship.create(friend_two: lia, friend_one: emily)
+f2a = Friendship.create(friend_one: demo_socks, friend_two: nisse)
+f2b = Friendship.create(friend_two: demo_socks, friend_one: nisse)
+f3a = Friendship.create(friend_one: lia, friend_two: emily)
+f3b = Friendship.create(friend_two: lia, friend_one: emily)
 # f4a = Friendship.create(friend_one: demo_socks, friend_two: lia)
 # f4b = Friendship.create(friend_two: demo_socks, friend_one: lia)
 
+p1 = Post.create(author: demo_socks, wall: demo_socks, body: "Welcome to Socks's wall! ^^")
+p2 = Post.create(author: emily, wall: demo_socks, body: "Hello Socks's wall~~~")
+p3 = Post.create(author: emily, wall: lia, body: "Hello Lia's wall~~~")
+p4 = Post.create(author: lia, wall: emily, body: "Feed meeeeeeeeee")
+p5 = Post.create(author: demo_socks, wall: emily, body: "Feed me first!!!! :c")

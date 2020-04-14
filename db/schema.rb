@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_12_021805) do
+ActiveRecord::Schema.define(version: 2020_04_13_145801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,15 @@ ActiveRecord::Schema.define(version: 2020_04_12_021805) do
     t.index ["email"], name: "index_nekos_on_email", unique: true
     t.index ["location_id"], name: "index_nekos_on_location_id"
     t.index ["session_token"], name: "index_nekos_on_session_token", unique: true
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.integer "author_id", null: false
+    t.string "body", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "wall_id", null: false
+    t.index ["author_id"], name: "index_posts_on_author_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

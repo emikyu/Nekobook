@@ -31,6 +31,9 @@ class Api::NekosController < ApplicationController
             elsif params[:index_type] == 'requestees'
                 @nekos = @neko.requestees
                 render :index
+            elsif params[:index_type] == 'wall'
+                @nekos = @neko.wall_posters.order(created_at: :desc)
+                render :index
             else
                 render json: ["Invalid index type!"], status: 404
             end
