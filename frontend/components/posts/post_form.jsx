@@ -72,7 +72,7 @@ class PostForm extends React.Component {
             <div className="create-form">
                 <div ref={this.modalContent} className="modal-content">
                     <div className="edit-post-header">
-                        <div>Create Post</div>
+                        <div><i className="fas fa-pen"></i>Create Post</div>
                         <div onClick={this.closeModal.bind(this)} className="close-button">&times;</div>
                     </div>
                     <div className="edit-post-input">

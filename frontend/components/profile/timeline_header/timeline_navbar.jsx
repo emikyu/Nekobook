@@ -58,22 +58,26 @@ class TimelineNavbar extends React.Component {
                 </div>
                 <div className="timeline-navbar">
                     <ul>
-                        <NavLink to={`/nekos/${neko.id}`}>
+                        <NavLink exact to={`/nekos/${neko.id}`}>
                             <li>
                                     Timeline
                                     <i className="fas fa-caret-down"></i>
                             </li>
                         </NavLink>
 
-                        <NavLink to={`/nekos/${neko.id}/about`}>
+                        <NavLink activeClassName="active-timeline-route" to={`/nekos/${neko.id}/about`}>
                             <li>
                                 About
+                                <div className="tooltip"></div>
+                                <div className="tooltip-border"></div>
                             </li>
                         </NavLink>
 
-                        <NavLink to={`/nekos/${neko.id}/friends`}>
+                        <NavLink activeClassName="active-timeline-route" to={`/nekos/${neko.id}/friends`}>
                             <li>
                                 Friends
+                                <div className="tooltip"></div>
+                                <div className="tooltip-border"></div>
                             </li>
                         </NavLink>
                         <li>Photos</li>

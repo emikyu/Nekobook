@@ -6,7 +6,7 @@
 }
 
 .post-index-header {
-    font-size: 14px;
+    font-size: 12px;
     margin: 12px 0 0px;
     font-weight: bold;
     color: rgb(105, 105, 105);
@@ -261,6 +261,10 @@ body.modal-open {
     padding: 0;
     margin: 0;
     line-height: 18px;
+}
+
+.create-form .edit-post-header i {
+    margin-right: 4px;
 }
 
 .edit-post-header > div:last-child {

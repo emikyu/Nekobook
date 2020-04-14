@@ -185,6 +185,10 @@
     cursor: pointer;
 }
 
+.timeline-navbar a.active-timeline-route {
+    color: dimgray;
+}
+
 
 .timeline-navbar li:hover {
     background: rgb(253, 242, 253);
@@ -277,3 +281,42 @@
 
 
 
+@mixin tooltip($dir, $weight, $color) {
+    border: $weight solid transparent;
+    border-#{$dir}: $weight solid $color;
+}
+
+.timeline-navbar li {
+    position: relative;
+}
+
+.timeline-navbar div.tooltip {
+    position: absolute;
+    @include tooltip(bottom, 8px,#fdf2fd);
+    top: 31px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 0px;
+    z-index: 5;
+    display: none;
+}
+
+.timeline-navbar div.tooltip-border {
+    position: absolute;
+    @include tooltip(bottom, 7px, thistle);
+    top: 31px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 0px;
+    z-index: 4;
+    display: none;
+}
+
+.timeline-navbar .active-timeline-route div.tooltip,
+.timeline-navbar .active-timeline-route div.tooltip-border {
+    display: block;
+}
