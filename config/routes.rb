@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :nekos, only: [:create, :show, :update, :index] do
       resources :nekos, only: [:index]
       resources :posts, only: [:index]
+      resources :comments, only: [:index]
     end
 
     resources :locations, only: [:show, :index]

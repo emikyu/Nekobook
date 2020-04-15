@@ -36,7 +36,7 @@ class Neko < ApplicationRecord
     has_many :requestees, through: :outgoing_friend_requests, source: :requestee
     has_many :requesters, through: :incoming_friend_requests, source: :requester
 
-    has_many :friendships, foreign_key: :friend_one, class_name: :Friendship 
+    has_many :friendships, foreign_key: :friend_one_id, class_name: :Friendship 
     has_many :friends, through: :friendships, source: :friend_two
 
     # look at this in case users disappear when you delete posts lol - double check

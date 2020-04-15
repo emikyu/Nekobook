@@ -4,7 +4,35 @@
     min-height: 1500px;
 }
 
-.newsfeed-content {
+.newsfeed-container {
     width: 1012px;
     margin: 0 auto;
+    min-height: 500px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.newsfeed-nav {
+    width: 180px;
+    border: 2px solid red;
+    box-sizing: border-box;
+    position: sticky;
+}
+
+.newsfeed-content {
+    width :515px;
+    // border: 2px solid orange;
+    box-sizing: border-box;
+
+}
+
+.newsfeed-side {
+    width: 293px;
+    border: 2px solid green;
+    box-sizing: border-box;
+
+}
+
+.newsfeed .post-index-content > ul {
+    margin-top: 10px;
 }

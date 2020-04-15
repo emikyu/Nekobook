@@ -7,6 +7,10 @@ class CommentIndex extends React.Component {
         this.props.requestComments(this.props.postId);
     }
 
+    // componentDidUpdate() {
+
+    // }
+
 
     genTree(comments, commenters) {
         const nestedComments = {};
@@ -55,7 +59,7 @@ class CommentIndex extends React.Component {
                                         updateComment={updateComment}
                                         deleteComment={deleteComment}
                                         createComment={createComment}
-                                        canDelete={currentUser.id === showNeko.id}
+                                        canDelete={currentUser.id === post.wall_id}
                                     />
                                 </li>
                             ))

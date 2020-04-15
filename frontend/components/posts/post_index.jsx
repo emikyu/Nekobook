@@ -30,9 +30,11 @@ class PostIndex extends React.Component {
 
         return (
             <div className="post-index">
-                <div className="post-index-header">
-                    Posts
-                </div>
+                { window.location.hash === "#/newsfeed" ? ("") : (
+                    <div className="post-index-header">
+                        Posts
+                    </div>
+                )}
                 <div className="post-index-content">
                     <ul>
                         {

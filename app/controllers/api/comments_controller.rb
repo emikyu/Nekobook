@@ -2,13 +2,25 @@ class Api::CommentsController < ApplicationController
     before_action :ensure_logged_in
 
     def index
-        @post = Post.find(params[:post_id])
-
-        if @post
-            @comments = @post.comments
-            render :index
+        
+        if params[:post_id]
+            @post = Post.find(params[:post_id])
+            if @post
+                @comments = @post.comments
+                render :index
+            else
+                render json: ["Cannot find corresponding post!"], status: 404
+            end
+        elsif params[:neko_id]
+            if params[:index_type] == 'wall'
+                @wall = Neko.find(params[:neko_id])
+                @comments = @wall.wall_comments
+                render :index
+            else
+                render json: ["Invalid request for comments!"], status: 404
+            end
         else
-            render json: ["Cannot find corresponding post!"], status: 404
+            render json: ["Invalid request for comments!"], status: 404
         end
         
     end

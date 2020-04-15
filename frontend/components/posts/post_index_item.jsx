@@ -1,6 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import WallCommentIndexContainer from '../comments/wall_comment_index_container';
+import NewsfeedCommentIndexContainer from '../comments/newsfeed_comment_index_container';
+
 
 // const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -100,6 +102,7 @@ class PostIndexItem extends React.Component {
     }
 
     render() {
+        // debugger
         const {post, poster, showNeko, currentUser, canEdit, updatePost, deletePost} = this.props;
         if (!this.props.post) return null;
 
@@ -181,7 +184,8 @@ class PostIndexItem extends React.Component {
                     {post.body}
                 </div>
                 <div className="comment-index-content">
-                    <WallCommentIndexContainer postId={post.id}/>
+                    <Route path={'/nekos/:nekoId'} render={() => <WallCommentIndexContainer postId={post.id}/>} />
+                    {/* <Route exact path={'/newsfeed'} render={() => <NewsfeedCommentIndexContainer postId={post.id}/>}/> */}
                 </div>
             </div>
         )

@@ -10,6 +10,12 @@ class Api::PostsController < ApplicationController
         elsif params[:index_type] == 'wall'
             @posts = @neko.wall_posts
             render :index
+        elsif params[:index_type] == 'newsfeed'
+            # @posts = @neko.friends.joins(:authored_posts).eager_load(:authored_posts)
+            @posts = Post.joins(:author_friends).where("friendships.friend_two_id = ?", current_user.id)
+            # debugger
+            @myposts = @neko.authored_posts
+            render :index
         else
             render json: ["Need to specify type of posts to fetch, either authored posts or wall posts."], status: 404
         end

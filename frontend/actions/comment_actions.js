@@ -50,3 +50,8 @@ export const requestComments = postId => dispatch => (
             dispatch(receiveComments(comments));
         })
 );
+
+export const requestAllComments = (nekoId, indexType) => dispatch => (
+    CommentAPIUtil.requestAllComments(nekoId, indexType)
+        .then(comments => dispatch(receiveComments(comments)))
+)

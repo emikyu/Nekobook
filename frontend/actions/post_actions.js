@@ -1,5 +1,6 @@
 import * as PostAPIUtil from '../util/post_api_util';
 import { requestNekos, requestNeko } from '../actions/neko_actions';
+import { requestComments, requestAllComments } from '../actions/comment_actions';
 
 export const RECEIVE_POST = 'RECEIVE_POST';
 export const RECEIVE_POSTS = 'RECEIVE_POSTS';
@@ -43,14 +44,18 @@ export const deletePost = (postId) => dispatch => (
 
 export const requestPosts = (nekoId, indexType) => dispatch => (
     PostAPIUtil.requestPosts(nekoId, indexType)
-        .then(posts => dispatch(receivePosts(posts)))
-        .then(() => dispatch(requestNekos(nekoId, indexType)))
+        .then(posts => {
+            dispatch(receivePosts(posts));
+            dispatch(requestAllComments(nekoId, indexType));
+            dispatch(requestNekos(nekoId, indexType));
+        })
 );
 
 export const requestPost = postId => dispatch => (
     PostAPIUtil.requestPost(postId)
         .then(post => {
             dispatch(receivePost(post));
+            dispatch(requestComments(post.id));
             // dispatch(requestNeko(post.wall_id));
         })
 );

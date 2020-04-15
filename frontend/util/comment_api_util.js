@@ -27,3 +27,11 @@ export const requestComments = (postId) => (
         url: `/api/posts/${postId}/comments`
     })
 );
+
+export const requestAllComments = (nekoId, indexType) => (
+    $.ajax({
+        method: 'get',
+        url: `/api/nekos/${nekoId}/comments`,
+        data: {index_type: indexType}
+    })
+);
