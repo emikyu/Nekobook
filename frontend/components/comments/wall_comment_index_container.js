@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import CommentIndex from './comment_index';
 import {withRouter} from 'react-router-dom';
-import { requestComments, createComment, deleteComent, updateComment } from '../../actions/comment_actions';
+import { requestComments, createComment, deleteComment, updateComment } from '../../actions/comment_actions';
 
 const msp = (state, ownProps) => {
     const nekoId = ownProps.match.params.nekoId;
@@ -36,7 +36,7 @@ const mdp = dispatch => ({
     requestComments: (postId) => dispatch(requestComments(postId)),
     createComment: (data) => dispatch(createComment(data)),
     updateComment: (comment) => dispatch(updateComment(comment)),
-    deleteComment: (commentId) => dispatch(deleteComent(commentId))
+    deleteComment: (commentId) => dispatch(deleteComment(commentId))
 });
 
 export default withRouter(connect(msp, mdp)(CommentIndex));

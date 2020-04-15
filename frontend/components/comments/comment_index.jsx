@@ -54,6 +54,7 @@ class CommentIndex extends React.Component {
                                         updateComment={updateComment}
                                         deleteComment={deleteComment}
                                         createComment={createComment}
+                                        canDelete={currentUser.id === showNeko.id}
                                     />
                                 </li>
                             ))

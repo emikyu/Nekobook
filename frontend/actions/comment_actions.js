@@ -38,7 +38,7 @@ export const updateComment = comment => dispatch => (
 export const deleteComment = commentId => dispatch => (
     CommentAPIUtil.deleteComment(commentId)
         .then(comment => {
-            dispatch(removeComment(comment));
+            dispatch(removeComment(comment.id));
             dispatch(requestPost(comment.post_id));
             dispatch(requestNeko(comment.author_id));
         })

@@ -19,6 +19,6 @@ class Comment < ApplicationRecord
     has_one :wall, through: :post, source: :wall
 
     belongs_to :parent, foreign_key: :parent_id, optional: true, class_name: :Comment
-    has_many :children, foreign_key: :parent_id, class_name: :Comment
+    has_many :children, foreign_key: :parent_id, class_name: :Comment, dependent: :destroy
 
 end

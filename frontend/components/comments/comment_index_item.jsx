@@ -7,8 +7,11 @@ class CommentIndexItem extends React.Component {
         super(props);
 
         this.state = {
-            showForm: false
+            showForm: false,
         };
+
+        this.ellipseIcon = React.createRef();
+        this.ellipseDrop = React.createRef();
     }
 
     formatTime(createdAt) {
@@ -60,8 +63,24 @@ class CommentIndexItem extends React.Component {
         this.setState({showForm: true})
     }
 
+    editComment() {
+
+    }
+
+    deleteComment(commentId) {
+        return e => this.props.deleteComment(commentId);
+    }
+
+    unhideDropdown(ref, icon) {
+        return () => {
+            // window.alert("clicked!");
+            ref.current.classList.toggle("show-dropdown");
+            icon.current.classList.toggle("selected");
+        };
+    }
+
     render() {
-        const {commentGroup, currentUser, updateComment, deleteComment, createComment, postId, canComment, isChild} = this.props;
+        const {canDelete, commentGroup, currentUser, updateComment, deleteComment, createComment, postId, canComment, isChild} = this.props;
         // debugger
         const {parent_comment, parent_commenter, child_comments, child_commenters} = commentGroup;
 
@@ -79,6 +98,29 @@ class CommentIndexItem extends React.Component {
                                 {parent_commenter.fname} {parent_commenter.lname}
                             </Link>    
                             {parent_comment.body}
+                            { currentUser.id === parent_commenter.id ? (
+                            <div ref={this.ellipseIcon} className="poster-actions trigger trigger-icon" onClick={this.unhideDropdown(this.ellipseDrop, this.ellipseIcon)}>
+                                <i className="fas fa-ellipsis-h trigger trigger-icon"></i>
+                                <ul ref={this.ellipseDrop} className="ellipse-dropdown triggered-content">
+                                    <li>
+                                        Edit
+                                    </li>
+                                    <li onClick={this.deleteComment(parent_comment.id)}>
+                                        Delete
+                                    </li>
+                                </ul>
+                            </div>
+                            ) : ( canDelete ? (
+                                <div ref={this.ellipseIcon} className="poster-actions trigger trigger-icon" onClick={this.unhideDropdown(this.ellipseDrop, this.ellipseIcon)}>
+                                    <i className="fas fa-ellipsis-h trigger trigger-icon"></i>
+                                    <ul ref={this.ellipseDrop} className="ellipse-dropdown triggered-content">
+                                        <li onClick={this.deleteComment(parent_comment.id)}>
+                                            Delete
+                                        </li>
+                                    </ul>
+                                </div>
+                            ) : (""))
+                            }
                         </div>
                     </div>
                     <div className="comment-actions">
@@ -96,9 +138,7 @@ class CommentIndexItem extends React.Component {
                                 <ul>
                                     {
                                         child_comments.map((comment, idx) => (
-                                            // <li key={comment.id}>
-                                            //     {child_commenters[idx].fname} {child_commenters[idx].lname}: "{comment.body}"
-                                            // </li>
+
                                             <li key={comment.id}>
                                                 <CommentIndexItem
                                                     commentGroup={{parent_comment: comment, parent_commenter: child_commenters[idx], child_comments: [], child_commenters: []}}
@@ -110,6 +150,7 @@ class CommentIndexItem extends React.Component {
                                                     deleteComment={deleteComment}
                                                     createComment={createComment}
                                                     showReplyForm={this.showReplyForm.bind(this)}
+                                                    canDelete={canDelete}
                                                 />
                                             </li>
                                         ))

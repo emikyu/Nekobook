@@ -12,6 +12,14 @@
     padding: 4px 12px;
 }
 
+.is-parent div.comment-container {
+    width: 465px;
+}
+
+.is-child div.comment-container {
+    width: 421px;
+}
+
 div.comment-items {
     margin: 4px -12px 0 -12px;
     padding-top: 4px;
@@ -147,4 +155,34 @@ div.comment-form {
     display: flex;
     justify-content: flex-start;
     // align-items: center;
+}
+
+div.comment-text {
+    position: relative;
+}
+
+div.comment-text div.hidden-ellipse {
+    position: absolute;
+    right: -20px;
+    top: 10px;
+    color: gray;
+    display: none;
+}
+
+.comment-text {
+    position: relative;
+}
+
+.comment-text div.poster-actions.trigger {
+    position: absolute;
+    right: -20px;
+    top: 8px;
+}
+
+.comment-text div.poster-actions.trigger > i {
+    font-size: 12px;
+}
+
+.comment-text .ellipse-dropdown {
+    z-index: 2;
 }
