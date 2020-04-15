@@ -3,6 +3,13 @@ import { Link } from 'react-router-dom';
 import CommentForm from './comment_form';
 
 class CommentIndexItem extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            showForm: false
+        };
+    }
 
     formatTime(createdAt) {
         // Mon Apr 13 2020 19:20:19 GMT-0400 (Eastern Daylight Time)
@@ -48,13 +55,18 @@ class CommentIndexItem extends React.Component {
     }
 
 
+    showReplyForm() {
+        // debugger
+        this.setState({showForm: true})
+    }
+
     render() {
         const {commentGroup, currentUser, updateComment, deleteComment, createComment, postId, canComment, isChild} = this.props;
         // debugger
         const {parent_comment, parent_commenter, child_comments, child_commenters} = commentGroup;
 
         return(
-            <div className={`comment-index-item ${isChild ? "is-child" : "is-parent"}`}>
+            <div className={`comment-index-item ${isChild ? "is-child" : "is-parent"} ${this.state.showForm ? "show-form" : ""}`}>
                 <div className="comment-container">
                     <div className="comment-body">
                         <div className="comment-profile-picture">
@@ -70,7 +82,11 @@ class CommentIndexItem extends React.Component {
                         </div>
                     </div>
                     <div className="comment-actions">
-                        Reply <span className="comment-dot"> - </span> {this.formatTime(parent_comment.created_at)}
+                        {
+                            isChild ? (<a onClick={this.props.showReplyForm}>Reply</a>) : (<a onClick={this.showReplyForm.bind(this)}>Reply</a>)
+                        
+                        }
+                        <span className="comment-dot"> - </span> {this.formatTime(parent_comment.created_at)}
                     </div>
                 </div>
                 {
@@ -93,13 +109,14 @@ class CommentIndexItem extends React.Component {
                                                     updateComment={updateComment}
                                                     deleteComment={deleteComment}
                                                     createComment={createComment}
+                                                    showReplyForm={this.showReplyForm.bind(this)}
                                                 />
                                             </li>
                                         ))
                                     }
                                 </ul>
                             </div>
-                            <div className="reply-form">
+                            <div className={`reply-form ${this.state.showForm ? "show-form" : ""}`}>
                                 <CommentForm
                                     currentUser={currentUser}
                                     canComment={canComment}
@@ -108,12 +125,12 @@ class CommentIndexItem extends React.Component {
                                     updateComment={updateComment}
                                     deleteComment={deleteComment}
                                     createComment={createComment}
-                                    placeholder="Write a reply..."/>
+                                    placeholder="Write a reply... (press enter to post)"/>
                             </div>
                         </div>
                     ) : (
                         isChild ? ("") : (
-                            <div className="reply-form">
+                            <div className={`reply-form ${this.state.showForm ? "show-form" : ""}`}>
                                 <CommentForm
                                     currentUser={currentUser}
                                     canComment={canComment}
@@ -122,7 +139,7 @@ class CommentIndexItem extends React.Component {
                                     updateComment={updateComment}
                                     deleteComment={deleteComment}
                                     createComment={createComment}
-                                    placeholder="Write a reply..." />
+                                    placeholder="Write a reply... (press enter to post)" />
                             </div>
                         )
                     )

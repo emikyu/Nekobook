@@ -41,7 +41,6 @@ class CommentIndex extends React.Component {
         return (
             <>
                 <div className="comment-items">
-                    Comments will be here!!
                     <ul>
                         {
                             nestedComments.map((commentGroup, idx) => (
@@ -69,7 +68,7 @@ class CommentIndex extends React.Component {
                         updateComment={updateComment}
                         deleteComment={deleteComment}
                         createComment={createComment}
-                        placeholder={"Write a comment..."}
+                        placeholder={"Write a comment... (press enter to post)"}
                     />
                 </div>
             </>

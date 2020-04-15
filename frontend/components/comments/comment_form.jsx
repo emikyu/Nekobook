@@ -25,13 +25,16 @@ class CommentForm extends React.Component {
     // }
 
     handleSubmit(e) {
-        e.preventDefault();
-        this.props.createComment(this.state);
-        this.setState({
-            post_id: this.props.postId,
-            author_id: this.props.currentUser.id,
-            body: ""
-        });
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            this.props.createComment(this.state);
+            this.setState({
+                post_id: this.props.postId,
+                author_id: this.props.currentUser.id,
+                parent_id: this.props.parentId,
+                body: ""
+            });
+        }
     }
 
     handleChange(field) {
@@ -44,9 +47,13 @@ class CommentForm extends React.Component {
         const { post, currentUser } = this.props;
         return (
             <>
-                {currentUser.fname} {currentUser.lname}
-                <input type="text" value={this.state.body} onChange={this.handleChange("body")} placeholder={this.props.placeholder}/>
-                <button onClick={this.handleSubmit}>Post!</button>
+                <div className="cr-form-profile-picture">
+                    {<img src={currentUser.profile_picture ? currentUser.profile_picture : window.nocatpicURL} alt={`${currentUser.fname} ${currentUser.lname}`} />}
+                </div>
+                <div className="cr-form-input">
+                    <textarea onKeyDown={this.handleSubmit} value={this.state.body} onChange={this.handleChange("body")} placeholder={this.props.placeholder}></textarea>
+                </div>
+                {/* <button onClick={this.handleSubmit}>Post!</button> */}
             </>
         )
     }

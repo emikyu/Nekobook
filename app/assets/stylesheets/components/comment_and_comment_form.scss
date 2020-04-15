@@ -7,6 +7,17 @@
     color: #806480;
 }
 
+.comment-container {
+    margin: 4px 0 0;
+    padding: 4px 12px;
+}
+
+div.comment-items {
+    margin: 4px -12px 0 -12px;
+    padding-top: 4px;
+    border-top: 1px solid thistle;
+}
+
 .comment-text {
     background-color: #faf3fa;
     padding: 8px 10px;
@@ -18,6 +29,11 @@
     font-size: 12px;
     color: gray;
     margin-left: 47px;
+}
+
+.comment-actions a:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 .is-child .comment-actions {
@@ -39,25 +55,36 @@
     align-items: center;
 }
 
-.comment-items {
-    border: 2px solid red;
-}
 
-.comment-form {
-    border: 2px solid blue;
-}
+// .comment-form {
+//     border: 2px solid blue;
+// }
 
 .comment-subindex > div,
 div.reply-form {
-    margin-left: 20px;
+    margin-left: 46px;
 }
 
-.comment-items li {
-    border: 1px solid orange;
+div.reply-form {
+    padding: 6px 12px 0px;
+    display: none;
 }
+
+.comment-index-item.show-form div.reply-form {
+    display: flex;
+}
+
+div.comment-form {
+    padding-top: 8px;
+}
+
+// .comment-items li {
+//     border: 1px solid orange;
+// }
 
 .is-child .comment-profile-picture,
-.is-parent .comment-profile-picture {
+.is-parent .comment-profile-picture,
+.cr-form-profile-picture {
     width: 32px;
     height: 32px;
     border: none;
@@ -71,7 +98,8 @@ div.reply-form {
 }
 
 .is-parent .comment-profile-picture img,
-.is-child .comment-profile-picture img {
+.is-child .comment-profile-picture img,
+.cr-form-profile-picture img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -86,4 +114,37 @@ div.reply-form {
 .is-child .comment-profile-picture {
     width: 20px;
     height: 20px;
+}
+
+.reply-form .cr-form-profile-picture {
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+}
+
+.cr-form-input > textarea:focus {
+    outline: none;
+}
+
+.cr-form-input textarea {
+    width: 447px;
+    min-height: 31px;
+    height: 31px;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    border: 1px solid thistle;
+    border-radius: 18px;
+    background-color: #faf3fa;
+    resize: vertical;
+
+}
+
+.reply-form .cr-form-input textarea {
+    width: 414px;
+}
+
+.comment-form, .reply-form {
+    display: flex;
+    justify-content: flex-start;
+    // align-items: center;
 }
