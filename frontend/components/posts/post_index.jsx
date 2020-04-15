@@ -44,7 +44,7 @@ class PostIndex extends React.Component {
                                     <PostIndexItem 
                                         post={post}
                                         poster={posters[idx]}
-                                        showNeko={this.props.neko} 
+                                        showNeko={this.props.nekos[post.wall_id]} 
                                         currentUser={this.props.currentUser} 
                                         canEdit={this.props.currentUser.id === posters[idx].id}
                                         updatePost={this.props.updatePost}

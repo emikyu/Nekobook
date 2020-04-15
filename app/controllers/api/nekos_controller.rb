@@ -36,6 +36,7 @@ class Api::NekosController < ApplicationController
                 render :index
             elsif params[:index_type] == 'newsfeed'
                 @nekos = @neko.friends
+                @fofs = @neko.friends_of_friends
                 render :index
             else
                 render json: ["Invalid index type!"], status: 404

@@ -25,6 +25,7 @@ const msp = (state, ownProps) => {
     return {
         nekoId,
         neko,
+        nekos: state.entities.nekos,
         posts: newsfeedPosts,
         posters: newsfeedPosters,
         currentUser: state.entities.nekos[state.session.currentUserId]

@@ -103,8 +103,9 @@ class PostIndexItem extends React.Component {
 
     render() {
         // debugger
-        const {post, poster, showNeko, currentUser, canEdit, updatePost, deletePost} = this.props;
+        const {post, poster, showNeko, currentUser, canEdit, updatePost, deletePost, nekos} = this.props;
         if (!this.props.post) return null;
+
 
         return (
             <div className="post-index-item">
