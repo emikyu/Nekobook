@@ -64,9 +64,12 @@ class PostForm extends React.Component {
         // document.body.classList.remove("modal-open");
     }
 
+
+
     render() {
         if (!this.props.canPost) return null;
         const {showNeko, currentUser} = this.props;
+
         return (
 
             <div className="create-form">

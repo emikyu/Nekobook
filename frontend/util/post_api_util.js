@@ -28,3 +28,10 @@ export const requestPosts = (nekoId, indexType) => (
         data: { index_type: indexType }
     })
 );
+
+export const requestPost = (postId) => (
+    $.ajax({
+        method: 'get',
+        url: `/api/posts/${postId}`,
+    })
+);

@@ -46,3 +46,11 @@ export const requestPosts = (nekoId, indexType) => dispatch => (
         .then(posts => dispatch(receivePosts(posts)))
         .then(() => dispatch(requestNekos(nekoId, indexType)))
 );
+
+export const requestPost = postId => dispatch => (
+    PostAPIUtil.requestPost(postId)
+        .then(post => {
+            dispatch(receivePost(post));
+            // dispatch(requestNeko(post.wall_id));
+        })
+);

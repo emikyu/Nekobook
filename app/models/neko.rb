@@ -46,6 +46,11 @@ class Neko < ApplicationRecord
     # nekos who have posted on this neko's wall
     has_many :wall_posters, through: :wall_posts, source: :author
 
+    has_many :authored_comments, foreign_key: :author_id, class_name: :Comment, dependent: :destroy
+    has_many :wall_comments, through: :wall_posts, source: :comments
+    has_many :wall_commenters, through: :wall_comments, source: :author
+
+
     def make_friend_request(other_neko)
         unless FriendRequest.find_by(requester: self, requestee: other_neko) || FriendRequest.find_by(requestee: self, requester: other_neko)
             FriendRequest.create!(requester: self, requestee: other_neko)

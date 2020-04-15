@@ -35,7 +35,7 @@ class Api::PostsController < ApplicationController
         elsif current_user.id != author_id
             render json: ["Only current user can create post."], status: 404
         else
-            render json: "Current user can only post on their own or their friends' walls."
+            render json: ["Current user can only post on their own or their friends' walls."], status: 404
         end
     end
 

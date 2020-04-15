@@ -1,0 +1,89 @@
+.comment-index-content {
+    font-size: 13px;
+    color: #252525;
+}
+
+.comment-index-content a {
+    color: #806480;
+}
+
+.comment-text {
+    background-color: #faf3fa;
+    padding: 8px 10px;
+    border-radius: 18px;
+    word-break: break-word;
+}
+
+.comment-actions {
+    font-size: 12px;
+    color: gray;
+    margin-left: 47px;
+}
+
+.is-child .comment-actions {
+    margin-left: 35px;
+}
+
+.comment-dot {
+    font-size: 8px
+}
+
+.comment-text a {
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+.comment-body {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.comment-items {
+    border: 2px solid red;
+}
+
+.comment-form {
+    border: 2px solid blue;
+}
+
+.comment-subindex > div,
+div.reply-form {
+    margin-left: 20px;
+}
+
+.comment-items li {
+    border: 1px solid orange;
+}
+
+.is-child .comment-profile-picture,
+.is-parent .comment-profile-picture {
+    width: 32px;
+    height: 32px;
+    border: none;
+    overflow: hidden;
+    position: relative;
+    background: thistle;
+    margin-right: 5px;
+    border-radius: 50%;
+    flex-shrink: 0;
+
+}
+
+.is-parent .comment-profile-picture img,
+.is-child .comment-profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    margin-bottom: auto;
+    margin-top: auto;
+    top: 0;
+    bottom: 0;
+}
+
+.is-child .comment-profile-picture {
+    width: 20px;
+    height: 20px;
+}

@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Comment.destroy_all
 Post.destroy_all
 Friendship.destroy_all
 FriendRequest.destroy_all
@@ -37,3 +38,12 @@ p2 = Post.create(author: emily, wall: demo_socks, body: "Hello Socks's wall~~~")
 p3 = Post.create(author: emily, wall: lia, body: "Hello Lia's wall~~~")
 p4 = Post.create(author: lia, wall: emily, body: "Feed meeeeeeeeee")
 p5 = Post.create(author: demo_socks, wall: emily, body: "Feed me first!!!! :c")
+
+c1 = Comment.create(post: p1, author: demo_socks, body: "I'm replying to my own post!!")
+c2 = Comment.create(post: p1, author: emily, body: "You're pretty silly for doing that")
+c3 = Comment.create(post: p2, author: nisse, body: "How do comments work?")
+c4 = Comment.create(post: p4, author: lia, body: "Pretty pretty please?")
+c5 = Comment.create(post: p4, author: emily, body: "No, shush!!")
+
+cc1 = Comment.create(post: p1, author: demo_socks, parent: c1, body: "I'm replying to my comment's comment")
+cc2 = Comment.create(post: p1, author: emily, parent: c1, body: "You're a silly goose smh")

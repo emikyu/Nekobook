@@ -19,7 +19,11 @@ Rails.application.routes.draw do
     post 'friendships/:friend_one_id/:friend_two_id', to: 'friendships#create', as: 'frienships'
     delete 'friendships/:friend_one_id/:friend_two_id', to: 'friendships#destroy', as: 'friendship'
 
-    resources :posts, only: [:show, :create, :update, :destroy]
+    resources :posts, only: [:show, :create, :update, :destroy] do
+      resources :comments, only: [:index]
+    end
+
+    resources :comments, only: [:show, :create, :update, :destroy]
 
   end
 end

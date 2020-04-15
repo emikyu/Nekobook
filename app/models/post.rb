@@ -14,4 +14,6 @@ class Post < ApplicationRecord
 
     belongs_to :author, foreign_key: :author_id, class_name: :Neko
     belongs_to :wall, foreign_key: :wall_id, class_name: :Neko
+
+    has_many :comments, foreign_key: :post_id, class_name: :Comment, dependent: :destroy
 end

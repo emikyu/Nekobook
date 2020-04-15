@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import WallCommentIndexContainer from '../comments/wall_comment_index_container';
 
 // const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -178,6 +179,9 @@ class PostIndexItem extends React.Component {
                 </div>
                 <div className={`post-item-body ${post.body.length > 85 ? " small-post" : ""}`}>
                     {post.body}
+                </div>
+                <div className="comment-index-content">
+                    <WallCommentIndexContainer postId={post.id}/>
                 </div>
             </div>
         )
