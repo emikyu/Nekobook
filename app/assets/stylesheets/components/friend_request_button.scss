@@ -89,6 +89,10 @@
     opacity: 100%;
 }
 
+.friend-request-button-container:hover div:last-child {
+        z-index: 3;
+}
+
 .friend-request-button-container:hover li {
     cursor: pointer;
 }
