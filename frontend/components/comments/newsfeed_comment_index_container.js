@@ -26,7 +26,7 @@ const msp = (state, ownProps) => {
         comments,
         commenters,
         nekos: state.entities.nekos,
-        canComment: true
+        canComment: currentUser.friend_ids.includes(post.wall_id) || currentUser.id === post.wall_id
     }
 
 

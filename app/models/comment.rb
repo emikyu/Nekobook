@@ -21,4 +21,10 @@ class Comment < ApplicationRecord
     belongs_to :parent, foreign_key: :parent_id, optional: true, class_name: :Comment
     has_many :children, foreign_key: :parent_id, class_name: :Comment, dependent: :destroy
 
+    has_one :post_author, through: :post, source: :author
+
+    has_many :post_author_friends, through: :post_author, source: :friends
+    
+
+
 end

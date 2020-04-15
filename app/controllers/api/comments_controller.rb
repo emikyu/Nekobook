@@ -16,6 +16,10 @@ class Api::CommentsController < ApplicationController
                 @wall = Neko.find(params[:neko_id])
                 @comments = @wall.wall_comments
                 render :index
+            elsif params[:index_type] == 'newsfeed'
+                @comments = Comment.joins(:post_author_friends).where("friendships.friend_two_id = ?", current_user.id)
+                @mypostcomments = Comment.joins(:post_author).where("nekos.id = ?", current_user.id)
+                render :index
             else
                 render json: ["Invalid request for comments!"], status: 404
             end

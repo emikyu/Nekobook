@@ -104,7 +104,7 @@ class PostIndexItem extends React.Component {
     render() {
         // debugger
         const {post, poster, showNeko, currentUser, canEdit, updatePost, deletePost, nekos} = this.props;
-        if (!this.props.post) return null;
+        if (!post || !showNeko) return null;
 
 
         return (
@@ -186,7 +186,7 @@ class PostIndexItem extends React.Component {
                 </div>
                 <div className="comment-index-content">
                     <Route path={'/nekos/:nekoId'} render={() => <WallCommentIndexContainer postId={post.id}/>} />
-                    {/* <Route exact path={'/newsfeed'} render={() => <NewsfeedCommentIndexContainer postId={post.id}/>}/> */}
+                    <Route exact path={'/newsfeed'} render={() => <NewsfeedCommentIndexContainer postId={post.id}/>}/>
                 </div>
             </div>
         )
