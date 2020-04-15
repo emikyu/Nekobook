@@ -8,7 +8,9 @@ class CommentIndexItem extends React.Component {
 
         this.state = {
             showForm: false,
-            showEditForm: false
+            showEditForm: false,
+            id: this.props.commentGroup.parent_comment.id,
+            body: this.props.commentGroup.parent_comment.body
         };
 
         this.ellipseIcon = React.createRef();
@@ -62,21 +64,37 @@ class CommentIndexItem extends React.Component {
     showReplyForm() {
         // debugger
         this.setState({showForm: true});
-        debugger
+        // debugger
     }
 
-    showEditForm() {
-        this.setState({showEditForm: true});
-        debugger
+    toggleEditForm() {
+        this.state.showEditForm ? this.setState({ showEditForm: false }) : this.setState({showEditForm: true});
+        this.setState({ body: this.props.commentGroup.parent_comment.body });
+        // debugger
     }
 
-    editComment() {
-
-    }
 
     deleteComment(commentId) {
         return e => this.props.deleteComment(commentId);
     }
+
+    handleSubmit(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            this.props.updateComment(this.state);
+            this.toggleEditForm()
+        } else if (e.key === 'Escape') {
+            e.preventDefault();
+            this.toggleEditForm();
+            this.setState({body: this.props.commentGroup.parent_comment.body});
+        }
+    }
+
+
+    handleChange(field) {
+        return e => this.setState({ [field]: e.target.value });
+    }
+
 
     unhideDropdown(ref, icon) {
         return () => {
@@ -94,7 +112,7 @@ class CommentIndexItem extends React.Component {
         return(
             <div className={`comment-index-item ${isChild ? "is-child" : "is-parent"} ${this.state.showForm ? "show-reply-form" : ""} ${this.state.showEditForm ? "show-edit-form" : ""}`}>
                 <div className="comment-container">
-                    <div className="comment-body">
+                    <div className={`comment-body ${this.state.showEditForm ? "hide-comment" : ""}`}>
                         <div className="comment-profile-picture">
                             <Link to={`/nekos/${parent_commenter.id}`}>
                                 {<img src={parent_commenter.profile_picture ? parent_commenter.profile_picture : window.nocatpicURL} alt={`${parent_commenter.fname} ${parent_commenter.lname}`} />}
@@ -109,7 +127,7 @@ class CommentIndexItem extends React.Component {
                             <div ref={this.ellipseIcon} className="poster-actions trigger trigger-icon" onClick={this.unhideDropdown(this.ellipseDrop, this.ellipseIcon)}>
                                 <i className="fas fa-ellipsis-h trigger trigger-icon"></i>
                                 <ul ref={this.ellipseDrop} className="ellipse-dropdown triggered-content">
-                                    <li onClick={this.showEditForm.bind(this)}>
+                                    <li onClick={this.toggleEditForm.bind(this)}>
                                         Edit
                                     </li>
                                     <li onClick={this.deleteComment(parent_comment.id)}>
@@ -129,19 +147,8 @@ class CommentIndexItem extends React.Component {
                             ) : (""))
                             }
                         </div>
-                        <div className={`reply-form ${this.state.showEditForm ? "show-edit-form" : ""}`}>
-                            <CommentForm
-                                currentUser={currentUser}
-                                canComment={canComment}
-                                postId={postId}
-                                parentId={parent_comment.id}
-                                updateComment={updateComment}
-                                deleteComment={deleteComment}
-                                createComment={createComment}
-                                placeholder="Edit your reply... (press enter to post)" />
-                        </div>
                     </div>
-                    <div className="comment-actions">
+                    <div className={`comment-actions ${this.state.showEditForm ? "hide-comment" : ""}`}>
                         {
                             canComment? (
                                 isChild ? (<a onClick={this.props.showReplyForm}>Reply</a>) : (<a onClick={this.showReplyForm.bind(this)}>Reply</a>)
@@ -150,6 +157,18 @@ class CommentIndexItem extends React.Component {
                         }
                         { canComment? (<span className="comment-dot"> - </span>) : ("")}
                         {this.formatTime(parent_comment.created_at)}
+                    </div>
+                    <div className={`edit-form ${this.state.showEditForm ? "show-edit-form" : ""}`}>
+                            <div className="edit-form-profile-picture">
+                                {<img src={currentUser.profile_picture ? currentUser.profile_picture : window.nocatpicURL} alt={`${currentUser.fname} ${currentUser.lname}`} />}
+                            </div>
+                            <div className="edit-form-input">
+                                <div>
+                                    <textarea onKeyDown={this.handleSubmit.bind(this)} value={this.state.body} onChange={this.handleChange("body")}></textarea>
+                                </div>
+                                <div className="escape-cancel">Press escape to <a onClick={this.toggleEditForm.bind(this)}>cancel</a>
+                                </div>
+                            </div>
                     </div>
                 </div>
                 {
@@ -172,6 +191,7 @@ class CommentIndexItem extends React.Component {
                                                     createComment={createComment}
                                                     showReplyForm={this.showReplyForm.bind(this)}
                                                     canDelete={canDelete}
+                                                    // comment={comment}
                                                 />
                                             </li>
                                         ))

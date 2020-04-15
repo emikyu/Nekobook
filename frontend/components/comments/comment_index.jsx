@@ -40,6 +40,7 @@ class CommentIndex extends React.Component {
 
         return (
             <>
+                { comments.length > 0 ? (
                 <div className="comment-items">
                     <ul>
                         {
@@ -60,7 +61,8 @@ class CommentIndex extends React.Component {
                             ))
                         }
                     </ul>
-                </div>
+                </div>) : ("")}
+                { canComment? (
                 <div className="comment-form">
                     <CommentForm
                         currentUser={currentUser}
@@ -71,7 +73,8 @@ class CommentIndex extends React.Component {
                         createComment={createComment}
                         placeholder={"Write a comment... (press enter to post)"}
                     />
-                </div>
+                </div> ) : ("")
+                }
             </>
         );
     }
