@@ -61,11 +61,13 @@ class CommentIndexItem extends React.Component {
 
     showReplyForm() {
         // debugger
-        this.setState({showForm: true})
+        this.setState({showForm: true});
+        debugger
     }
 
     showEditForm() {
-        this.setState({showEditForm: true})
+        this.setState({showEditForm: true});
+        debugger
     }
 
     editComment() {
@@ -90,7 +92,7 @@ class CommentIndexItem extends React.Component {
         const {parent_comment, parent_commenter, child_comments, child_commenters} = commentGroup;
 
         return(
-            <div className={`comment-index-item ${isChild ? "is-child" : "is-parent"} ${this.state.showForm ? "show-form" : ""}`}>
+            <div className={`comment-index-item ${isChild ? "is-child" : "is-parent"} ${this.state.showForm ? "show-reply-form" : ""} ${this.state.showEditForm ? "show-edit-form" : ""}`}>
                 <div className="comment-container">
                     <div className="comment-body">
                         <div className="comment-profile-picture">
@@ -107,7 +109,7 @@ class CommentIndexItem extends React.Component {
                             <div ref={this.ellipseIcon} className="poster-actions trigger trigger-icon" onClick={this.unhideDropdown(this.ellipseDrop, this.ellipseIcon)}>
                                 <i className="fas fa-ellipsis-h trigger trigger-icon"></i>
                                 <ul ref={this.ellipseDrop} className="ellipse-dropdown triggered-content">
-                                    <li>
+                                    <li onClick={this.showEditForm.bind(this)}>
                                         Edit
                                     </li>
                                     <li onClick={this.deleteComment(parent_comment.id)}>
@@ -127,7 +129,7 @@ class CommentIndexItem extends React.Component {
                             ) : (""))
                             }
                         </div>
-                        {/* <div className={`reply-form ${this.state.showEditForm ? "show-form" : ""}`}>
+                        <div className={`reply-form ${this.state.showEditForm ? "show-edit-form" : ""}`}>
                             <CommentForm
                                 currentUser={currentUser}
                                 canComment={canComment}
@@ -136,15 +138,18 @@ class CommentIndexItem extends React.Component {
                                 updateComment={updateComment}
                                 deleteComment={deleteComment}
                                 createComment={createComment}
-                                placeholder="Write a reply... (press enter to post)" />
-                        </div> */}
+                                placeholder="Edit your reply... (press enter to post)" />
+                        </div>
                     </div>
                     <div className="comment-actions">
                         {
-                            isChild ? (<a onClick={this.props.showReplyForm}>Reply</a>) : (<a onClick={this.showReplyForm.bind(this)}>Reply</a>)
+                            canComment? (
+                                isChild ? (<a onClick={this.props.showReplyForm}>Reply</a>) : (<a onClick={this.showReplyForm.bind(this)}>Reply</a>)
+                            ) : ("")
                         
                         }
-                        <span className="comment-dot"> - </span> {this.formatTime(parent_comment.created_at)}
+                        { canComment? (<span className="comment-dot"> - </span>) : ("")}
+                        {this.formatTime(parent_comment.created_at)}
                     </div>
                 </div>
                 {
@@ -173,7 +178,7 @@ class CommentIndexItem extends React.Component {
                                     }
                                 </ul>
                             </div>
-                            <div className={`reply-form ${this.state.showForm ? "show-form" : ""}`}>
+                            <div className={`reply-form ${this.state.showForm ? "show-reply-form" : ""}`}>
                                 <CommentForm
                                     currentUser={currentUser}
                                     canComment={canComment}
@@ -187,7 +192,7 @@ class CommentIndexItem extends React.Component {
                         </div>
                     ) : (
                         isChild ? ("") : (
-                            <div className={`reply-form ${this.state.showForm ? "show-form" : ""}`}>
+                            <div className={`reply-form ${this.state.showForm ? "show-reply-form" : ""}`}>
                                 <CommentForm
                                     currentUser={currentUser}
                                     canComment={canComment}

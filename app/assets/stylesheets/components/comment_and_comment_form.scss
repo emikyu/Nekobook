@@ -78,7 +78,11 @@ div.reply-form {
     display: none;
 }
 
-.comment-index-item.show-form div.reply-form {
+.comment-index-item.show-reply-form div.reply-form.show-reply-form {
+    display: flex;
+}
+
+.comment-index-item.show-edit-form div.reply-form.show-edit-form {
     display: flex;
 }
 
