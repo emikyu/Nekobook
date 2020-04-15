@@ -61,7 +61,8 @@ class CommentIndex extends React.Component {
                             ))
                         }
                     </ul>
-                </div>) : ("")}
+                </div>) : ("")
+                }
                 { canComment? (
                 <div className="comment-form">
                     <CommentForm

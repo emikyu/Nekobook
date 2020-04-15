@@ -26,6 +26,14 @@ div.comment-items {
     border-top: 1px solid thistle;
 }
 
+div.comment-form {
+    margin-left: -12px;
+    margin-right: -12px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-top: 1px solid thistle;
+}
+
 .comment-text {
     background-color: #faf3fa;
     padding: 8px 10px;
@@ -159,7 +167,7 @@ div.comment-form {
     border-radius: 18px;
     background-color: #faf3fa;
     resize: vertical;
-
+    // font-size: 13px;
 }
 
 .reply-form .cr-form-input textarea,
