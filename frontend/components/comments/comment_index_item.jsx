@@ -8,6 +8,7 @@ class CommentIndexItem extends React.Component {
 
         this.state = {
             showForm: false,
+            showEditForm: false
         };
 
         this.ellipseIcon = React.createRef();
@@ -61,6 +62,10 @@ class CommentIndexItem extends React.Component {
     showReplyForm() {
         // debugger
         this.setState({showForm: true})
+    }
+
+    showEditForm() {
+        this.setState({showEditForm: true})
     }
 
     editComment() {
@@ -122,6 +127,17 @@ class CommentIndexItem extends React.Component {
                             ) : (""))
                             }
                         </div>
+                        {/* <div className={`reply-form ${this.state.showEditForm ? "show-form" : ""}`}>
+                            <CommentForm
+                                currentUser={currentUser}
+                                canComment={canComment}
+                                postId={postId}
+                                parentId={parent_comment.id}
+                                updateComment={updateComment}
+                                deleteComment={deleteComment}
+                                createComment={createComment}
+                                placeholder="Write a reply... (press enter to post)" />
+                        </div> */}
                     </div>
                     <div className="comment-actions">
                         {

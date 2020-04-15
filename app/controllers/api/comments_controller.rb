@@ -20,7 +20,7 @@ class Api::CommentsController < ApplicationController
 
     def create
         author_id, post_id = params[:comment][:author_id].to_i, params[:comment][:post_id].to_i
-        wall_id = Post.find(post_id).wall_id;
+        wall_id = Post.find(post_id).wall_id
 
         if current_user.id == author_id && (current_user.id == wall_id || current_user.friend_ids.include?(wall_id))
             @comment = Comment.new(comment_params)
@@ -51,7 +51,7 @@ class Api::CommentsController < ApplicationController
 
     def destroy
         @comment = Comment.find(params[:id])
-        if current_user.id == @comment.author_id || current_user.id == @comment.wall_id
+        if current_user.id == @comment.author_id || current_user.id == @comment.wall.id
             @comment.destroy
             render :show
         else
