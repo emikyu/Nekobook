@@ -19,6 +19,10 @@ class PostIndex extends React.Component {
         // if (this.props.posts.length !== prevProps.posts.length) {
         //     this.props.requestPosts(this.props.nekoId);
         // }
+        if (this.props.currentUser.hidden_friends.some(friend => !prevProps.currentUser.hidden_friends.includes(friend)) || 
+            prevProps.currentUser.hidden_friends.some(friend => !this.props.currentUser.hidden_friends.includes(friend))) {
+            this.props.requestNeko(this.props.currentUser.id);
+        }
     }
 
     render() {

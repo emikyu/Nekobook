@@ -7,16 +7,21 @@ class FriendRequestButton extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (prevProps.friendIds.length != this.props.friendIds.length) {
+        if (prevProps.friendIds.length !== this.props.friendIds.length) {
             this.props.requestNeko(this.props.showNekoId)
                 .then(() => this.props.requestNeko(this.props.currentUserId));
+        }
+        else if (this.props.isHidden !== prevProps.isHidden) {
+            this.props.requestNeko(this.props.currentUserId);
         }
     }
 
     render() {
         // if (!requesterIds || !requesteeIds || !friendIds) return null;
         
-        const { showNekoId, currentUserId, requesterIds, requesteeIds, friendIds, makeFriendRequest, removeFriendRequest, toFriend, toUnfriend } = this.props;
+        const { showNekoId, currentUserId, requesterIds, requesteeIds, friendIds, makeFriendRequest, removeFriendRequest, toFriend, toUnfriend, toUnhide, hidden_friends, isHidden} = this.props;
+
+        // debugger
 
         if (this.props.renderedAt === "profile-friends" && showNekoId === currentUserId) return null;
         
@@ -30,13 +35,19 @@ class FriendRequestButton extends React.Component {
             buttonText = (<><i className="fas fa-pen"></i> Edit Profile</>);
             buttonClick = () => this.props.history.push(`/nekos/${currentUserId}/about`);
         } 
+        // if already friends with shown user & hidden from newsfeed - allow unfriending and unhide
+        else if (friendIds.includes(showNekoId) && isHidden) {
+            buttonText = (<><i className="fas fa-check"></i> Friends <i className="fas fa-caret-down"></i></>);
+            buttonClick = null;
+            listTexts = ["Unhide", "Unfriend"];
+            handleClicks = [() => toUnhide(currentUserId, hidden_friends), () => toUnfriend(currentUserId, showNekoId)];
         // if already friends with shown user - allow unfriending
-        else if (friendIds.includes(showNekoId)) {
+        } else if (friendIds.includes(showNekoId)) {
             buttonText = (<><i className="fas fa-check"></i> Friends <i className="fas fa-caret-down"></i></>);
             buttonClick = null;
             listTexts = ["Unfriend"];
             handleClicks = [() => toUnfriend(currentUserId, showNekoId)];
-        } 
+        }
         // if have incoming friend request from user - either confirm (friend) or delete request (reject request)
         else if (requesterIds.includes(showNekoId)) {
             buttonText = (<><i className="fas fa-user-plus"></i> Respond to Friend Request</>);

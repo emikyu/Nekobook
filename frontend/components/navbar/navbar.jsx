@@ -1,6 +1,7 @@
 import React from 'react';
 import UserNavContainer from './user_nav_container';
 import { Link } from 'react-router-dom';
+import SearchBar from './search_bar';
 
 const Navbar = () => {
     return (
@@ -8,10 +9,11 @@ const Navbar = () => {
             <nav className="nav-bar-content">
                 <div className="nav-logo">
                     <Link to='/newsfeed'><i className="fas fa-cat"></i></Link>
-                    <div className="search-bar">
+                    {/* <div className="search-bar">
                         <input type="text" placeholder="Search"/>
                         <button className="button"><i className="fa fa-search search-bar" aria-hidden="true"></i></button>
-                    </div>
+                    </div> */}
+                    <SearchBar />
                 </div>
                 <div className="user-nav-container">
                     <UserNavContainer />

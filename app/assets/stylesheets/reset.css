@@ -12,6 +12,10 @@ h1, h2, p, strong, em, a {
   background: transparent;
 }
 
+body {
+  background: #fdf2fd;
+}
+
 button {
   font-family: inherit;
   border-width: 1px;
