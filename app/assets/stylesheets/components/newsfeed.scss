@@ -7,16 +7,15 @@
 .newsfeed-container {
     width: 1012px;
     margin: 0 auto;
-    min-height: 500px;
     display: flex;
     justify-content: space-between;
 }
 
 .newsfeed-nav {
     width: 180px;
-    border: 2px solid red;
     box-sizing: border-box;
     height: 100px;
+    // background: red;
 }
 
 .newsfeed-content {
@@ -28,9 +27,11 @@
 
 .newsfeed-side {
     width: 293px;
-    border: 2px solid green;
     box-sizing: border-box;
+    padding: 12px;
     height: 100px;
+    color: gray;
+    font-size: 12px;
 
 }
 
@@ -38,8 +39,72 @@
     margin-top: 10px;
 }
 
+.newsfeed-nav-picture  {
+    width: 20px;
+    height: 20px;
+    border: none;
+    overflow: hidden;
+    position: relative;
+    margin-right: 5px;
+}
+
+.newsfeed-nav-picture  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    margin-bottom: auto;
+    margin-top: auto;
+    top: 0;
+    bottom: 0;
+}
+
+.newsfeed-nav-picture.nav-profile {
+    border-radius: 50%;
+    background: thistle;
+
+}
+
+.newsfeed-nav-header {
+    color: gray;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 3px;
+    margin-top: 10px;
+}
+
+.newsfeed-to-navlink {
+    display: flex;
+    justify-content: flex-start;
+    font-size :13px;
+    color: #252525;
+    align-items: center
+}
+
 .newsfeed-nav, .newsfeed-side {
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 50px;
+}
+
+.newsfeed-nav div.newsfeed-to-navlink {
+    padding: 3px;
+    border: 1px solid transparent;
+}
+
+.newsfeed-nav div.newsfeed-to-navlink:hover,
+.newsfeed-nav div.newsfeed-to-newsfeed {
+    background-color: #fcfcfc;
+    border: 1px solid thistle;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.newsfeed-to-navlink {
+    margin-bottom: 4px;
+}
+
+.newsfeed-nav-header {
+    font-weight: bold
 }

@@ -6,6 +6,7 @@ const SplashFooter = () => (
             <ul className="footer-link-list">
                 <li><a href="https://github.com/emikyu">Github</a></li>
                 <li><a href="https://www.linkedin.com/in/huijiawu/">LinkedIn</a></li>
+                <li><a href="https://angel.co/u/h-emily-wu">AngelList</a></li>
             </ul>
             <div className="footer-divider">
             </div>
