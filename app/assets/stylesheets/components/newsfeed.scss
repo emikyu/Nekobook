@@ -16,7 +16,7 @@
     width: 180px;
     border: 2px solid red;
     box-sizing: border-box;
-    position: sticky;
+    height: 100px;
 }
 
 .newsfeed-content {
@@ -30,9 +30,16 @@
     width: 293px;
     border: 2px solid green;
     box-sizing: border-box;
+    height: 100px;
 
 }
 
 .newsfeed .post-index-content > ul {
     margin-top: 10px;
+}
+
+.newsfeed-nav, .newsfeed-side {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 50px;
 }

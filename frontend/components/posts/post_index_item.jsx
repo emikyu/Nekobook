@@ -21,6 +21,8 @@ class PostIndexItem extends React.Component {
 
         this.unhideDropdown = this.unhideDropdown.bind(this);
         this.deletePost = this.deletePost.bind(this);
+
+        this.hideUser = this.hideUser.bind(this);
     }
 
     deletePost() {
@@ -101,10 +103,22 @@ class PostIndexItem extends React.Component {
         this.closeModal();
     }
 
+    hideUser(userId) {
+        // debugger
+        return (e) => {
+            // debugger
+            const hidden_friends = this.props.currentUser.hidden_friends;
+            // debugger
+            hidden_friends.push(userId);
+            // debugger
+            this.props.updateNeko({id: this.props.currentUser.id, hidden_friends});
+        }
+    }
+
     render() {
         // debugger
         const {post, poster, showNeko, currentUser, canEdit, updatePost, deletePost, nekos} = this.props;
-        if (!post || !showNeko) return null;
+        if (!post || !showNeko || currentUser.hidden_friends.includes(poster.id) && window.location.hash === "#/newsfeed") return null;
 
 
         return (
@@ -128,12 +142,20 @@ class PostIndexItem extends React.Component {
                                     ) : ("")
                                 }
                             </div>
-                            {
+                                
+                                {
                                 canEdit ? (
                                     <>
                                     <div ref={this.ellipseIcon} className="poster-actions trigger trigger-icon" onClick={this.unhideDropdown(this.ellipseDrop, this.ellipseIcon)}>
                                         <i className="fas fa-ellipsis-h trigger trigger-icon"></i>
                                         <ul ref={this.ellipseDrop} className="ellipse-dropdown triggered-content">
+                                            {
+                                                window.location.hash === "#/newsfeed" ? (
+                                                    <li onClick={this.hideUser(poster.id)}>
+                                                        Hide Neko
+                                                    </li>
+                                                ) : ("")
+                                            }
                                             <li onClick={this.showModal.bind(this)} className="modal-trigger">
                                                 Edit Post
                                             </li>
@@ -164,16 +186,35 @@ class PostIndexItem extends React.Component {
                                         </div>
                                     </div>
                                     </>
-                                ) : currentUser.id === showNeko.id ? (
+                                ) : ( 
+                                    
+                                currentUser.id === showNeko.id ? (
                                     <div ref={this.ellipseIcon} className="poster-actions trigger trigger-icon" onClick={this.unhideDropdown(this.ellipseDrop, this.ellipseIcon)}>
                                         <i className="fas fa-ellipsis-h trigger trigger-icon"></i>
                                         <ul ref={this.ellipseDrop} className="ellipse-dropdown triggered-content">
+                                            {
+                                                window.location.hash === "#/newsfeed" ? (
+                                                    <li onClick={this.hideUser(poster.id)}>
+                                                        Hide Neko
+                                                    </li>
+                                                ) : ("")
+                                            }
                                             <li onClick={this.deletePost}>
                                                 Delete Post
                                             </li>
                                         </ul>
                                     </div>
-                                ) :(<div></div>)
+                                ) : (  window.location.hash === "#/newsfeed" ? (
+                                    <div ref={this.ellipseIcon} className="poster-actions trigger trigger-icon" onClick={this.unhideDropdown(this.ellipseDrop, this.ellipseIcon)}>
+                                        <i className="fas fa-ellipsis-h trigger trigger-icon"></i>
+                                        <ul ref={this.ellipseDrop} className="ellipse-dropdown triggered-content">
+                                            <li onClick={this.hideUser(poster.id)}>
+                                                Hide Neko
+                                            </li>
+                                        </ul>
+                                    </div>
+                                ) : (<div></div>) ) )
+                                    
                             }
                         </div>
                         <div className = "post-item-timestamp">

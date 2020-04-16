@@ -2,7 +2,7 @@ import PostIndex from './post_index';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { requestPosts } from '../../actions/post_actions';
-import { requestNekos } from '../../actions/neko_actions';
+import { requestNekos, updateNeko } from '../../actions/neko_actions';
 import { createPost, updatePost, deletePost } from '../../actions/post_actions';
 
 
@@ -32,7 +32,8 @@ const mdp = dispatch => ({
     requestPosts: (nekoId) => dispatch(requestPosts(nekoId, "wall")),
     requestNekos: (nekoId) => dispatch(requestNekos(nekoId, "wall")),
     deletePost: (postId) => dispatch(deletePost(postId)),
-    updatePost: (post) => dispatch(updatePost(post))
+    updatePost: (post) => dispatch(updatePost(post)),
+    updateNeko: (neko) => dispatch(updateNeko(neko))
 });
 
 export default withRouter(connect(msp, mdp)(PostIndex));

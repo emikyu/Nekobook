@@ -48,7 +48,8 @@ class PostIndex extends React.Component {
                                         currentUser={this.props.currentUser} 
                                         canEdit={this.props.currentUser.id === posters[idx].id}
                                         updatePost={this.props.updatePost}
-                                        deletePost={this.props.deletePost}/>
+                                        deletePost={this.props.deletePost}
+                                        updateNeko={this.props.updateNeko}/>
                                 </li>
                             ))
                         }

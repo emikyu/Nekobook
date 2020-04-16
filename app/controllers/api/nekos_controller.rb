@@ -58,6 +58,7 @@ class Api::NekosController < ApplicationController
 
     def update
         @neko = Neko.find(params[:id])
+        # debugger
         if @neko.id == current_user.id && @neko.update!(neko_params)
             # debugger
             if params[:neko].has_key?(:location)
@@ -78,7 +79,8 @@ class Api::NekosController < ApplicationController
 
     private
     def neko_params
-        params.require(:neko).permit(:username, :email, :password, :fname, :lname, :birthday, :gender, :cover_photo, :profile_picture)
+        params.require(:neko).permit(:username, :email, :password, :fname, :lname, :birthday, 
+                                    :gender, :cover_photo, :profile_picture, hidden_friends: [])
     end
 end
 
