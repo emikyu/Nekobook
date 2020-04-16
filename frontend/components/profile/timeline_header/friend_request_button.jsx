@@ -30,10 +30,14 @@ class FriendRequestButton extends React.Component {
         let listTexts = [];
         let handleClicks = [];
         
-        // if on own profile - allow edit profile
+        // if on own profile - allow edit profile && unhide self
         if (showNekoId === currentUserId) {
             buttonText = (<><i className="fas fa-pen"></i> Edit Profile</>);
             buttonClick = () => this.props.history.push(`/nekos/${currentUserId}/about`);
+            if (isHidden) {
+                listTexts = ["Unhide"];
+                handleClicks = [() => toUnhide(currentUserId, hidden_friends)];
+            }
         } 
         // if already friends with shown user & hidden from newsfeed - allow unfriending and unhide
         else if (friendIds.includes(showNekoId) && isHidden) {
