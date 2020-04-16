@@ -9,7 +9,7 @@ const msp = (state, ownProps) => {
     const requesteeIds = state.entities.nekos[state.session.currentUserId].requestee_ids;
     const friendIds = state.entities.nekos[state.session.currentUserId].friend_ids;
 
-    let hidden_friends = state.entities.nekos[state.session.currentUserId].hidden_friends;
+    let hidden_friends = Array.from(state.entities.nekos[state.session.currentUserId].hidden_friends);
     let isHidden = false;
     if (hidden_friends.includes(showNekoId)) {
         isHidden = true;
