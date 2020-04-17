@@ -146,12 +146,12 @@ li.not-selected-section a:hover {
     min-height: 36px;
     font-size: 12px;
     text-align: center;
-    color: rgb(105, 105, 105);;
+    color: rgb(128, 100, 128);
     margin-right: 12px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 1px dashed #696969;
+    border: 1px dashed rgb(128, 100, 128);
 }
 
 .need-information {
@@ -159,7 +159,7 @@ li.not-selected-section a:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: rgb(105, 105, 105);;
+    color: rgb(128, 100, 128);
 }
 
 .about-overview-right {

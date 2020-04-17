@@ -1,7 +1,7 @@
 import React from 'react';
 import UserNavContainer from './user_nav_container';
 import { Link } from 'react-router-dom';
-import SearchBar from './search_bar';
+import SearchBarContainer from './search_bar_container';
 
 const Navbar = () => {
     return (
@@ -13,7 +13,7 @@ const Navbar = () => {
                         <input type="text" placeholder="Search"/>
                         <button className="button"><i className="fa fa-search search-bar" aria-hidden="true"></i></button>
                     </div> */}
-                    <SearchBar />
+                    <SearchBarContainer />
                 </div>
                 <div className="user-nav-container">
                     <UserNavContainer />

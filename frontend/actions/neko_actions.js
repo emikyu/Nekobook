@@ -5,6 +5,8 @@ import * as FriendshipAPIUtil from '../util/friendship_api_util';
 
 export const RECEIVE_USER = 'RECEIVE_USER';
 export const RECEIVE_USERS = 'RECEIVE_USERS';
+export const RECEIVE_NAMES = 'RECEIVE_NAMES';
+export const RECEIVE_SEARCH_RESULTS = 'RECEIVE_SEARCH_RESULTS';
 
 const receiveUser = (user) => ({
     type: RECEIVE_USER,
@@ -14,7 +16,22 @@ const receiveUser = (user) => ({
 const receiveUsers = (users) => ({
     type: RECEIVE_USERS,
     users
+});
+
+const receiveSearchResults = (searchResults) => ({
+    type: RECEIVE_SEARCH_RESULTS,
+    searchResults
+});
+
+const receiveNames = (names) => ({
+    type: RECEIVE_NAMES,
+    names
 })
+
+export const searchNekos = query => dispatch => (
+    NekoAPIUtil.searchNekos(query)
+        .then(searchResults => dispatch(receiveSearchResults(searchResults)))
+);
 
 export const requestNeko = nekoId => dispatch => (
     NekoAPIUtil.findNeko(nekoId)
@@ -28,6 +45,11 @@ export const requestNekos = (nekoId, indexType) => dispatch => (
     NekoAPIUtil.requestNekos(nekoId, indexType)
         .then(users => dispatch(receiveUsers(users)))
 );
+
+export const requestNekoNames = (nekoId) => dispatch => (
+    NekoAPIUtil.requestNekos(nekoId, "allnames")
+        .then(names => dispatch(receiveNames(names)))
+)
 
 
 export const updateNeko = neko => dispatch => (

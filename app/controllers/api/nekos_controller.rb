@@ -20,6 +20,14 @@ class Api::NekosController < ApplicationController
             else
                 render json: ["Neko with username #{params[:username]} does not exist!"], status: 404
             end
+        elsif params.has_key?(:query)
+            names = params[:query].split(" ")
+            if names.length == 1
+                @nekos = Neko.where("fname ILIKE ?", "#{names[0]}%").order(:fname, :lname)
+            else
+                @nekos = Neko.where("fname ILIKE ? AND lname ILIKE ?", "#{names[0]}%", "#{names[1]}%").order(:fname, :lname)
+            end
+            render :index
         elsif params.has_key?(:neko_id)
             @neko = Neko.find(params[:neko_id].to_i)
             if params[:index_type] == 'friends'
@@ -38,6 +46,10 @@ class Api::NekosController < ApplicationController
                 @nekos = @neko.friends
                 @fofs = @neko.friends_of_friends
                 render :index
+            elsif params[:index_type] == 'allnames'
+                # sorted array of unique full names
+                @names = Neko.pluck(:fname, :lname).map {|name| name.join(" ").downcase }.uniq.sort
+                render json: @names
             else
                 render json: ["Invalid index type!"], status: 404
             end

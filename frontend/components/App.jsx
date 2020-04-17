@@ -5,6 +5,7 @@ import Navbar from './navbar/navbar';
 import NewsfeedContainer from './newsfeed/newsfeed_container';
 // import Newsfeed from './newsfeed/newsfeed'
 import ProfileContainer from './profile/profile_container';
+import SearchResultContainer from './search_result/search_result_container';
 
 const App = () => (
     <div>
@@ -12,6 +13,7 @@ const App = () => (
         <ProtectedRoute path='/' component={Navbar} />
         <ProtectedRoute exact path='/newsfeed' component={NewsfeedContainer} />
         <ProtectedRoute path='/nekos/:nekoId' component={ProfileContainer} />
+        <ProtectedRoute path='/search' component={SearchResultContainer} />
     </div>
 );
 

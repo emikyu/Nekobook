@@ -5,6 +5,13 @@ export const findNeko = (nekoId) => (
     })
 );
 
+export const searchNekos = (query) => (
+    $.ajax({
+        method: 'get',
+        url: `/api/nekos?query=${query}`
+    })
+);
+
 export const updateNeko = (neko) => (
     $.ajax({
         method: 'patch',
