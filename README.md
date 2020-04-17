@@ -47,7 +47,7 @@ This fullstack project was built through utilizing the following technologies:
     * [Redux](https://en.wikipedia.org/wiki/Redux_(JavaScript_library))
     * [React](https://en.wikipedia.org/wiki/React_(web_framework))
 * [AWS S3](https://en.wikipedia.org/wiki/Amazon_S3)
-* [Heroku]
+* [Heroku](https://en.wikipedia.org/wiki/Heroku)
 
 ## Snippets
 
