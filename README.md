@@ -14,7 +14,7 @@ A web application that lets nekos connect with other nekos.
 
 - [Key Features](#features)
     - [Neko Profiles](#profiles)
-    - [Neko Friends] (#friending)
+    - [Neko Friends](#friending)
     - [Posts and Comments](#posting)
 - [Install](#install)
 - [Usage](#usage)
