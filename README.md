@@ -35,7 +35,7 @@ A web application that lets nekos connect with other nekos.
 ```
 ```
 
-## Snippets of Code
+## Snippets
 
 ```
 ```
