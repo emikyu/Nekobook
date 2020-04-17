@@ -18,7 +18,7 @@ export default ({neko}) => (
                 </div>
                 <div className="friend-count">
                     <Link to={`/nekos/${neko.id}/friends`}>
-                        {neko.friend_ids.length} {neko.friend_ids.length > 1 ? "friends" : "friend"}
+                        {neko.friend_ids.length} {neko.friend_ids.length === 1 ? "friend" : "friends"}
                     </Link>
                 </div>
             </div>

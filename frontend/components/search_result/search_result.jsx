@@ -81,14 +81,13 @@ class SearchResult extends React.Component {
                         </div>
                         <div className="search-result-body">
                             {
-                                searchResults.map(neko => <SearchResultItem key={neko.id} neko={neko} />)
+                                searchResults.length > 0 ? (
+                                    searchResults.map(neko => <SearchResultItem key={neko.id} neko={neko} />)
+                                ) : (
+                                    <div className="no-search-results">
+                                        {`Unfortunately, there are no neko names starting with '${query}' on Nekobook yet. :(`}
+                                    </div>)
                             }
-
-                            {/* <SearchResultItem neko={neko}/>
-                            <SearchResultItem neko={neko} />
-                            <SearchResultItem neko={neko} />
-                            <SearchResultItem neko={neko} />
-                            <SearchResultItem neko={neko} /> */}
                         </div>
                     </section>
                     <section className="newsfeed-side">

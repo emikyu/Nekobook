@@ -74,3 +74,14 @@ section.newsfeed-content.search-results {
 .search-result-item .friend-name-container {
     justify-content: flex-start;
 }
+
+.search-result-item .friend-button > .friend-request-button-container {
+    position: relative;
+    right: 0px;
+    top: -75px;
+}
+
+.no-search-results {
+    font-size: 14px;
+    padding-top: 12px;
+}

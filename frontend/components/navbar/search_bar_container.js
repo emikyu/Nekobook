@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import SearchBar from './search_bar';
 import { requestNekoNames } from '../../actions/neko_actions';
 import { withRouter } from 'react-router-dom';
+import queryString from 'query-string';
 
 const msp = (state, ownProps) => {
     let nekoNames = null;
@@ -11,7 +12,9 @@ const msp = (state, ownProps) => {
     return {
         nekoNames,
         currentUserId: state.session.currentUserId,
-        history: ownProps.history
+        history: ownProps.history,
+        path: ownProps.location.pathname,
+        query: queryString.parse(ownProps.location.search).name
     }
 };
 

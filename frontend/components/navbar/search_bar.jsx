@@ -27,6 +27,12 @@ class SearchBar extends React.Component {
         })
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.path !== prevProps.path && !this.props.query) {
+            this.setState({dropdown: false, inputVal: ""})
+        }
+    }
+
     updateInput(e) {
         const inputVal = e.currentTarget.value;
         this.setState({ inputVal });
@@ -43,8 +49,8 @@ class SearchBar extends React.Component {
             // this.setState({
             //     inputVal: ''
             // });
-            this.setState({dropdown: false, inputVal: this.state.inputVal.trim()});
             this.props.history.push(`/search?name=${this.state.inputVal.trim()}`);
+            this.setState({dropdown: false, inputVal: this.state.inputVal.trim()});
         }
     }
 
