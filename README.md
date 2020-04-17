@@ -15,7 +15,7 @@ A web application that lets nekos connect with other nekos.
 - [Key Features](#features)
     - [Neko Profiles](#profiles)
     - [Neko Friends](#friending)
-    - [Posts and Comments](#posting)
+    - [Neko Newsfeed](#newsfeed)
 - [Technologies Used](#technology)
 - [Code Snippets](#snippets)
 - [License](#license)
@@ -23,16 +23,31 @@ A web application that lets nekos connect with other nekos.
 
 ## Features
 
+The hallmark Nekobook features highlighted in this section are:
+1. Neko Profiles
+2. Neko Friends
+3. Neko Newsfeed
+
+The following additional functionalities have also been implemented: user authentication and error handling, creation/deletion/modification of posts and comments (backbone to profile timeline and newsfeed), and neko friend search.
+
 ### Profiles
 
 ### Friending
 
-### Posting
+### Newsfeed
 
 ## Technology
 
-```
-```
+This fullstack project was built through utilizing the following technologies:
+* [SQL](https://en.wikipedia.org/wiki/SQL)
+    * [PostgreSQL](https://en.wikipedia.org/wiki/PostgreSQL)
+* [Ruby](https://en.wikipedia.org/wiki/Ruby_(programming_language))
+    * [Rails](https://en.wikipedia.org/wiki/Ruby_on_Rails)
+* [Javascript](https://en.wikipedia.org/wiki/JavaScript)
+    * [Redux](https://en.wikipedia.org/wiki/Redux_(JavaScript_library))
+    * [React](https://en.wikipedia.org/wiki/React_(web_framework))
+* [AWS S3](https://en.wikipedia.org/wiki/Amazon_S3)
+* [Heroku]
 
 ## Snippets
 

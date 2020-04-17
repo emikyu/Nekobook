@@ -49,6 +49,7 @@ class CommentIndexItem extends React.Component {
             hours = hours - 12;
             amPM = "PM";
         }
+        if (hours === 12) amPM = "PM";
         if (hours === 0) hours = 12;
         if (hours < 10) hours = `0${hours}`;
 

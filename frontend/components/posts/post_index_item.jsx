@@ -61,7 +61,18 @@ class PostIndexItem extends React.Component {
             hours = hours - 12;
             amPM = "PM";
         }
-        if (hours === 0) hours = 12;
+        if (hours == 12) amPM = "PM";
+
+        // console.log(militaryTime);
+        // let amPM = "PM";
+        // if (hours > 12) {
+        //     hours = hours - 12;
+        // } else if (hours < 12) {
+        //     amPM = "AM"
+        // } else if (hours === 0) {
+        //     hours = 12;
+        //     amPM = "AM"
+        // }
         if (hours < 10) hours = `0${hours}`;
         
         const minutes = militaryTime[1];
