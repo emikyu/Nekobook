@@ -18,9 +18,8 @@ A web application that lets nekos connect with other nekos.
     - [Posts and Comments](#posting)
 - [Technologies Used](#technology)
 - [Code Snippets](#snippets)
-- [Maintainers](#maintainers)
-- [Contributing](#contributing)
 - [License](#license)
+- [Maintainers](#maintainers)
 
 ## Features
 
@@ -42,14 +41,9 @@ A web application that lets nekos connect with other nekos.
 
 ## Maintainers
 
-[@nekobook](https://github.com/nekobook)
+[@emikyu](https://github.com/emikyu)
 
-## Contributing
-
-
-
-Small note: If editing the README, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
 
 ## License
 
-n/a © 2020 Emily Wu
+© 2020 Emily Wu
