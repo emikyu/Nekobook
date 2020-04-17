@@ -16,8 +16,8 @@ A web application that lets nekos connect with other nekos.
     - [Neko Profiles](#profiles)
     - [Neko Friends](#friending)
     - [Posts and Comments](#posting)
-- [Install](#install)
-- [Usage](#usage)
+- [Technologies Used](#technology)
+- [Code Snippets](#snippets)
 - [Maintainers](#maintainers)
 - [Contributing](#contributing)
 - [License](#license)
@@ -30,12 +30,12 @@ A web application that lets nekos connect with other nekos.
 
 ### Posting
 
-## Install
+## Technology
 
 ```
 ```
 
-## Usage
+## Snippets of Code
 
 ```
 ```
