@@ -1,6 +1,6 @@
 # Nekobook
 
-[![banner](/anime_cats.jpg)](https://nekobook.herokuapp.com/)
+[![banner](read_me/anime_cats.jpg)](https://nekobook.herokuapp.com/)
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg)](https://github.com/RichardLitt/standard-readme)
 ![last-commit](https://img.shields.io/github/last-commit/emikyu/nekobook)
 ![commit-activity](https://img.shields.io/github/commit-activity/m/emikyu/nekobook)
@@ -12,14 +12,23 @@ A web application that lets nekos connect with other nekos.
 
 ## Table of Contents
 
-- [Background](#background)
+- [Key Features](#features)
+    - [Neko Profiles](#profiles)
+    - [Neko Friends] (#friending)
+    - [Posts and Comments](#posting)
 - [Install](#install)
 - [Usage](#usage)
 - [Maintainers](#maintainers)
 - [Contributing](#contributing)
 - [License](#license)
 
-## Background
+## Features
+
+### Profiles
+
+### Friending
+
+### Posting
 
 ## Install
 
