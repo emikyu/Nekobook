@@ -4,9 +4,6 @@ import configureStore from './store/store';
 
 import Root from './components/root';
 
-// testing below
-import { requestNekos } from './util/neko_api_util';
-// testing above
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;
@@ -65,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // testing below
     window.dispatch = store.dispatch;
     window.getState = store.getState;
-    window.requestNekos = requestNekos;
     // testing above
 
     const root = document.getElementById("root");

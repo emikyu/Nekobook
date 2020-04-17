@@ -14,7 +14,12 @@ h1, h2, p, strong, em, a {
 
 body {
   background: #fdf2fd;
+  /* background: white; */
 }
+
+/* body.on-splash-page {
+  background: white;
+} */
 
 button {
   font-family: inherit;

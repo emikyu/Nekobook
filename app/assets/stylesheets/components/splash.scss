@@ -1,3 +1,7 @@
+.splash-container {
+    background-color: white;
+}
+
 .splash-header {
     display: flex;
     min-width: 980px;
@@ -21,13 +25,18 @@
 .splash-body, .splash-footer {
     display: flex;
     box-sizing: border-box;
-    min-height: 621px;
     background-color: rgb(253, 242, 253);
     margin-bottom: 19px;
-
 }
+
+.splash-body {
+    min-height: 621px;
+}
+
 .splash-footer {
-    background-color: white;
+    background:white;
+    min-height: 300px;
+    margin-bottom: 0;
 }
 
 
