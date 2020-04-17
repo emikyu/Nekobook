@@ -29,8 +29,8 @@ class PostForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         // debugger
-        this.props.createPost(this.state);
-        this.props.requestNeko(this.props.showNeko.id);
+        this.props.createPost(this.state)
+            .then(() => this.props.requestNeko(this.props.showNeko.id));
         this.setState({
             wall_id: this.props.showNeko.id,
             author_id: this.props.currentUser.id,
