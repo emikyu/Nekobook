@@ -6,7 +6,7 @@ class Api::NekosController < ApplicationController
         @neko = Neko.new(neko_params)
         if @neko.save
             log_in!(@neko)
-            render :show
+            render :show_current
         else
             render json: @neko.errors.full_messages, status: 422
         end

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import SplashFooter from '../footer/splash_footer'
 
 const Splash = () => (
-    <div class="splash-container">
+    <div className="splash-container">
         <header className="splash-header">
             <div className="splash-header-content">
                 <div className="splash-logo">
