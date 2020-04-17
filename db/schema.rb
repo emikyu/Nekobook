@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_15_224944) do
+ActiveRecord::Schema.define(version: 2020_04_17_034708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 2020_04_15_224944) do
     t.string "username"
     t.string "lname", null: false
     t.integer "hidden_friends", default: [], array: true
+    t.string "bio"
     t.index ["email"], name: "index_nekos_on_email", unique: true
     t.index ["location_id"], name: "index_nekos_on_location_id"
     t.index ["session_token"], name: "index_nekos_on_session_token", unique: true

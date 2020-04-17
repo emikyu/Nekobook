@@ -8,11 +8,12 @@ import WallPostIndexContainer from '../../posts/wall_post_index_container';
 class TimelineContent extends React.Component {
 
     render() {
-        const { neko } = this.props;
+        const { neko, updateNeko, canEdit, requestNeko } = this.props;
+        // debugger
         return (
             <div className="timeline-content">
                 <div className="timeline-left">
-                    <TimelineIntro showNeko={neko} />
+                    <TimelineIntro showNeko={neko} updateNeko={updateNeko} canEdit={canEdit} requestNeko={requestNeko}/>
                     <TimelinePhotos showNeko={neko} />
                     <TimelineFriendsContainer />
                 </div>

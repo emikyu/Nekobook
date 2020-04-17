@@ -21,16 +21,21 @@
     width: 515px;
 }
 
-.timeline-left > div.timeline-friends-content {
-    padding: 0 5px 4px;
-    margin: 0;
+.timeline-left > div.timeline-friends-content,
+.timeline-left > div.timeline-photos-content,
+.timeline-left > div.timeline-intro-content {
+    margin: 0 0 10px 0;
+    padding: 0;
 }
+
+
 
 .timeline-friends-list {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
     margin: 0;
+    padding: 0 5px 4px;
 }
 
 .timeline-friends-list > li {
@@ -70,6 +75,7 @@
     padding: 12px 0;
     display: flex;
     justify-content: space-between;
+    color: #252525;
 }
 
 .timeline-header-icon {
@@ -84,6 +90,28 @@
     display: inline-block;
     margin-right: 8px;
 }
+
+.timeline-header-icon i.fa-image {
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+}
+
+.timeline-photos-header-left .timeline-header-icon {
+    background: rgb(160, 214, 78);
+    padding-top: 0.5px;
+}
+
+.timeline-intro-header-left .timeline-header-icon {
+    background: #b18bb1;
+    line-height: 24px;
+    font-size: 18px;
+    box-sizing: border-box;
+    padding-left: 0.5px;
+    padding-top: 0.5px;
+}
+
+
 
 .timeline-header-text {
     font-size: 16px;
@@ -103,4 +131,65 @@ span.dot {
 .timeline-header-subtext {
     color: gray;
     font-size: 14px;
+}
+
+.bio-body, .no-bio-body {
+    padding: 8px;
+    font-size: 12px;
+    color: #252525;
+    text-align: center;
+}
+
+.no-bio-body {
+    color: gray;
+}
+
+.bio-container {
+    text-align: center;
+}
+
+.bio-container > button {
+    background-color: rgb(250, 243, 250);
+    border-color: thistle;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    color: rgb(105, 105, 105);
+    transition: 0.3s ease all;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    width: 297px;
+}
+
+.bio-container > button:hover {
+    background-color: rgb(233, 227, 233);
+}
+
+.bio-container textarea {
+    padding: 8px 16px;
+    font-size: 12px;
+    width: 296px;
+    height: 76px;
+    resize: none;
+    box-sizing: border-box;
+    text-align: center;
+    border: 1px solid #faf3fa;
+}
+
+.bio-container textarea:focus {
+    outline: none;
+}
+
+.bio-form {
+    background: #faf3fa;
+    margin: 0 12px 10px 12px;
+    padding-bottom: 2px;
+    border-radius: 3px;
+}
+.bio-buttons {
+    text-align: right;
+}
+
+.bio-buttons button.cancelled {
+    margin-right: 4px;
 }

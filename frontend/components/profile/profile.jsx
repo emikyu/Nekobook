@@ -19,13 +19,13 @@ class Profile extends React.Component {
 
     render () {
         // debugger
-        if (!this.props.neko) return <></>;
+        if (!this.props.neko || this.props.canEdit === undefined) return <></>;
         return (
             <section className="profile">
                 <section className="profile-container">
                     <section className="profile-content">
                         <Route path={'/nekos/:nekoId'} render={() => <TimelineHeader neko={this.props.neko} updateNekoPhoto={this.props.updateNekoPhoto} canEdit={this.props.canEdit}/>}/>
-                        <Route exact path={'/nekos/:nekoId'} render={() => <TimelineContent neko={this.props.neko} />} />
+                        <Route exact path={'/nekos/:nekoId'} render={() => <TimelineContent neko={this.props.neko} updateNeko={this.props.updateNeko} canEdit={this.props.canEdit} requestNeko={this.props.requestNeko}/>}/>
                         <Route exact path={`/nekos/:nekoId/about`} component={ProfileAboutContainer} />
                         <Route exact path={`/nekos/:nekoId/friends`} component={ProfileFriendsContainer} />
                     </section>
