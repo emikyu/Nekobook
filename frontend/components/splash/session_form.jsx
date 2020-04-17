@@ -13,6 +13,7 @@ const _startState = {
     fname: "",
     lname: "",
     email: "",
+    reTypeEmail: "",
     password: "",
     birthday: `${todayDate.getFullYear()-25}-${todayDate.getMonth()+1}-${todayDate.getDate()}`,
     gender: ""
@@ -42,7 +43,7 @@ class LoginForm extends React.Component {
         e.preventDefault();
         if (this.props.formType === 'Sign Up') {
             if (this.validateSignupForm(e.currentTarget)){
-                console.log(this.state);
+                // console.log(this.state);
                 this.props.action(this.state);
             }
             else {
