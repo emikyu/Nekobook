@@ -31,7 +31,6 @@ class ProfileAboutLiving extends React.Component {
         }
     }
 
-    // IMPLEMENT FOR TMR: USE REACT REF TO HIDE/UNHIDE FORMS (SEE PHOTO UPLOAD EXAMPLE)
     render() {
         return (
             <section className="about-profile-section">

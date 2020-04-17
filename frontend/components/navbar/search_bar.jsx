@@ -15,7 +15,6 @@ class SearchBar extends React.Component {
 
         this.updateInput = this.updateInput.bind(this);
         this.handleKeyDown = this.handleKeyDown.bind(this);
-        // this.hideDropdown = this.hideDropdown.bind(this);
     }
 
     componentDidMount() {
@@ -46,9 +45,7 @@ class SearchBar extends React.Component {
     handleKeyDown(e) {
         if (this.state.inputVal.trim() && e.key === 'Enter') {
             e.preventDefault();
-            // this.setState({
-            //     inputVal: ''
-            // });
+
             this.props.history.push(`/search?name=${this.state.inputVal.trim()}`);
             this.setState({dropdown: false, inputVal: this.state.inputVal.trim()});
         }
@@ -63,10 +60,8 @@ class SearchBar extends React.Component {
 
         const foundNames = [];
         const that = this;
-        // const names = ["Abba", "Barney", "Barbara", "Jeff", "Jenny", "Sarah", "Sally", "Steve", "Xander"];
         const names = this.props.nekoNames;
         names.forEach((name) => {
-            // debugger
             if (name === this.state.inputVal.trim()) return;
             if (name.slice(0, that.state.inputVal.trim().length).toLowerCase() === that.state.inputVal.trim().toLowerCase()) foundNames.push(
                 <Link key={name} to={`/search?name=${name}`}>

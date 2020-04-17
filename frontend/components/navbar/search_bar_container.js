@@ -7,8 +7,7 @@ import queryString from 'query-string';
 const msp = (state, ownProps) => {
     let nekoNames = null;
     if (state.ui.allNames !== null) nekoNames = Array.from(state.ui.allNames);
-    // const showNekoId = window.location.hash.split("/")[2];
-    // const defaultVal = showNekoId && state.entities.nekos[showNekoId] ? `${state.entities.nekos[showNekoId].fname} ${state.entities.nekos[showNekoId].lname}` : "";
+
     return {
         nekoNames,
         currentUserId: state.session.currentUserId,

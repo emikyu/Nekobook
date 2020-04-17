@@ -9,10 +9,7 @@ const Navbar = () => {
             <nav className="nav-bar-content">
                 <div className="nav-logo">
                     <Link to='/newsfeed'><i className="fas fa-cat"></i></Link>
-                    {/* <div className="search-bar">
-                        <input type="text" placeholder="Search"/>
-                        <button className="button"><i className="fa fa-search search-bar" aria-hidden="true"></i></button>
-                    </div> */}
+
                     <SearchBarContainer />
                 </div>
                 <div className="user-nav-container">

@@ -4,8 +4,7 @@ import {withRouter} from 'react-router-dom';
 import { requestComments, createComment, deleteComment, updateComment } from '../../actions/comment_actions';
 
 const msp = (state, ownProps) => {
-    // const nekoId = ownProps.match.params.nekoId;
-    // const neko = state.entities.nekos[nekoId];
+
     const currentUser = state.entities.nekos[state.session.currentUserId];
     const postId = ownProps.postId;
     const post = state.entities.posts[postId];
@@ -15,11 +14,9 @@ const msp = (state, ownProps) => {
         return dateA < dateB ? -1 : 1;
     });
     const commenters = comments.some(comment => !comment) ? null : comments.map(comment => state.entities.nekos[comment.author_id]);
-    // const canComment = (currentUser.id === parseInt(nekoId)) || (currentUser.friend_ids.includes(parseInt(nekoId)));
 
 
     return {
-        // showNeko: neko,
         currentUser,
         postId,
         post,

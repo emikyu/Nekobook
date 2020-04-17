@@ -4,7 +4,6 @@ import WallCommentIndexContainer from '../comments/wall_comment_index_container'
 import NewsfeedCommentIndexContainer from '../comments/newsfeed_comment_index_container';
 
 
-// const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 class PostIndexItem extends React.Component {

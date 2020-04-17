@@ -5,7 +5,6 @@ class CommentForm extends React.Component {
     constructor(props) {
         super(props);
 
-        // debugger
         this.startState = {
             post_id: this.props.postId,
             author_id: this.props.currentUser.id,
@@ -17,12 +16,6 @@ class CommentForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    // componentDidUpdate(prevProps) {
-    //     if (this.props.showNeko.id !== prevProps.showNeko.id) {
-    //         // debugger
-    //         this.setState({ wall_id: this.props.showNeko.id });
-    //     }
-    // }
 
     handleSubmit(e) {
         if (e.key === 'Enter') {

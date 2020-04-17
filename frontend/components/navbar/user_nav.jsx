@@ -11,7 +11,6 @@ class UserNav extends React.Component {
     render() {
         const { currentUser, logout } = this.props;
         if (!currentUser.requester_ids) return null;
-        // if (!currentUser.requester_ids) return null;
 
         const friendRequests = React.createRef();
         const caratDrop = React.createRef();
@@ -20,33 +19,11 @@ class UserNav extends React.Component {
 
         const unhideDropdown = (ref, icon) => {
             return () => {
-                // console.log(ref.current.classList);
                 ref.current.classList.toggle("show-dropdown");
                 icon.current.classList.toggle("selected");
-                // console.log(ref.current.classList);
             };
         }
 
-        // window.onclick = (event) => {
-        //     if (!event.target.matches('.trigger')) {
-        //         // window.alert('hello!')
-        //         const dropdowns = document.getElementsByClassName("triggered-content");
-        //         for (let i = 0; i < dropdowns.length; i++) {
-        //             const openDropdown = dropdowns[i];
-        //             if (openDropdown.classList.contains('show-dropdown')) {
-        //                 openDropdown.classList.remove('show-dropdown');
-        //             }
-        //         }
-        //         const selected = document.getElementsByClassName("trigger-icon");
-        //         for (let i = 0; i < selected.length; i++) {
-        //             const icon = selected[i];
-        //             if (icon.classList.contains('selected')) {
-        //                 icon.classList.remove('selected');
-        //             }
-        //         }
-
-        //     }
-        // }
 
         return (
             <ul className="user-nav-list">

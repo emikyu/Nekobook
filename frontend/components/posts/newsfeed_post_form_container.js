@@ -5,13 +5,10 @@ import { createPost } from '../../actions/post_actions';
 import { requestNeko } from '../../actions/neko_actions';
 
 const msp = (state, ownProps) => {
-    // const nekoId = ownProps.match.params.nekoId;
-    // const neko = state.entities.nekos[nekoId];
+
     
     const currentUserId = state.session.currentUserId;
     const currentUser = state.entities.nekos[currentUserId];
-    // debugger
-    // const canPost = (currentUserId === parseInt(nekoId)) || (currentUser.friend_ids.includes(parseInt(nekoId)));
 
     return {
         canPost: true,

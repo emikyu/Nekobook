@@ -9,11 +9,7 @@ import { createPost, updatePost, deletePost } from '../../actions/post_actions';
 const msp = (state, ownProps) => {
     const nekoId = state.session.currentUserId;
     const neko = state.entities.nekos[nekoId];
-    // const wallPosts = neko.wall_post_ids.map(wallPostId => state.entities.posts[wallPostId]).sort((a, b) => {
-    //     const dateA = new Date(a.created_at);
-    //     const dateB = new Date(b.created_at);
-    //     return dateA > dateB ? -1 : 1;
-    // });
+
     const newsfeedPosts = Object.values(state.entities.posts).sort((a, b) => {
         const dateA = new Date(a.created_at);
         const dateB = new Date(b.created_at);

@@ -63,25 +63,7 @@ const Newsfeed = ({currentUser}) => {
                             </div>
                         </div>
                     </a>
-                    {/* <div className="newsfeed-nav-header">
-                        Explore
-                    </div>
-                    <div className="newsfeed-to-navlink newsfeed-to-newsfeed">
-                        <div className="newsfeed-nav-picture">
 
-                        </div>
-                        <div>
-                            Github
-                        </div>
-                    </div>
-                    <div className="newsfeed-to-navlink newsfeed-to-newsfeed">
-                        <div className="newsfeed-nav-picture">
-
-                        </div>
-                        <div>
-                            LinkedIn
-                        </div>
-                    </div>*/}
                 </section> 
                 <section className="newsfeed-content">
                     <NewsfeedPostFormContainer />

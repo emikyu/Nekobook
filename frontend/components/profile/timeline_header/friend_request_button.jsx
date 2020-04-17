@@ -11,13 +11,10 @@ class FriendRequestButton extends React.Component {
             this.props.requestNeko(this.props.showNekoId)
                 .then(() => this.props.requestNeko(this.props.currentUserId));
         }
-        // else if (this.props.isHidden !== prevProps.isHidden) {
-        //     this.props.requestNeko(this.props.currentUserId);
-        // }
+
     }
 
     render() {
-        // if (!requesterIds || !requesteeIds || !friendIds) return null;
         
         const { showNekoId, currentUserId, requesterIds, requesteeIds, friendIds, makeFriendRequest, removeFriendRequest, toFriend, toUnfriend, toUnhide, hidden_friends, isHidden} = this.props;
 

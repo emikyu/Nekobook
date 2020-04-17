@@ -13,24 +13,19 @@ const ProfileAboutItem = ({field, fieldVal, canEdit, showIcon, showReadOnlyInfo,
             !canEdit ? (
                 <li>
                     <div className="show-icon">
-                        {/* <i className="fas fa-home"></i>  */}
                         {showIcon}
                     </div>
                     <div className="has-information">
-                        {/* { this.props.location ? `Lives in ${this.props.location.name}` : "No current city to show" } */}
                         {showReadOnlyInfo}
                     </div>
                 </li>
                 ) : (
-                    // this.props.location ? (
                     field ? (
                         <li ref={this.toggleView}>
                             <div className="show-icon">
-                                {/* <i className="fas fa-home"></i> */}
                                 {showIcon}
                             </div>
                             <div className="has-information">
-                                {/* Lives in {this.props.location.name} */}
                                 {showEditableInfo}
                             </div>
                             <button onClick={() => { toggleForm.current.classList.add("show"); toggleView.current.classList.add("hide") }}>Show Form</button>
@@ -42,7 +37,6 @@ const ProfileAboutItem = ({field, fieldVal, canEdit, showIcon, showReadOnlyInfo,
                                 <i className="fas fa-plus"></i>
                             </div>
                             <div className="need-information">
-                                {/* Add your current city */}
                                 {needInfoText}
                             </div>
                             <button onClick={() => { toggleForm.current.classList.add("show"); toggleView.current.classList.add("hide") }}>Show Form</button>

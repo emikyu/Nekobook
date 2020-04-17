@@ -43,11 +43,6 @@ class PostForm extends React.Component {
         return e => this.setState({[field]: e.target.value});
     }
 
-    // handleSave() {
-    //     // e.preventDefault();
-    //     this.props.updatePost(this.state);
-    //     this.closeModal();
-    // }
 
     showModal() {
         this.modal.current.classList.add("show-modal");
@@ -95,27 +90,7 @@ class PostForm extends React.Component {
                 <div ref={this.modal} className="modal"></div>
             </div>
 
-            // <div ref={this.modal} className="modal modal-trigger">
-            //     <div className="modal-content modal-trigger">
-            //         <div className="edit-post-header">
-            //             <div>Create Post</div>
-            //             <div onClick={this.closeModal.bind(this)} className="close-button">&times;</div>
-            //         </div>
-            //         <div className="edit-post-input">
-            //             <div className="edit-post-profile-picture">
-            //                 <Link to={`/nekos/${currentUser.id}`}>
-            //                     {<img src={currentUser.profile_picture ? currentUser.profile_picture : window.nocatpicURL} alt={`${currentUser.fname} ${currentUser.lname}`} />}
-            //                 </Link>
-            //             </div>
-            //             <div>
-            //                 <textarea onChange={this.handleChange("body")} ref={this.editText} defaultValue={this.state.body} onFocus={e => e.target.value = this.state.body}></textarea>
-            //             </div>
-            //         </div>
-            //         <div className="edit-post-save">
-            //             <button className="edit-post-save" onClick={this.handleSave.bind(this)}>Post</button>
-            //         </div>
-            //     </div>
-            // </div>
+
         )
     }
 }

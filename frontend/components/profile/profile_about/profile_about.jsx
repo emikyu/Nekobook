@@ -13,8 +13,6 @@ class ProfileAbout extends React.Component {
         this.state = Object.assign({}, this.props.neko, {location: ""});
         if (this.props.location) this.state.location = this.props.location.name;
 
-        // this.handleSubmit = this.handleSubmit.bind(this);
-        // this.handleChange = this.handleChange.bind(this);
     }
 
     componentDidMount() {

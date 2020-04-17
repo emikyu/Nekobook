@@ -49,12 +49,6 @@ class FriendRequests extends React.Component {
                                         <button onClick={() => removeFriendRequest(requester.id, currentUser.id)} className="delete-button">Delete</button>
                                     </div>
 
-
-                                   {/* <div>
-                                       <Link to={`/nekos/${requester.id}`}>
-                                           {requester.fname} {requester.lname}
-                                        </Link>
-                                    </div> */}
                                </li> 
                             ))
                         }

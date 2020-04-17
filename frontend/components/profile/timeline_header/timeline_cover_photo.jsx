@@ -21,12 +21,10 @@ class TimelineCoverPhoto extends React.Component {
             this.props.updateNekoPhoto(this.props.neko.id, cpData);
         }
 
-        // this.props.updateNekoPhoto(this.props.neko.id, Object.assign(cpData, { fname: this.props.neko.fname }));
     }
 
     handleCPChange(e) {
-        // console.log(e.target.files);
-        // this.setState({ selectedCoverPhoto: e.target.files[0] });
+
         this.selectedCoverPhoto = e.target.files[0];
         this.handleCPSubmit();
     }
@@ -39,7 +37,6 @@ class TimelineCoverPhoto extends React.Component {
         const { neko } = this.props;
         return (
             <section className="timeline-photos-container">
-                {/* Hello from Timeline Cover Photo ^^ for {neko.fname} */}
                 <div className={`cover-image ${neko.cover_photo ? "has-cover-image" : "no-cover-image"} ${this.props.canEdit? "has-pointer" : "no-pointer"}`}>
                     {this.props.canEdit ? <i className="fas fa-camera"></i> : ""}
                     {

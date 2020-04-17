@@ -62,9 +62,9 @@ class TimelineIntro extends React.Component {
                 </div>
                 <div className="bio-container">
                     {
-                        this.props.showNeko.bio && !this.state.showForm ? (
+                        this.state.bio && !this.state.showForm ? (
                             <div className="bio-body">
-                                {this.props.showNeko.bio}
+                                {this.state.bio}
                             </div>
                         ) : (this.props.canEdit && !this.state.showForm ? (
                             <div className="no-bio-body">

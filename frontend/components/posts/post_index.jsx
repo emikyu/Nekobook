@@ -16,9 +16,7 @@ class PostIndex extends React.Component {
         if (this.props.nekoId !== prevProps.nekoId) {
             this.props.requestPosts(this.props.nekoId);
         }
-        // if (this.props.posts.length !== prevProps.posts.length) {
-        //     this.props.requestPosts(this.props.nekoId);
-        // }
+
         if (this.props.currentUser.hidden_friends.some(friend => !prevProps.currentUser.hidden_friends.includes(friend)) || 
             prevProps.currentUser.hidden_friends.some(friend => !this.props.currentUser.hidden_friends.includes(friend))) {
             this.props.requestNeko(this.props.currentUser.id);
@@ -44,7 +42,6 @@ class PostIndex extends React.Component {
                         {
                             posts.map((post, idx) => (
                                 <li key={post.id}>
-                                    {/* * <Link to={`/nekos/${posters[idx].id}`}>{posters[idx].fname}</Link>: "{post.body}" */}
                                     <PostIndexItem 
                                         post={post}
                                         poster={posters[idx]}
