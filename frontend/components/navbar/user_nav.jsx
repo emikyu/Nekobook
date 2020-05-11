@@ -58,14 +58,14 @@ class UserNav extends React.Component {
                                 <FriendRequestsContainer />
                             </div>
                         </li>
-                        <li><i className="fas fa-comment"></i></li>
-                        <li><i className="fas fa-bell"></i></li>
+                        {/* LINKS FOR FUTURE FEATURES <li><i className="fas fa-comment"></i></li>
+                        <li><i className="fas fa-bell"></i></li> */}
                     </ul>
                 </li>
                 <div className="nav-divider"></div>
                 <li className="admin">
                     <ul className="admin-list">
-                        <li><i className="fas fa-question-circle"></i></li>
+                        {/* LINK FOR FUTURE FEATURE <li><i className="fas fa-question-circle"></i></li> */}
                         <li onClick={unhideDropdown(caratDrop, caratIcon)} className="trigger carat-icon">
                             <i ref={caratIcon} className="fas fa-caret-down trigger trigger-icon"></i>
                             <div ref={caratDrop} className="carat-dropdown triggered-content">

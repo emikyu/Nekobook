@@ -80,9 +80,9 @@ class TimelineNavbar extends React.Component {
                                 <div className="tooltip-border"></div>
                             </li>
                         </NavLink>
-                        <li>Photos</li>
+                        {/* LINKS TO BE IMPLEMENTED IN FUTURE <li>Photos</li>
                         <li><i className="fas fa-lock"></i>Archive</li>
-                        <li>More<i className="fas fa-caret-down"></i></li>
+                        <li>More<i className="fas fa-caret-down"></i></li> */}
                     </ul>
                 </div>
             </section>
