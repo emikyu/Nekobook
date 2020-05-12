@@ -84,3 +84,7 @@ Users can see their and their friends' posts through the newsfeed feature, which
 ## License
 
 © 2020 Emily Wu
+
+## Design Documents
+
+[Design Documents](https://github.com/emikyu/Nekobook/wiki)
