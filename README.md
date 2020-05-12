@@ -18,8 +18,8 @@ A web application that lets nekos connect with other nekos.
     - [Neko Friends](#friending)
     - [Neko Newsfeed](#newsfeed)
 - [Code Snippets](#snippets)
-- [License](#license)
 - [Maintainers](#maintainers)
+- [License](#license)
 
 ## Technology
 
