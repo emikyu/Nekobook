@@ -24,13 +24,22 @@ A web application that lets nekos connect with other nekos.
 ## Features
 
 The hallmark Nekobook features highlighted in this section are:
-1. Neko Profiles
-2. Neko Friends
-3. Neko Newsfeed
+1. [Neko Profiles](#profiles)
+2. [Neko Friends](#friending)
+3. [Neko Newsfeed](#newsfeed)
 
 The following additional functionalities have also been implemented: user authentication and error handling, creation/deletion/modification of posts and comments (backbone to profile timeline and newsfeed), and neko friend search.
 
 ### Profiles
+Each registered user has their own profile page, on which they can do the following:
+- Update their profile picture and cover photo, and edit their 'Bio' and 'About' information
+![Demo animation for updating profile picture and cover photo & editing bio/about information](read_me/edit_profile.gif)
+
+- View their and other users' friends list on both the 'Timeline' and the 'Friends' pages of the respective user
+![Demo animation for viewing friends on 'Timeline' and 'Friends' pages](read_me/view_friends.gif)
+
+- Create/edit/delete their own posts/comments (either on their own wall or their friends' walls), or delete any posts/comments on their own wall
+
 
 ### Friending
 
@@ -39,15 +48,12 @@ The following additional functionalities have also been implemented: user authen
 ## Technology
 
 This fullstack project was built through utilizing the following technologies:
-* [SQL](https://en.wikipedia.org/wiki/SQL)
-    * [PostgreSQL](https://en.wikipedia.org/wiki/PostgreSQL)
-* [Ruby](https://en.wikipedia.org/wiki/Ruby_(programming_language))
-    * [Rails](https://en.wikipedia.org/wiki/Ruby_on_Rails)
-* [Javascript](https://en.wikipedia.org/wiki/JavaScript)
-    * [Redux](https://en.wikipedia.org/wiki/Redux_(JavaScript_library))
-    * [React](https://en.wikipedia.org/wiki/React_(web_framework))
-* [AWS S3](https://en.wikipedia.org/wiki/Amazon_S3)
-* [Heroku](https://en.wikipedia.org/wiki/Heroku)
+* [Ruby on Rails](https://api.rubyonrails.org/)
+* [Redux](https://redux.js.org/api/api-reference)
+* [React](https://reactjs.org/docs/getting-started.html)
+* [PostgreSQL](https://www.postgresql.org/)
+* [AWS S3](https://docs.aws.amazon.com/s3/index.html)
+* [Heroku](https://devcenter.heroku.com/categories/reference)
 
 ## Snippets
 
