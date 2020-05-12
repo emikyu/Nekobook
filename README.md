@@ -20,16 +20,11 @@ A web application that lets nekos connect with other nekos.
 - [Code Snippets](#snippets)
 - [Maintainers](#maintainers)
 - [License](#license)
+- [Design Documents](https://github.com/emikyu/Nekobook/wiki)
 
 ## Technology
 
-This fullstack project was built through utilizing the following technologies:
-* [Ruby on Rails](https://api.rubyonrails.org/)
-* [Redux](https://redux.js.org/api/api-reference)
-* [React](https://reactjs.org/docs/getting-started.html)
-* [PostgreSQL](https://www.postgresql.org/)
-* [AWS S3](https://docs.aws.amazon.com/s3/index.html)
-* [Heroku](https://devcenter.heroku.com/categories/reference)
+This fullstack project utilizes the following technologies: [Ruby on Rails](https://api.rubyonrails.org/), [Redux](https://redux.js.org/api/api-reference), [React](https://reactjs.org/docs/getting-started.html), [PostgreSQL](https://www.postgresql.org/), [AWS S3](https://docs.aws.amazon.com/s3/index.html), and [Heroku](https://devcenter.heroku.com/categories/reference)
 
 ## Features
 
