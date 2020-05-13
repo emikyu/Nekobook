@@ -73,7 +73,87 @@ Users can see their and their friends' posts through the newsfeed feature, which
 
 ## Snippets
 
+Although seemingly small in terms of pixel real estate taken, the friend requesting feature is prevalent throughout different places within the application (e.g., timeline nav, timeline 'Friends' page, and user search results page). Specifically, the friend request button enables users to manage their existing friendships, accept/decline incoming requests, and send/cancel outgoing requests. 
+
+Furthermore, the button and its hover dropdown changes its state depending on the relationship between the current user and the user being viewed: same user, already friends, pending outgoing request, pending incoming request, and no pending requests & not already friends. The following code helps to determine which button and dropdown items ultimately become rendered.
+
+
+```javascript
+let buttonText = (<><i className="fas fa-user-plus"></i> Add Friend</>);
+let buttonClick = () => makeFriendRequest(currentUserId, showNekoId);
+let listTexts = [];
+let handleClicks = [];
+
+// if on own profile - allow edit profile && unhide self
+if (showNekoId === currentUserId) {
+    buttonText = (<><i className="fas fa-pen"></i> Edit Profile</>);
+    buttonClick = () => this.props.history.push(`/nekos/${currentUserId}/about`);
+    if (isHidden) {
+        listTexts = ["Unhide"];
+        handleClicks = [() => toUnhide(currentUserId, hidden_friends)];
+    }
+} 
+// if already friends with shown user & hidden from newsfeed - allow unfriending and unhide
+else if (friendIds.includes(showNekoId) && isHidden) {
+    buttonText = (<><i className="fas fa-check"></i> Friends <i className="fas fa-caret-down"></i></>);
+    buttonClick = null;
+    listTexts = ["Unhide", "Unfriend"];
+    handleClicks = [() => toUnhide(currentUserId, hidden_friends), () => toUnfriend(currentUserId, showNekoId)];
+// if already friends with shown user - allow unfriending
+} else if (friendIds.includes(showNekoId)) {
+    buttonText = (<><i className="fas fa-check"></i> Friends <i className="fas fa-caret-down"></i></>);
+    buttonClick = null;
+    listTexts = ["Unfriend"];
+    handleClicks = [() => toUnfriend(currentUserId, showNekoId)];
+}
+// if have incoming friend request from user - either confirm (friend) or delete request (reject request)
+else if (requesterIds.includes(showNekoId)) {
+    buttonText = (<><i className="fas fa-user-plus"></i> Respond to Friend Request</>);
+    buttonClick = null;
+    listTexts = ["Confirm", "Delete Request"];
+    handleClicks = [() => toFriend(currentUserId, showNekoId),
+                    () => removeFriendRequest(showNekoId, currentUserId)];
+}
+// if have pending outgoing request to user - can cancel request
+else if (requesteeIds.includes(showNekoId)) {
+    buttonText = (<><i className="fas fa-user-plus"></i> Friend Request Sent</>);
+    buttonClick = null;
+    listTexts = ["Cancel Request"];
+    handleClicks = [() => removeFriendRequest(currentUserId, showNekoId)];
+        }
 ```
+
+The ```FriendRequestButton``` container is set up to provide the button component with the shown user's Id and the current user's Id, as well as enable fetching of the relevant users' information to identify their current relationship via the application state.
+
+Once ```buttonText``` (text displayed on button), ```buttonClick``` (click event handler for button itself, if applicable), ```listTexts``` (hover dropdown items), and ```handleClicks``` (click event handlers for dropdown items) are set, the following universal code is used to display the actual button.
+
+```javascript
+return (
+    <div className="friend-request-button-container">
+        <button onClick={buttonClick}>
+            {buttonText}
+        </button>
+        {listTexts.length > 0 ? (<>
+        <div className="tooltip"></div>
+        <div className="tooltip-border"></div>
+        <div className="invisible-border">
+            <div>
+            </div>
+            <div>
+                <ul>
+                    {
+                        listTexts.map((listText, idx) => (
+                            <li key={listText} onClick={handleClicks[idx]}>
+                                {listText}
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+        </div></>
+        ) : ("")}
+    </div>
+)
 ```
 
 ## Maintainers
