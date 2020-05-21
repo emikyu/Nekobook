@@ -14,7 +14,7 @@ class TimelineContent extends React.Component {
             <div className="timeline-content">
                 <div className="timeline-left">
                     <TimelineIntro showNeko={neko} updateNeko={updateNeko} canEdit={canEdit} requestNeko={requestNeko}/>
-                    <TimelinePhotos showNeko={neko} />
+                    {/* <TimelinePhotos showNeko={neko} /> */}
                     <TimelineFriendsContainer />
                 </div>
                 <div className="timeline-right">
