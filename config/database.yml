@@ -83,3 +83,4 @@ production:
   database: nekobook_production
   username: nekobook
   password: <%= ENV['NEKOBOOK_DATABASE_PASSWORD'] %>
+  url: <%= ENV['NEKOBOOK_DATABASE_URL'] %>
