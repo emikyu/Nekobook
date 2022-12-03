@@ -12,7 +12,28 @@
 
 ActiveRecord::Schema[7.0].define(version: 2022_12_02_210640) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "btree_gin"
+  enable_extension "btree_gist"
+  enable_extension "citext"
+  enable_extension "cube"
+  enable_extension "dblink"
+  enable_extension "dict_int"
+  enable_extension "dict_xsyn"
+  enable_extension "earthdistance"
+  enable_extension "fuzzystrmatch"
+  enable_extension "hstore"
+  enable_extension "intarray"
+  enable_extension "ltree"
+  enable_extension "pg_stat_statements"
+  enable_extension "pg_trgm"
+  enable_extension "pgcrypto"
+  enable_extension "pgrowlocks"
+  enable_extension "pgstattuple"
   enable_extension "plpgsql"
+  enable_extension "tablefunc"
+  enable_extension "unaccent"
+  enable_extension "uuid-ossp"
+  enable_extension "xml2"
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -82,6 +103,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_210640) do
   end
 
   create_table "nekos", force: :cascade do |t|
+    t.string "username"
     t.string "email", null: false
     t.string "password_digest", null: false
     t.string "session_token", null: false
@@ -91,13 +113,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_210640) do
     t.datetime "updated_at", precision: nil, null: false
     t.date "birthday", null: false
     t.string "gender", null: false
-    t.string "username"
     t.string "lname", null: false
     t.integer "hidden_friends", default: [], array: true
     t.string "bio"
     t.index ["email"], name: "index_nekos_on_email", unique: true
     t.index ["location_id"], name: "index_nekos_on_location_id"
     t.index ["session_token"], name: "index_nekos_on_session_token", unique: true
+    t.index ["username"], name: "index_nekos_on_username", unique: true
   end
 
   create_table "posts", force: :cascade do |t|
